@@ -1,0 +1,8 @@
+--- a/eval/eval.py
++++ b/eval/eval.py
+@@ -155,6 +155,7 @@
+               trust_remote_code=True, 
+             #   swap_space=60,
+               gpu_memory_utilization=args.gpu_memory_utilization,
++              seed=args.seed,
+               )

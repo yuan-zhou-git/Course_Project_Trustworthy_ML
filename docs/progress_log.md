@@ -1,0 +1,96 @@
+# Reasoning SFT project: decisions and progress log
+
+Deadline Tue 2026-10-20 23:59 ET. Full plan: `Reasoning_SFT_Execution_Plan.md`. Cluster scripts: `cluster/`.
+
+## Needs the user (do on the cluster login node, `ssh yuanzhou1@tinkercliffs1.arc.vt.edu`)
+
+1. Request access to the gated GPQA dataset at https://huggingface.co/datasets/Idavidrein/gpqa (click "agree"), then create a
+   Hugging Face token with **write** access at https://huggingface.co/settings/tokens and run:
+   ```bash
+   module load Miniconda3/25.11.1-1 && source activate /projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/envs/eval_env && huggingface-cli login
+   ```
+   (if the env does not exist yet, `pip install --user huggingface_hub` and `huggingface-cli login` works too). Token file lands in `~/.cache/huggingface/token`.
+2. Weights & Biases: create an API key at https://wandb.ai/authorize and run `wandb login` in the same env (`pip install --user wandb` if needed).
+   Training is already configured to log offline, so this is only needed to `wandb sync` later. Not blocking.
+3. Tell me the GitHub repo URL and the Hugging Face namespace (user or org) for the final pushes.
+
+## Decisions
+
+- 2026-10-15: Scope per audit: two runs only (random 15K vs advanced 15K), same hyperparameters, base + two evals. No difficulty scoring, clustering or LIMOPro in the first pass.
+- Advanced selection = math-only by `extra_info.category`, exact-dedup, complete and fits 16,384 tokens (full chat-template encoding), stratified by source x length band (<=4K, 4-8K, 8-16K), proportional quotas, seed 20261015. Frozen before any benchmark result is seen.
+- Two conda envs (`train_env` for LLaMA-Factory, `eval_env` for vLLM) because LLaMA-Factory pins transformers<=4.55.
+- Project files: `/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/` (new, separate from other lab work). Fast IO: `/scratch/yuanzhou1/reasoning_sft/`. Job names `rsft_*`; short QoS for priority.
+- Global batch fixed at 8 for any GPU count (train.slurm rewrites grad-accum = 8 / NGPU). Checkpoints per epoch, keep 3, staged to `models/` without optimizer shards.
+- Eval repairs: `pipefail` + exit-code check, immutable run dir with manifest, 8-responses-per-question check, generation-length summary, `seed` forwarded to vLLM (1-line patch to course `eval.py`).
+- W&B runs offline (`WANDB_MODE=offline`) until the user logs in.
+
+## Progress
+
+- 2026-10-15 02:20: Cluster access verified. Account `tml_2026` has A100/H200 short QoS (priority 1200, 1-day wall; 10 jobs/user on A100, 5 on H200). Folder structure created, both repos cloned (course repo commit 638989b, LLaMA-Factory 1fded91).
+- 02:35: All 112 A100 GPUs allocated; H200 nodes have 4 free GPUs but 0 free CPU cores. Slurm estimates H200 start Oct 17, A100 start unknown. Our two `rdrl_*` jobs free 2 A100s around 06:00.
+- 02:45: Submitted `rsft_bootstrap` twins (setup envs + data prep + base eval pilot on `amc`): job 7996830 (H200) and 7996844 (A100); whichever starts first cancels the other. Training pilot twins 7996845/7996846 (1 GPU, 40 steps, pilot400) chained behind them.
+- Local scripts: `cluster/slurm/{bootstrap,setup_env,prep_data,train,eval_run}.slurm`, `cluster/scripts/{prep_data,eval_summary}.py`, `cluster/yamls/{pilot,random15k,advanced15k}.yaml`.
+- 03:00: `prep_data.py` validated end to end on a synthetic pool (stratified quotas sum correctly, near-exhaustion redistribution works, pre-registered stop when eligible < N exits 3). Dataset schema confirmed from the HF viewer: `extra_info` = {`category`: math|code, `source`, `index`}; outputs start with `<think>`. LLaMA-Factory 0.9.6.dev0 accepts every yaml key used.
+- 03:05: Queued the full base-model evaluation (`rsft_eval_base`, all 8 benchmarks, 1 GPU) as A100/H200 twins behind the bootstrap, so it runs without waiting for me.
+
+- 05:40: Both RDRL jobs finished and other users took the freed A100s. Slurm start estimates: A100 bootstrap Oct 19 03:25, H200 bootstrap Oct 17 17:14. Tinkercliffs alone no longer fits the deadline; checking the Falcon cluster (L40S 48 GB / A30 24 GB, same `tml_2026` account) and the interactive QoS as escape routes.
+
+- 05:45: Falcon checked: same `/projects` path mounted, same modules, idle A30 node, L40S (48 GB) partition for training fallback. Submitted the bootstrap there; it failed in 5 s because Miniconda 25.x refuses the default anaconda.com channels without an interactive Terms-of-Service acceptance. Fix: `conda create -c conda-forge --override-channels` (no ToS involved). Resubmitting on both clusters; a `bootstrap.done` marker makes whichever copy runs second exit immediately.
+
+- 05:55: Second Falcon attempt failed: upstream LLaMA-Factory (main, Oct 2026) dropped `requirements.txt`. Decision: use the LLaMA-Factory copy bundled in the course repo (v0.9.4.dev0, the version the README commands target); `code/LLaMA-Factory` is now a symlink to it, upstream kept as `LLaMA-Factory-upstream`. Third attempt submitted.
+
+- 06:05: Third attempt failed at FlashAttention: LLaMA-Factory pulled torch 2.14.1 (built for CUDA 13.0); no prebuilt flash-attn wheel exists for it and compiling against the CUDA 12.6 module is refused. Decision: training env pins **torch 2.8.0+cu128** with the prebuilt **flash-attn 2.8.3** wheel and the **CUDA/12.8.0** module (all job scripts switched to 12.8). Eval env keeps whatever torch vLLM pins (no compile needed). Fourth attempt submitted.
+
+- 06:20: Training env verified (torch 2.8.0+cu128, flash-attn 2.8.3, DeepSpeed 0.16.8, LLaMA-Factory 0.9.4). Eval env failed its import check: my antlr4 pin (4.11.1, from the eval `requirements.txt` written for vLLM 0.6) cannot read latex2sympy2 1.9.1's grammar tables. Fix: antlr4 4.9.3 and sympy left at torch's version. Eval env has vLLM 0.31.0, torch 2.13.0+cu130, transformers 5.17.0. Fifth attempt submitted.
+
+## Results
+
+**Environment (Falcon job 645830, 06:10-06:19, both envs verified):** train_env = torch 2.8.0+cu128, flash-attn 2.8.3, DeepSpeed 0.16.8, LLaMA-Factory 0.9.4.dev0 (course copy), transformers 4.55. eval_env = vLLM 0.31.0, torch 2.13.0+cu130, transformers 5.17.0, antlr4 4.9.3, latex2sympy2 1.9.1. Model snapshot `aa8e7253`; pool file 2.46 GB.
+
+**Data prep (seed 20261015, cutoff 16,384 tokens, full chat-template encoding):**
+- Pool: 100,000 rows; 67,432 math / 32,568 code; sources OpenMathReasoning 54,213, OpenCodeReasoning 19,235, NuminaMath-CoT 13,219, others 13,333. 15,906 exact-duplicate prompts. 2.3% of rows exceed the cutoff.
+- Token length per full conversation: median 6,663, p75 10,841, p90 14,439, p99 17,518, max 31,776. Prompts are short (median 110).
+- random15k: 113.4M tokens per epoch (110.4M supervised); 556 rows truncated by the cutoff; 1 exact benchmark overlap (kept, disclosed).
+- advanced15k: filters removed not-math 32,568, duplicates 7,730, over-cutoff 2,292; 57,410 eligible; strata = {NuminaMath-CoT, OpenMathReasoning} x {<=4K, 4-8K, 8-16K}, quotas 1162/988/957 and 3091/4174/4628. 107.6M tokens per epoch (106.1M supervised), i.e. 5% less compute than random. 1 exact benchmark overlap (olympiadbench; kept, disclosed). 2,252 rows shared with random15k.
+- Planning consequence: average sample is ~7.5K tokens, not 5K; three epochs are ~340M tokens per arm. Budget decision waits for the training pilot.
+
+**Training pilot with Liger (job 645893, 4x L40S, 40 steps on pilot400 incl. the 200 longest samples):** no OOM, **12,700 tokens/s aggregate**, 3.87M tokens in 306 s, loss 1.00 -> 0.87, checkpoint + final export complete (weights, tokenizer, chat template). Each DeepSpeed checkpoint holds 35 GB of optimizer shards on scratch; the staged model is 6 GB. Projection: random arm 340M tokens -> ~7.5 h, advanced arm 323M -> ~7 h, plus saves. **Decision: keep the full 3-epoch recipe for both arms.**
+
+- 07:15: Submitted both arms on Falcon, 4x L40S each, 14 h limit: `rsft_train_random` 645899 (started on fal052), `rsft_train_adv` 645900 (pending resources). Tinkercliffs backup chain cancelled (no longer needed).
+- 07:20: Fine-tuned evaluations queued behind each training job (1x L40S each, 20 h limit, 3 benchmark groups per arm: {olympiadbench}, {math, aime, amc, cn_math_2024}, {minerva, kaoyan, gpqa}): random 645905-645907, advanced 645908-645910. Output dirs `eval_outputs/random15k_v1`, `eval_outputs/advanced15k_v1`.
+
+**Eval pilot, base model on AMC (1x A30, Falcon):** pass@8 0.650, pass@1 0.391 (Fall-2025 baseline listed 0.700 pass@8; 40 problems, so within noise). 320 generations in 656 s including ~3 min startup; mean 1,297 generated tokens, p95 1,584, 1.6% hit the length limit. The eval harness, grader, completeness check and summary all work end to end. Full 8-benchmark base eval started on Falcon (job 645832, 1x A30, est. ~5 h).
+
+- 06:30: Bootstrap COMPLETED on Falcon (job 645830). Tinkercliffs chain stays queued as backup; its bootstrap will exit immediately via the done marker.
+- 06:55: Training pilot on 4x L40S (job 645831): launcher correct (world size 4, grad-accum 2, 40 steps, 400 examples), label mask verified (prompt tokens -100, labels start at `<think>`), step 1 ran (loss 1.00, **8,130 tokens/s aggregate**), then **CUDA OOM** on a 16K-token sample: 35.8 GB in use + a 9.3 GB fp32 logits allocation on a 44 GB card. Decision: enable LLaMA-Factory's `enable_liger_kernel` (fused linear cross-entropy, logits never materialized) for all runs; `liger-kernel` installed on the fly by train.slurm. Throughput implication if it holds: ~340M tokens / 8.1K tok/s = ~12 h per arm for 3 epochs on 4 L40S.
+
+- 07:40: `scripts/aggregate_results.py` ready (per-benchmark pass@1/pass@8, 6-benchmark macro average, paired question-level bootstrap). Verified on partial results; two independent base-model AMC runs on the same GPU type reproduced identical scores (vLLM seed forwarding works). GPQA evaluates from the local `eval/data` copy, so the HF token is only needed for the course's access formality and for the Hub pushes.
+
+- 07:17: Both arms training in parallel on Falcon (random 645899 on fal052, advanced 645900 on fal047), ~10K tokens/s each early on; expected finish ~15:00-16:00, fine-tuned evals then start automatically. Base eval 3/8 benchmarks done.
+
+- 08:45: Base eval **hung after scoring Kaoyan** (pass@8 0.548 printed at 07:32; `python eval.py` and its vLLM engine stayed alive 80+ min). Likely a grader thread stuck in SymPy (the grader uses a ThreadPoolExecutor, which blocks interpreter exit). Fix in `eval_run.slurm`: each benchmark runs in its own process group with a **watchdog** that kills it 5 min after the scores are logged; `eval_summary.py` now recomputes pass@8/pass@1 from the per-sample correctness file (needed because eval.py prints no scores when it reuses a cached result). Hung job and the 6 queued fine-tuned evals (old wrapper) cancelled and resubmitted.
+
+- 09:40: Watchdog confirmed working (fired on Minerva, run continued).
+
+**Base model, all 8 benchmarks (pass@8 / pass@1; 1x A30, 8 samples, 32,768 max tokens):**
+
+| aime | amc | cn_math_2024 | gpqa | kaoyan | math | minerva | olympiadbench | macro-6 (pass@8) |
+|---|---|---|---|---|---|---|---|---|
+| 0.167 / 0.071 | 0.650 / 0.391 | 0.367 / 0.104 | 0.717 / 0.294 | 0.548 / 0.219 | 0.840 / 0.653 | 0.452 / 0.287 | 0.498 / 0.277 | **0.539** |
+
+Mean generated length 0.7K to 2.7K tokens; at most 5% of samples hit the length cap (AIME). Fall-2025 baseline for comparison: 0.446 over 7 benchmarks including AIME25. MATH-500 has 500 records (README's 499 is a line count); fixed the completeness table.
+
+- 10:45: User logged in to Hugging Face on the cluster as **`yuan-zhou-hf`** (fine-grained token). Both arms saved epoch-1 checkpoints (`checkpoint-1875`) and are in epoch 2; projected finish ~16:30. W&B login still pending (optional, offline logging in use).
+
+- 11:00: W&B login done (`yuan-zhou-vt`, team `yuan-zhou-vt-virginia-tech`). Both offline runs synced up to the current step into project **reasoning-sft** (runs `apnnom10` = random15k, `6cvbvv92` = advanced15k); the final re-sync happens after training ends.
+
+- 16:00: **Advanced arm training COMPLETED** (job 645900): 5,625 steps, 322.9M tokens seen, final train loss 0.530, 8 h 35 min on 4x L40S, export verified (weights + tokenizer + chat template, 3 epoch checkpoints kept without optimizer shards), W&B run fully synced. Its three eval jobs are now queued on L40S (pending GPUs). Random arm at epoch 2.9, ~20 min left.
+
+- 16:25: **Random arm training COMPLETED** (job 645899): 5,625 steps, 338.8M tokens seen, final train loss 0.581, 9 h 09 min on 4x L40S, export verified, W&B synced. Advanced arm: 322.9M tokens, loss 0.530 (lower loss is expected: math-only, no truncated samples; not a quality claim). Evals: advanced g1/g2 running, four jobs pending L40S GPUs.
+
+- 17:10: Both datasets pushed to the Hub as **private** repos: `yuan-zhou-hf/acereason-random15k` (362 MB json + manifest + pool stats + card) and `yuan-zhou-hf/acereason-advanced15k` (323 MB). Must be made public or shared with the instructor before submission. Team GitHub repo: https://github.com/yuan-zhou-git/Course_Project_Trustworthy_ML (private, same caveat); populating it with code, configs, logs and drafts.
+
+## Open risks
+
+- Queue saturation is the critical risk, not compute. If nothing starts by morning, consider the Falcon A30 cluster for the env build and data prep (not done without the user's OK since the instruction was Tinkercliffs).
+- Pilot results decide the training budget: if 3 epochs exceed ~20 h on the available GPUs, both arms get the same shorter budget, decided before any benchmark is seen.

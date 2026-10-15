@@ -1,0 +1,9 @@
+data	n_questions	resp_per_q	acc_pass8	pass1	mean_gen_tokens	p95_gen_tokens	frac_len_capped	elapsed_s	complete
+aime	30	8	0.1667	0.0708	2724	14085	0.050	763	True
+amc	40	8	0.6500	0.3906	1297	1584	0.016	555	True
+cn_math_2024	30	8	0.3667	0.1042	1851	1929	0.025	622	True
+gpqa	198	8	0.7172	0.2936	870	1412	0.004	986	True
+kaoyan	199	8	0.5477	0.2192	878	1410	0.001	20	True
+math	500	8	0.8400	0.6530	777	1245	0.005	1760	True
+minerva	272	8	0.4522	0.2872	734	1291	0.002	1275	True
+olympiadbench	675	8	0.4978	0.2767	1476	1872	0.018	6302	True

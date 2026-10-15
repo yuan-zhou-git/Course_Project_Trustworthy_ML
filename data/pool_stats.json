@@ -1,0 +1,59 @@
+{
+ "pool_sha256": "f064d1a5fb39b9f493f678d5d6350a9acbfb2a2fa85400d0947fe72578ff28d8",
+ "rows": 100000,
+ "top_keys": {
+  "instruction": 100000,
+  "input": 100000,
+  "output": 100000,
+  "system": 100000,
+  "extra_info": 100000
+ },
+ "extra_info_keys": {
+  "index": 100000,
+  "category": 100000,
+  "source": 100000
+ },
+ "category_counts": {
+  "code": 32568,
+  "math": 67432
+ },
+ "source_counts": {
+  "OpenCodeReasoning": 19235,
+  "OpenMathReasoning": 54213,
+  "NuminaMath-CoT": 13219,
+  "opc-sft-stage2": 8016,
+  "TACO": 1437,
+  "leetcode": 3101,
+  "MagicoderEvolInstruct": 688,
+  "apps": 91
+ },
+ "nonempty_input": 0,
+ "total_tokens_quantiles": {
+  "0.0": 191,
+  "0.1": 2205,
+  "0.25": 3746,
+  "0.5": 6663,
+  "0.75": 10841,
+  "0.9": 14439,
+  "0.95": 15877,
+  "0.99": 17518,
+  "1.0": 31776
+ },
+ "prompt_tokens_quantiles": {
+  "0.0": 34,
+  "0.1": 62,
+  "0.25": 80,
+  "0.5": 110,
+  "0.75": 204,
+  "0.9": 513,
+  "0.95": 661,
+  "0.99": 976,
+  "1.0": 13640
+ },
+ "rows_over_cutoff": 3452,
+ "duplicate_prompts": 15906,
+ "benchmark_overlap_rows": 6,
+ "random15k_total_tokens": 113425326,
+ "random15k_supervised_tokens": 110413572,
+ "random15k_rows_over_cutoff": 556
+}

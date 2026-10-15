@@ -1,0 +1,49 @@
+{
+ "method": "exact match of whitespace-normalized lowercased prompt text",
+ "pool_overlap_rows": [
+  {
+   "pos": 12565,
+   "benchmarks": [
+    "math"
+   ]
+  },
+  {
+   "pos": 17777,
+   "benchmarks": [
+    "olympiadbench"
+   ]
+  },
+  {
+   "pos": 33280,
+   "benchmarks": [
+    "math"
+   ]
+  },
+  {
+   "pos": 46002,
+   "benchmarks": [
+    "math"
+   ]
+  },
+  {
+   "pos": 66822,
+   "benchmarks": [
+    "amc"
+   ]
+  },
+  {
+   "pos": 76592,
+   "benchmarks": [
+    "olympiadbench"
+   ]
+  }
+ ],
+ "random15k_overlap_rows": [
+  {
+   "pos": 46002,
+   "benchmarks": [
+    "math"
+   ]
+  }
+ ]
+}

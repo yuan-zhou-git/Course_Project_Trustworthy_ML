@@ -1,0 +1,12 @@
+falcon_bootstrap=645830
+falcon_trainpilot=645893
+falcon_eval_base=645832
+falcon_train_random=645899
+falcon_train_adv=645900
+falcon_eval_random15k=645905 645906 645907
+falcon_eval_advanced15k=645908 645909 645910
+falcon_eval_base_v2=646490
+falcon_eval_random15k_v2=646491 646492 646493
+falcon_eval_advanced15k_v2=646494 646495 646496
+falcon_eval_random15k_v3=646668 646669 646670
+falcon_eval_advanced15k_v3=646671 646672 646673

@@ -1,0 +1,10 @@
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+current stop list: None
+Random seed set as 0
+current eval model: Qwen/Qwen2.5-3B-Instruct
+use n = 8, generation epoch is: 1
+Completely same name file(/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/eval_outputs/base_v1/Qwen/Qwen2.5-3B-Instruct/kaoyan/test_qwen-instruct_t0.6_k8_s0_e199.jsonl) exist, skip generation, save file and check correct
+eval.py exit=0 elapsed=20s
