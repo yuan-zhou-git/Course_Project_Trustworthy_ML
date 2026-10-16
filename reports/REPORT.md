@@ -16,12 +16,12 @@ official protocol (8 samples, temperature 0.6, top-p 0.95, 32,768 max tokens).
 | SFT, random 15K | 0.549 | 0.246 |
 | SFT, selected 15K | **0.566** | 0.244 |
 
-Paired question-level bootstrap (B = 2000), macro pass@8: selected minus random **+0.017** [-0.022, +0.057]; selected minus base
-+0.027 [-0.019, +0.072]; random minus base +0.010 [-0.042, +0.062]. In words: the selected set improved this controlled run on the
-leaderboard metric, with the largest and statistically clear gains on Kaoyan and MATH-500, but the macro difference between the
-two data-selection arms is within question-sampling noise, and both SFT models lose pass@1 on Minerva and GPQA because many of
-their answers run into the 32K token cap. With one training run per arm we claim "improved in this controlled run", not
-"reliably superior".
+Paired question-level bootstrap (B = 2000), macro pass@8: selected minus random **+0.016** [-0.024, +0.056]; selected minus base
++0.027 [-0.020, +0.071]; random minus base +0.011 [-0.042, +0.062]. In words: the selected set had the higher observed pass@8 in
+this controlled run, with the largest and statistically clear gains over the base model on Kaoyan and MATH-500; the difference
+between the two data-selection arms is concentrated in AMC (five questions) and is within question-sampling noise. Both SFT
+models lose pass@1 on Minerva and GPQA, coinciding with 15 to 27% of their samples hitting the 32K token cap. With one training
+run per arm we claim "higher observed pass@8 in this run", not "reliably superior".
 
 ## 2. Setup
 
@@ -49,7 +49,7 @@ and are truncated (their final answer is lost in training).
 
 ### 3.2 Selected 15K
 Motivation: the benchmarks are all math and science, so code traces (33% of the pool) are off-target; AceReason contains many
-repeated prompts (15,906 exact duplicates); and 2.3% of rows do not fit the cutoff. Filters, in order:
+repeated prompts (15,906 exact duplicates); and 3.5% of pool rows (3,452) do not fit the cutoff. Filters, in order:
 
 1. `extra_info.category == "math"` (removes 32,568)
 2. exact-duplicate prompts removed, first occurrence kept (removes 7,730)
@@ -94,7 +94,7 @@ Repairs around the harness (protocol unchanged): strict failure handling, immuta
 | kaoyan* | 199 | 0.548 / 0.219 | 0.653 / 0.292 | 0.688 / 0.290 |
 | amc* | 40 | 0.650 / 0.391 | 0.575 / 0.344 | 0.700 / 0.350 |
 | minerva* | 272 | 0.452 / 0.287 | 0.471 / 0.255 | 0.463 / 0.243 |
-| olympiadbench* | 675 | 0.498 / 0.277 | 0.521 / 0.274 | 0.521 / 0.288 |
+| olympiadbench* | 675 | 0.498 / 0.277 | 0.526 / 0.278 | 0.520 / 0.288 |
 | gpqa* | 198 | 0.717 / 0.294 | 0.737 / 0.230 | 0.722 / 0.224 |
 | **macro (6 starred)** | | **0.539 / 0.262** | **0.549 / 0.246** | **0.566 / 0.244** |
 
@@ -107,19 +107,24 @@ Repairs around the harness (protocol unchanged): strict failure handling, immuta
 | base -> random | aime | +0.167 | [+0.033, +0.333] | +0.000 | [-0.050, +0.046] |
 | base -> random | minerva | +0.018 | [-0.026, +0.062] | -0.033 | [-0.058, -0.008] |
 | base -> random | gpqa | +0.020 | [-0.056, +0.096] | -0.064 | [-0.102, -0.026] |
-| base -> random | **macro** | **+0.010** | [-0.042, +0.062] | **-0.016** | [-0.037, +0.003] |
+| base -> random | olympiadbench | +0.028 | [-0.006, +0.061] | +0.001 | [-0.015, +0.018] |
+| base -> random | **macro** | **+0.011** | [-0.042, +0.062] | **-0.016** | [-0.036, +0.004] |
 | base -> selected | kaoyan | +0.141 | [+0.075, +0.201] | +0.071 | [+0.035, +0.109] |
 | base -> selected | math | +0.046 | [+0.018, +0.074] | -0.001 | [-0.022, +0.020] |
 | base -> selected | minerva | +0.011 | [-0.033, +0.059] | -0.045 | [-0.071, -0.017] |
 | base -> selected | gpqa | +0.005 | [-0.071, +0.076] | -0.069 | [-0.104, -0.033] |
-| base -> selected | **macro** | **+0.027** | [-0.019, +0.072] | **-0.018** | [-0.037, +0.002] |
+| base -> selected | olympiadbench | +0.022 | [-0.009, +0.055] | +0.011 | [-0.006, +0.028] |
+| base -> selected | **macro** | **+0.027** | [-0.020, +0.071] | **-0.018** | [-0.037, +0.002] |
 | random -> selected | amc | +0.125 | [+0.000, +0.250] | +0.006 | [-0.031, +0.047] |
 | random -> selected | kaoyan | +0.035 | [-0.015, +0.090] | -0.002 | [-0.030, +0.026] |
-| random -> selected | olympiadbench | +0.000 | [-0.030, +0.030] | +0.014 | [+0.001, +0.027] |
+| random -> selected | olympiadbench | -0.006 | [-0.034, +0.022] | +0.010 | [-0.002, +0.022] |
 | random -> selected | aime | -0.067 | [-0.233, +0.100] | +0.017 | [-0.017, +0.054] |
-| random -> selected | **macro** | **+0.017** | [-0.022, +0.057] | **-0.001** | [-0.013, +0.011] |
+| random -> selected | **macro** | **+0.016** | [-0.024, +0.056] | **-0.002** | [-0.014, +0.010] |
 
-Full table for all 8 benchmarks and both metrics: `reports/results.md` (`results.json` holds the numbers).
+Full table for all 8 benchmarks and both metrics: `reports/results.md` (`results.json` holds the numbers;
+`per_question_correctness.json` holds the 8 correctness flags per question so the bootstrap can be recomputed). OlympiadBench
+was evaluated in index shards; each question is taken from the narrowest shard covering it (rule and file list at the end of
+`results.md`), and every record's question text was verified against the benchmark file at its index.
 
 ### 5.3 Generation length and cost
 
@@ -129,18 +134,34 @@ Full table for all 8 benchmarks and both metrics: `reports/results.md` (`results
 | random 15K | 7.8K (math) to 21.1K (aime); olympiadbench 14.5K | 8.7% (math, kaoyan) to 36% (aime); olympiadbench 22% | ~50 |
 | selected 15K | 7.6K (math) to 21.4K (aime); olympiadbench 13.9K | 7.7% (kaoyan) to 37% (aime); olympiadbench 21% | ~49 |
 
+### 5.4 What the capped samples look like (`reports/stopping_failures.md`)
+
+| run | capped samples (all 8 benchmarks) | of those: still inside `<think>` | repetitive tail | per-sample accuracy, uncapped vs capped |
+|---|---:|---:|---:|---|
+| base | 155 / 15,552 (1.0%) | 100% | 20-86% | e.g. MATH 0.657 vs 0.000 |
+| random 15K | 2,643 / 15,552 (17.0%) | 86-100% | 11-31% | MATH 0.707 vs 0.023; Minerva 0.296 vs 0.016; GPQA 0.312 vs 0.000 |
+| selected 15K | 2,509 / 15,552 (16.1%) | 91-100% | 15-38% | MATH 0.709 vs 0.027; Minerva 0.288 vs 0.006; GPQA 0.291 vs 0.005 |
+
+Most capped fine-tuned samples are unfinished reasoning (the `</think>` tag is never reached), not degenerate loops; a minority
+(11 to 38%) end in a repeating tail. On the samples that do finish, both fine-tuned models match or beat the base model's
+per-sample accuracy on every benchmark where pass@1 fell, so the pass@1 losses are a stopping problem rather than a reasoning one.
+Whether a larger generation budget would convert those samples into correct answers was not tested.
+
 ## 6. Analysis
 
 - **What SFT changed.** Both fine-tuned models write DeepSeek-R1-style `<think>` traces that are 10 to 20 times longer than
-  the base model's answers. pass@8 rises on 6 of 8 benchmarks for the selected model (all but the two 30-question Chinese/AIME
-  sets, which are inside their confidence intervals), with clear gains on Kaoyan (+0.14) and MATH-500 (+0.05). pass@1 falls on
-  Minerva and GPQA for both SFT models; these are exactly the benchmarks where 15 to 27% of samples hit the 32K cap and are graded
-  wrong for lack of a final `\boxed{}` answer. A longer generation budget or a length-controlled decoding would likely recover
-  most of that loss, but the course protocol fixes 32,768 tokens, so we report it as is.
-- **Selected vs random.** The selected set wins the leaderboard metric by +0.017 macro pass@8 (CI includes 0), with AMC
-  (+0.125, CI edge at 0) and Kaoyan (+0.035) as the main contributors and no benchmark where it is clearly worse on pass@8.
-  On pass@1 the two are indistinguishable (-0.001). The selected set also used 5% fewer training tokens. Because the recipe
-  combines three filters and stratification, this run cannot attribute the gain to any single filter.
+  the base model's answers. pass@8 rises on 7 of 8 benchmarks for the selected model (all but the 30-question CN_MATH set, whose
+  interval spans zero), with clear gains on Kaoyan (+0.14) and MATH-500 (+0.05). pass@1 falls on Minerva and GPQA for both SFT
+  models; these are exactly the benchmarks where 15 to 27% of samples hit the 32K cap, and a capped sample without a final
+  `\boxed{}` is graded wrong by construction. Whether a longer generation budget would recover that loss is untested here (the
+  course protocol fixes 32,768 tokens); `reports/stopping_failures.md` classifies the capped samples (still in the thinking phase,
+  repetitive loop, or missing conclusion).
+- **Selected vs random.** The selected set wins the leaderboard metric by +0.016 macro pass@8, but the advantage is narrow in
+  origin: five additional AMC questions (+0.125 on a 40-question set) contribute about +0.021 to the macro average on their own,
+  while the other five included benchmarks net about -0.004 (Kaoyan +0.035, CN_MATH -0.033, Minerva -0.007, OlympiadBench -0.006,
+  GPQA -0.015). The interval [-0.024, +0.056] leaves superiority unresolved. On pass@1 the two are indistinguishable (-0.002).
+  The selected set used 5% fewer training tokens. Because the recipe combines three filters and stratification, this run cannot
+  attribute the difference to any single filter.
 - **Against the Fall-2025 leaderboard.** That table averages 7 benchmarks including AIME25, which we do not have, so numbers
   are not directly comparable; our base reproduces the listed baseline row within benchmark noise (e.g. MATH 0.840 exactly),
   and the fine-tuned models' per-benchmark pass@8 values sit in the range of last year's top entries on Kaoyan and MATH.

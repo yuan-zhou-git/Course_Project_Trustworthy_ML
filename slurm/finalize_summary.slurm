@@ -33,5 +33,8 @@ for R in $RUNS; do
   done
   echo "== $R summary.tsv"; cat $OUT/summary.tsv 2>/dev/null || echo "(no rows yet)"
 done
-python $P/code/scripts/aggregate_results.py --root $P/eval_outputs --runs base=base_v1 random=random15k_v1 advanced=advanced15k_v1 --out $P/reports --B 2000 | tail -60
+python $P/code/scripts/aggregate_results.py --root $P/eval_outputs --runs base=base_v1 random=random15k_v1 advanced=advanced15k_v1 \
+  --out $P/reports --B 2000 --eval-data $P/code/Project-Reasoning-SFT-LLM/eval/data | tail -60
+echo "=== stopping-failure inspection"
+python $P/code/scripts/inspect_caps.py --root $P/eval_outputs --runs base=base_v1 random=random15k_v1 advanced=advanced15k_v1 --out $P/reports
 echo "=== FINALIZE DONE $(date)"

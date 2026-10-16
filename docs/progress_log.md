@@ -2,7 +2,9 @@
 
 Deadline Tue 2026-10-20 23:59 ET. Full plan: `Reasoning_SFT_Execution_Plan.md`. Cluster scripts: `cluster/`.
 
-## Needs the user (do on the cluster login node, `ssh yuanzhou1@tinkercliffs1.arc.vt.edu`)
+## Status 2026-10-16 19:30: experiments complete; follow-up audit fixes applied and pushed (license, shard rule + identity checks, per-question correctness export, stopping-failure analysis, report corrections, Falcon reproduction docs). Remaining: push the two models to the Hub (needs your go-ahead; model cards now carry the Qwen Research License), make the two Hub datasets public, optional follow-ups (epoch-1/2 checkpoint screening; extra AMC seed), final read-through, Canvas submission by Mon Oct 20 23:59 ET.
+
+## Needs the user (done: HF login, W&B login, GitHub repo)
 
 1. Request access to the gated GPQA dataset at https://huggingface.co/datasets/Idavidrein/gpqa (click "agree"), then create a
    Hugging Face token with **write** access at https://huggingface.co/settings/tokens and run:
@@ -129,6 +131,10 @@ Mean generated length 0.7K to 2.7K tokens; at most 5% of samples hit the length 
 | selected15k | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .521/.288 | .722/.224 | **.566** | .244 |
 
 Paired bootstrap (B=2000), macro pass@8: selected − random +0.017 [−0.022, +0.057]; selected − base +0.027 [−0.019, +0.072]; random − base +0.010 [−0.042, +0.062]. Macro pass@1: both SFT models ≈ −0.017 vs base (CI touching 0), selected − random −0.001. Significant per-benchmark gains: Kaoyan (+0.14 p@8 selected, +0.11 random), MATH (+0.045 both); significant pass@1 losses on Minerva and GPQA for both SFT models, driven by answers hitting the 32K cap (15-27% of samples vs <1% for base). Selected beats random on AMC (+0.125, CI edge at 0) and OlympiadBench pass@1 (+0.014 [+0.001, +0.027]).
+
+- 08:00 (Oct 16): Follow-up audit received. Actions: model card license corrected to the **Qwen Research License** (upstream LICENSE copied into each model repo); aggregator now uses an explicit score-independent shard rule (narrowest shard per question index), verifies question identities against the benchmark files, lists the files used, and exports `per_question_correctness.json`; new `inspect_caps.py` classifies capped samples (thinking never closed / repetitive / no boxed answer); README documents the real Falcon commands; report corrections (7/8 benchmarks up, 3.5% of pool over cutoff, "longer budget would recover" demoted to untested, AMC-concentration of the selected advantage stated). Results being regenerated (finalize job 654189).
+
+- 19:05 (Oct 16): Results regenerated (finalize 654189) with the explicit shard rule; all 24 (run, benchmark) identity checks pass. Changes vs the first aggregate: OlympiadBench random 0.526/0.278 (was 0.521/0.274), selected 0.520/0.288 (was 0.521/0.288); macro pass@8 base 0.539, random 0.549, selected 0.566; selected − random +0.016 [−0.024, +0.056]. **Stopping-failure inspection:** of the capped fine-tuned samples, 86-100% were still inside `<think>` (never reached the answer phase) and only 11-38% show a repetitive tail, so the cap mostly truncates genuinely unfinished reasoning rather than loops; on uncapped samples the SFT models' per-sample accuracy equals or exceeds the base model's (e.g. Minerva 0.296/0.288 vs 0.288; MATH 0.71 vs 0.66), so the pass@1 losses are entirely cap-driven. `reports/stopping_failures.md`.
 
 ## Open risks
 

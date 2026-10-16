@@ -1,0 +1,155 @@
+random15k_v1 aime: row present
+random15k_v1 amc: row present
+random15k_v1 cn_math_2024: row present
+random15k_v1 gpqa: row present
+random15k_v1 kaoyan: row present
+random15k_v1 math: row present
+random15k_v1 minerva: row present
+random15k_v1 olympiadbench@s0-e169: row present
+random15k_v1 olympiadbench@s0-e85: row present
+random15k_v1 olympiadbench@s169-e254: row present
+random15k_v1 olympiadbench@s169-e338: row present
+random15k_v1 olympiadbench@s254-e338: row present
+random15k_v1 olympiadbench@s338-e423: row present
+random15k_v1 olympiadbench@s423-e507: row present
+random15k_v1 olympiadbench@s507-e591: row present
+random15k_v1 olympiadbench@s591-e675: row present
+== random15k_v1 summary.tsv
+data	n_questions	resp_per_q	acc_pass8	pass1	mean_gen_tokens	p95_gen_tokens	frac_len_capped	elapsed_s	complete
+kaoyan	199	8	0.6533	0.2921	11018	32630	0.087	-1	True
+minerva	272	8	0.4706	0.2546	10573	32655	0.148	17961	True
+gpqa	198	8	0.7374	0.2298	14507	32609	0.265	19606	True
+math	500	8	0.8840	0.6470	7816	32657	0.087	22825	True
+aime	30	8	0.3333	0.0708	21148	32680	0.358	4621	True
+amc	40	8	0.5750	0.3438	14621	32689	0.222	3921	True
+olympiadbench@s169-e254	85	8	0.6000	0.3324	11225	32658	0.168	8183	True
+cn_math_2024	30	8	0.3333	0.0792	17756	32648	0.200	3361	True
+olympiadbench@s0-e85	85	8	0.3412	0.1029	18428	32658	0.249	13943	True
+olympiadbench@s254-e338	84	8	0.5714	0.2991	13107	32683	0.205	9702	True
+olympiadbench@s591-e675	84	8	0.6429	0.4077	12479	32697	0.177	9023	True
+olympiadbench@s169-e338	169	8	0.6036	0.3143	11568	32670	0.163	12304	True
+olympiadbench@s338-e423	85	8	0.4588	0.2324	14890	32703	0.243	11504	True
+olympiadbench@s423-e507	84	8	0.6310	0.3170	15052	32694	0.247	11563	True
+olympiadbench@s507-e591	84	8	0.5357	0.3006	16597	32694	0.280	12953	True
+olympiadbench@s0-e169	169	8	0.3432	0.1546	15956	32660	0.237	18211	True
+advanced15k_v1 aime: row present
+advanced15k_v1 amc: row present
+advanced15k_v1 cn_math_2024: row present
+advanced15k_v1 gpqa: row present
+advanced15k_v1 kaoyan: row present
+advanced15k_v1 math: row present
+advanced15k_v1 minerva: row present
+advanced15k_v1 olympiadbench@s0-e85: row present
+advanced15k_v1 olympiadbench@s169-e254: row present
+advanced15k_v1 olympiadbench@s169-e338: row present
+advanced15k_v1 olympiadbench@s254-e338: row present
+advanced15k_v1 olympiadbench@s338-e423: row present
+advanced15k_v1 olympiadbench@s423-e507: row present
+advanced15k_v1 olympiadbench@s507-e591: row present
+advanced15k_v1 olympiadbench@s591-e675: row present
+advanced15k_v1 olympiadbench@s85-e169: row present
+== advanced15k_v1 summary.tsv
+data	n_questions	resp_per_q	acc_pass8	pass1	mean_gen_tokens	p95_gen_tokens	frac_len_capped	elapsed_s	complete
+math	500	8	0.8860	0.6518	7578	32653	0.084	21727	True
+kaoyan	199	8	0.6884	0.2902	10705	32621	0.077	11558	True
+aime	30	8	0.2667	0.0875	21381	32679	0.367	4661	True
+minerva	272	8	0.4632	0.2426	10919	32668	0.162	18961	True
+amc	40	8	0.7000	0.3500	13471	32702	0.184	3381	True
+gpqa	198	8	0.7222	0.2241	13957	32592	0.234	18225	True
+cn_math_2024	30	8	0.3000	0.0708	18127	32654	0.217	3481	True
+olympiadbench@s169-e254	85	8	0.6471	0.3706	10859	32658	0.169	8002	True
+olympiadbench@s85-e169	84	8	0.4762	0.2619	13170	32643	0.179	9463	True
+olympiadbench@s0-e85	85	8	0.3294	0.1206	17932	32652	0.253	13372	True
+olympiadbench@s254-e338	84	8	0.5357	0.3080	12925	32683	0.220	9692	True
+olympiadbench@s591-e675	84	8	0.5714	0.3869	11903	32683	0.158	8543	True
+olympiadbench@s423-e507	84	8	0.6429	0.3408	13862	32694	0.205	10355	True
+olympiadbench@s338-e423	85	8	0.4000	0.2206	15097	32699	0.246	11647	True
+olympiadbench@s169-e338	169	8	0.6036	0.3395	11243	32670	0.155	11830	True
+olympiadbench@s507-e591	84	8	0.5595	0.2946	15590	32693	0.243	11698	True
+| base | amc | 1297 | 1584 | 0.016 | 555 |
+| base | minerva | 734 | 1291 | 0.002 | 1275 |
+| base | olympiadbench | 1476 | 1872 | 0.018 | 6302 |
+| base | gpqa | 870 | 1412 | 0.004 | 986 |
+| random | aime | 21148 | 32680 | 0.358 | 4621 |
+| random | math | 7816 | 32657 | 0.087 | 22825 |
+| random | cn_math_2024 | 17756 | 32648 | 0.200 | 3361 |
+| random | kaoyan | 11018 | 32630 | 0.087 | -1 |
+| random | amc | 14621 | 32689 | 0.222 | 3921 |
+| random | minerva | 10573 | 32655 | 0.148 | 17961 |
+| random | gpqa | 14507 | 32609 | 0.265 | 19606 |
+| advanced | aime | 21381 | 32679 | 0.367 | 4661 |
+| advanced | math | 7578 | 32653 | 0.084 | 21727 |
+| advanced | cn_math_2024 | 18127 | 32654 | 0.217 | 3481 |
+| advanced | kaoyan | 10705 | 32621 | 0.077 | 11558 |
+| advanced | amc | 13471 | 32702 | 0.184 | 3381 |
+| advanced | minerva | 10919 | 32668 | 0.162 | 18961 |
+| advanced | gpqa | 13957 | 32592 | 0.234 | 18225 |
+
+## Paired bootstrap over question ids (B=2000): difference = second minus first
+
+| pair | benchmark | d pass@8 | 95% CI | d pass@1 | 95% CI |
+|---|---|---:|---|---:|---|
+| base -> random | aime | +0.167 | [+0.033, +0.333] | +0.000 | [-0.050, +0.046] |
+| base -> random | math | +0.044 | [+0.014, +0.072] | -0.006 | [-0.026, +0.013] |
+| base -> random | cn_math_2024 | -0.033 | [-0.267, +0.233] | -0.025 | [-0.104, +0.046] |
+| base -> random | kaoyan | +0.106 | [+0.045, +0.166] | +0.073 | [+0.038, +0.110] |
+| base -> random | amc | -0.075 | [-0.225, +0.075] | -0.047 | [-0.119, +0.022] |
+| base -> random | minerva | +0.018 | [-0.026, +0.062] | -0.033 | [-0.058, -0.008] |
+| base -> random | olympiadbench | +0.028 | [-0.006, +0.061] | +0.001 | [-0.015, +0.018] |
+| base -> random | gpqa | +0.020 | [-0.056, +0.096] | -0.064 | [-0.102, -0.026] |
+| base -> random | **macro (6 benchmarks)** | **+0.0107** | [-0.0424, +0.0624] | **-0.0157** | [-0.0361, +0.0039] |
+| base -> advanced | aime | +0.100 | [-0.033, +0.233] | +0.017 | [-0.029, +0.071] |
+| base -> advanced | math | +0.046 | [+0.018, +0.074] | -0.001 | [-0.022, +0.020] |
+| base -> advanced | cn_math_2024 | -0.067 | [-0.267, +0.133] | -0.033 | [-0.092, +0.029] |
+| base -> advanced | kaoyan | +0.141 | [+0.075, +0.201] | +0.071 | [+0.035, +0.109] |
+| base -> advanced | amc | +0.050 | [-0.075, +0.175] | -0.041 | [-0.119, +0.031] |
+| base -> advanced | minerva | +0.011 | [-0.033, +0.059] | -0.045 | [-0.071, -0.017] |
+| base -> advanced | olympiadbench | +0.022 | [-0.009, +0.055] | +0.011 | [-0.006, +0.028] |
+| base -> advanced | gpqa | +0.005 | [-0.071, +0.076] | -0.069 | [-0.104, -0.033] |
+| base -> advanced | **macro (6 benchmarks)** | **+0.0271** | [-0.0196, +0.0714] | **-0.0176** | [-0.0371, +0.0018] |
+| random -> advanced | aime | -0.067 | [-0.233, +0.100] | +0.017 | [-0.017, +0.054] |
+| random -> advanced | math | +0.002 | [-0.018, +0.022] | +0.005 | [-0.010, +0.020] |
+| random -> advanced | cn_math_2024 | -0.033 | [-0.200, +0.133] | -0.008 | [-0.046, +0.029] |
+| random -> advanced | kaoyan | +0.035 | [-0.015, +0.090] | -0.002 | [-0.030, +0.026] |
+| random -> advanced | amc | +0.125 | [+0.000, +0.250] | +0.006 | [-0.031, +0.047] |
+| random -> advanced | minerva | -0.007 | [-0.051, +0.037] | -0.012 | [-0.032, +0.006] |
+| random -> advanced | olympiadbench | -0.006 | [-0.034, +0.022] | +0.010 | [-0.002, +0.022] |
+| random -> advanced | gpqa | -0.015 | [-0.081, +0.051] | -0.006 | [-0.031, +0.021] |
+| random -> advanced | **macro (6 benchmarks)** | **+0.0164** | [-0.0237, +0.0558] | **-0.0020** | [-0.0137, +0.0103] |
+
+The bootstrap captures question-sampling uncertainty for these specific trained models only; it does not capture training-seed or data-draw variance (one training run per arm).
+
+
+## Shard sources used per (run, benchmark)
+
+Rule: each question index is taken from the narrowest result shard covering it (ties: earliest start). Counts = questions taken from each file.
+
+- advanced15k_v1/olympiadbench: `test_qwen-instruct_t0.6_k8_s0_e85.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s169_e254.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s254_e338.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s338_e423.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s423_e507.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s507_e591.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s591_e675.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s85_e169.jsonl`: 84
+- random15k_v1/olympiadbench: `test_qwen-instruct_t0.6_k8_s0_e169.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s0_e85.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s169_e254.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s254_e338.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s338_e423.jsonl`: 85, `test_qwen-instruct_t0.6_k8_s423_e507.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s507_e591.jsonl`: 84, `test_qwen-instruct_t0.6_k8_s591_e675.jsonl`: 84
+=== stopping-failure inspection
+| base | aime | 240 | 12 (5.0%) | 100% | 100% | 42% | 0.075 | 0.000 |
+| base | math | 4000 | 22 (0.6%) | 100% | 100% | 64% | 0.657 | 0.000 |
+| base | cn_math_2024 | 240 | 6 (2.5%) | 100% | 100% | 33% | 0.107 | 0.000 |
+| base | kaoyan | 1592 | 2 (0.1%) | 100% | 100% | 0% | 0.219 | 0.000 |
+| base | amc | 320 | 5 (1.6%) | 100% | 100% | 20% | 0.397 | 0.000 |
+| base | minerva | 2176 | 5 (0.2%) | 100% | 100% | 60% | 0.288 | 0.000 |
+| base | olympiadbench | 5400 | 96 (1.8%) | 99% | 100% | 36% | 0.282 | 0.000 |
+| base | gpqa | 1584 | 7 (0.4%) | 100% | 100% | 86% | 0.295 | 0.000 |
+| random | aime | 240 | 86 (35.8%) | 95% | 98% | 27% | 0.104 | 0.012 |
+| random | math | 4000 | 349 (8.7%) | 93% | 96% | 29% | 0.707 | 0.023 |
+| random | cn_math_2024 | 240 | 48 (20.0%) | 90% | 98% | 27% | 0.094 | 0.021 |
+| random | kaoyan | 1592 | 139 (8.7%) | 82% | 94% | 31% | 0.317 | 0.036 |
+| random | amc | 320 | 71 (22.2%) | 92% | 96% | 28% | 0.442 | 0.000 |
+| random | minerva | 2176 | 321 (14.8%) | 89% | 98% | 27% | 0.296 | 0.016 |
+| random | olympiadbench | 5400 | 1210 (22.4%) | 83% | 86% | 22% | 0.352 | 0.024 |
+| random | gpqa | 1584 | 419 (26.5%) | 97% | 100% | 11% | 0.312 | 0.000 |
+| advanced | aime | 240 | 88 (36.7%) | 95% | 97% | 26% | 0.132 | 0.011 |
+| advanced | math | 4000 | 337 (8.4%) | 91% | 91% | 30% | 0.709 | 0.027 |
+| advanced | cn_math_2024 | 240 | 52 (21.7%) | 94% | 100% | 38% | 0.090 | 0.000 |
+| advanced | kaoyan | 1592 | 122 (7.7%) | 85% | 98% | 37% | 0.312 | 0.033 |
+| advanced | amc | 320 | 59 (18.4%) | 93% | 98% | 37% | 0.429 | 0.000 |
+| advanced | minerva | 2176 | 352 (16.2%) | 90% | 97% | 32% | 0.288 | 0.006 |
+| advanced | olympiadbench | 5400 | 1129 (20.9%) | 92% | 96% | 25% | 0.362 | 0.009 |
+| advanced | gpqa | 1584 | 370 (23.4%) | 97% | 100% | 15% | 0.291 | 0.005 |
+written /projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/reports/stopping_failures.md
+=== FINALIZE DONE Fri Oct 16 07:05:30 PM EDT 2026

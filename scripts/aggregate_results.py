@@ -25,29 +25,74 @@ ap.add_argument("--runs", nargs="+", required=True, help="label=run_id ...")
 ap.add_argument("--out", required=True)
 ap.add_argument("--B", type=int, default=2000)
 ap.add_argument("--seed", type=int, default=0)
+ap.add_argument("--eval-data", default="", help="course eval/data dir; enables question-identity checks")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 runs = dict(r.split("=", 1) for r in a.runs)
 
 SIZES = {"aime": 30, "amc": 40, "cn_math_2024": 30, "gpqa": 198, "kaoyan": 199, "math": 500, "minerva": 272, "olympiadbench": 675}
 
+def _norm(s):
+    return re.sub(r"\s+", " ", (s or "").strip())
+
+BENCH_Q = {}
+def bench_questions(bench):
+    """Question texts of the benchmark in file order (for identity checks); None if --eval-data not given."""
+    if not a.eval_data:
+        return None
+    if bench not in BENCH_Q:
+        fp = os.path.join(a.eval_data, bench, "test.jsonl")
+        BENCH_Q[bench] = [json.loads(l) for l in open(fp, encoding="utf-8")] if os.path.isfile(fp) else None
+    return BENCH_Q[bench]
+
+SHARD_SOURCES = {}
 def load(run_id, bench):
-    """Concatenate all result files of a benchmark (a full run or several index shards), dedupe by question id."""
+    """Merge result files of a benchmark (a full run or index shards) with an explicit, score-independent rule:
+    every question index is taken from the NARROWEST shard that covers it (ties: earliest start, then filename).
+    Records carry no stable id in every benchmark, so the key is shard start + line position, and each record's question
+    text is checked against the benchmark file at that index when --eval-data is given."""
     files = [f for f in glob.glob(f"{a.root}/{run_id}/**/{bench}/test_*.jsonl", recursive=True) if "/completions/" not in f.replace("\\", "/")]
     if not files:
         return None
-    # question key = shard start index + line position (records of some benchmarks carry no `id` field)
-    byid = {}
-    for f in sorted(files):
+    n_expected = SIZES.get(bench)
+    shards = []
+    for f in files:
         m = re.search(r"_s(\d+)_e(-?\d+)\.jsonl$", os.path.basename(f))
         start = int(m.group(1)) if m else 0
-        for i, l in enumerate(open(f, encoding="utf-8")):
-            r = json.loads(l)
-            byid.setdefault(start + i, r)
-    rows = [byid[k] for k in sorted(byid)]
-    if len(rows) != SIZES.get(bench, len(rows)):
-        print(f"WARNING {run_id}/{bench}: {len(rows)} questions found, expected {SIZES.get(bench)} ({len(files)} files)", file=sys.stderr)
-    return [[bool(x) for x in r["answers_correctness"]] for r in rows]
+        end = int(m.group(2)) if m else -1
+        if end == -1: end = n_expected
+        shards.append((end - start, start, os.path.basename(f), f))
+    shards.sort()
+    owner = {}
+    for width, start, name, f in shards:
+        for idx in range(start, start + width):
+            owner.setdefault(idx, (start, f))
+    recs, used = {}, {}
+    for width, start, name, f in shards:
+        lines = [l for l in open(f, encoding="utf-8").read().split("\n") if l.strip()]   # not splitlines(): U+2028 inside strings
+        if len(lines) != width:
+            print(f"WARNING {run_id}/{bench}: {name} has {len(lines)} records, expected {width}", file=sys.stderr)
+        for i, l in enumerate(lines):
+            idx = start + i
+            if owner.get(idx, (None, None))[1] != f:
+                continue
+            recs[idx] = json.loads(l); used[name] = used.get(name, 0) + 1
+    SHARD_SOURCES[(run_id, bench)] = used
+    idxs = sorted(recs)
+    if n_expected is not None and (len(idxs) != n_expected or idxs != list(range(n_expected))):
+        print(f"WARNING {run_id}/{bench}: coverage {len(idxs)}/{n_expected} (gaps: {[i for i in range(n_expected) if i not in recs][:5]})", file=sys.stderr)
+    bq = bench_questions(bench)
+    if bq is not None:
+        bad = 0
+        for idx in idxs:
+            qref = bq[idx].get("question") or bq[idx].get("problem") or bq[idx].get("Question") or ""
+            if _norm(qref) and _norm(qref) not in _norm(recs[idx].get("question", "")) and _norm(recs[idx].get("question", "")) not in _norm(qref):
+                bad += 1
+        if bad:
+            print(f"WARNING {run_id}/{bench}: {bad} records whose question text does not match the benchmark file at that index", file=sys.stderr)
+        else:
+            print(f"ok {run_id}/{bench}: {len(idxs)} questions, identities verified, sources {used}", file=sys.stderr)
+    return [[bool(x) for x in recs[i]["answers_correctness"]] for i in idxs]
 
 def p1(c):  return statistics.mean(statistics.mean(q) for q in c)
 def p8(c):  return statistics.mean(1.0 if any(q) else 0.0 for q in c)
@@ -148,6 +193,16 @@ for x, y in pairs:
     res["paired"][f"{x}->{y}"] = per_b
 
 md.append("\nThe bootstrap captures question-sampling uncertainty for these specific trained models only; it does not capture training-seed or data-draw variance (one training run per arm).\n")
+md.append("\n## Shard sources used per (run, benchmark)\n")
+md.append("Rule: each question index is taken from the narrowest result shard covering it (ties: earliest start). Counts = questions taken from each file.\n")
+for (rid, b), used in sorted(SHARD_SOURCES.items()):
+    if len(used) > 1:
+        md.append(f"- {rid}/{b}: " + ", ".join(f"`{k}`: {v}" for k, v in sorted(used.items())))
 open(os.path.join(a.out, "results.md"), "w", encoding="utf-8").write("\n".join(md))
+res["shard_sources"] = {f"{k[0]}/{k[1]}": v for k, v in SHARD_SOURCES.items()}
 json.dump(res, open(os.path.join(a.out, "results.json"), "w"), indent=1)
+# compact per-question correctness so the bootstrap is reproducible from public files
+pq = {lab: {b: ["".join("1" if x else "0" for x in q) for q in data[lab][b]] for b in ALL if data[lab][b] is not None} for lab in runs}
+json.dump({"format": "per question: 8-char string of 0/1 per sample, in benchmark file order (index = line in eval/data/<bench>/test.jsonl)",
+           "runs": runs, "correctness": pq}, open(os.path.join(a.out, "per_question_correctness.json"), "w"))
 print("\n".join(md))

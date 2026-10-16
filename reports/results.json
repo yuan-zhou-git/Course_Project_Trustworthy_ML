@@ -115,13 +115,13 @@
    },
    "random": {
     "n": 675,
-    "pass8": 0.5214814814814814,
-    "pass1": 0.2740740740740741
+    "pass8": 0.5259259259259259,
+    "pass1": 0.27814814814814814
    },
    "advanced": {
     "n": 675,
-    "pass8": 0.5214814814814814,
-    "pass1": 0.28814814814814815
+    "pass8": 0.52,
+    "pass1": 0.2877777777777778
    }
   },
   "gpqa": {
@@ -149,13 +149,13 @@
    "n_bench": 6
   },
   "random": {
-   "pass8": 0.5485071865234935,
-   "pass1": 0.24557828931828218,
+   "pass8": 0.5492479272642343,
+   "pass1": 0.24625730166396118,
    "n_bench": 6
   },
   "advanced": {
-   "pass8": 0.5658968681461045,
-   "pass1": 0.2443242844910497,
+   "pass8": 0.5656499545658576,
+   "pass1": 0.24426255609598796,
    "n_bench": 6
   }
  },
@@ -234,15 +234,15 @@
     ]
    },
    "olympiadbench": {
-    "d_pass8": 0.02370370370370367,
+    "d_pass8": 0.028148148148148144,
     "ci_pass8": [
-     -0.01185185185185178,
-     0.05777777777777782
+     -0.00592592592592589,
+     0.06074074074074076
     ],
-    "d_pass1": -0.002592592592592591,
+    "d_pass1": 0.0014814814814814725,
     "ci_pass1": [
-     -0.019259259259259254,
-     0.014074074074074072
+     -0.015370370370370368,
+     0.018333333333333313
     ]
    },
    "gpqa": {
@@ -258,15 +258,15 @@
     ]
    },
    "macro": {
-    "d_pass8": 0.009913730284086958,
+    "d_pass8": 0.010654471024827703,
     "ci_pass8": [
-     -0.04208008501608857,
-     0.06178274517766091
+     -0.04241633043078997,
+     0.062422310768206916
     ],
-    "d_pass1": -0.016332428952961157,
+    "d_pass1": -0.015653416607282148,
     "ci_pass1": [
-     -0.03696832043668861,
-     0.003379270035975749
+     -0.03614507780824967,
+     0.003900625523968962
     ],
     "benchmarks": [
      "cn_math_2024",
@@ -352,15 +352,15 @@
     ]
    },
    "olympiadbench": {
-    "d_pass8": 0.02370370370370367,
+    "d_pass8": 0.022222222222222254,
     "ci_pass8": [
-     -0.008888888888888835,
-     0.05777777777777782
+     -0.00888888888888889,
+     0.054814814814814816
     ],
-    "d_pass1": 0.011481481481481481,
+    "d_pass1": 0.011111111111111127,
     "ci_pass1": [
-     -0.005185185185185182,
-     0.02777777777777779
+     -0.0057407407407407685,
+     0.027962962962962967
     ]
    },
    "gpqa": {
@@ -376,15 +376,15 @@
     ]
    },
    "macro": {
-    "d_pass8": 0.027303411906697928,
+    "d_pass8": 0.027056498326451028,
     "ci_pass8": [
-     -0.019117352624348393,
-     0.07172132573144988
+     -0.019592423479382764,
+     0.07135196680570606
     ],
-    "d_pass1": -0.017586433780193637,
+    "d_pass1": -0.017648162175255364,
     "ci_pass1": [
-     -0.03697114825173932,
-     0.0018583773595812942
+     -0.037050738866727516,
+     0.0018066996512071248
     ],
     "benchmarks": [
      "cn_math_2024",
@@ -470,15 +470,15 @@
     ]
    },
    "olympiadbench": {
-    "d_pass8": 0.0,
+    "d_pass8": -0.00592592592592589,
     "ci_pass8": [
-     -0.029629629629629617,
-     0.02962962962962956
+     -0.034074074074074034,
+     0.022222222222222254
     ],
-    "d_pass1": 0.014074074074074072,
+    "d_pass1": 0.009629629629629655,
     "ci_pass1": [
-     0.0011111111111111183,
-     0.02685185185185185
+     -0.002037037037037004,
+     0.021666666666666667
     ]
    },
    "gpqa": {
@@ -494,15 +494,15 @@
     ]
    },
    "macro": {
-    "d_pass8": 0.01738968162261097,
+    "d_pass8": 0.016402027301623323,
     "ci_pass8": [
-     -0.022128764158151282,
-     0.05742197196121227
+     -0.02369571789428426,
+     0.05575992252475157
     ],
-    "d_pass1": -0.00125400482723248,
+    "d_pass1": -0.0019947455679732162,
     "ci_pass1": [
-     -0.01303388782187495,
-     0.010709379270336633
+     -0.013733335630751636,
+     0.010276542552582675
     ],
     "benchmarks": [
      "cn_math_2024",
@@ -513,6 +513,94 @@
      "gpqa"
     ]
    }
+  }
+ },
+ "shard_sources": {
+  "base_v1/aime": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "base_v1/math": {
+   "test_qwen-instruct_t0.6_k8_s0_e500.jsonl": 500
+  },
+  "base_v1/cn_math_2024": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "base_v1/kaoyan": {
+   "test_qwen-instruct_t0.6_k8_s0_e199.jsonl": 199
+  },
+  "base_v1/amc": {
+   "test_qwen-instruct_t0.6_k8_s0_e40.jsonl": 40
+  },
+  "base_v1/minerva": {
+   "test_qwen-instruct_t0.6_k8_s0_e272.jsonl": 272
+  },
+  "base_v1/olympiadbench": {
+   "test_qwen-instruct_t0.6_k8_s0_e675.jsonl": 675
+  },
+  "base_v1/gpqa": {
+   "test_qwen-instruct_t0.6_k8_s0_e198.jsonl": 198
+  },
+  "random15k_v1/aime": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "random15k_v1/math": {
+   "test_qwen-instruct_t0.6_k8_s0_e500.jsonl": 500
+  },
+  "random15k_v1/cn_math_2024": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "random15k_v1/kaoyan": {
+   "test_qwen-instruct_t0.6_k8_s0_e199.jsonl": 199
+  },
+  "random15k_v1/amc": {
+   "test_qwen-instruct_t0.6_k8_s0_e40.jsonl": 40
+  },
+  "random15k_v1/minerva": {
+   "test_qwen-instruct_t0.6_k8_s0_e272.jsonl": 272
+  },
+  "random15k_v1/olympiadbench": {
+   "test_qwen-instruct_t0.6_k8_s254_e338.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s423_e507.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s507_e591.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s591_e675.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s0_e85.jsonl": 85,
+   "test_qwen-instruct_t0.6_k8_s169_e254.jsonl": 85,
+   "test_qwen-instruct_t0.6_k8_s338_e423.jsonl": 85,
+   "test_qwen-instruct_t0.6_k8_s0_e169.jsonl": 84
+  },
+  "random15k_v1/gpqa": {
+   "test_qwen-instruct_t0.6_k8_s0_e198.jsonl": 198
+  },
+  "advanced15k_v1/aime": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "advanced15k_v1/math": {
+   "test_qwen-instruct_t0.6_k8_s0_e500.jsonl": 500
+  },
+  "advanced15k_v1/cn_math_2024": {
+   "test_qwen-instruct_t0.6_k8_s0_e30.jsonl": 30
+  },
+  "advanced15k_v1/kaoyan": {
+   "test_qwen-instruct_t0.6_k8_s0_e199.jsonl": 199
+  },
+  "advanced15k_v1/amc": {
+   "test_qwen-instruct_t0.6_k8_s0_e40.jsonl": 40
+  },
+  "advanced15k_v1/minerva": {
+   "test_qwen-instruct_t0.6_k8_s0_e272.jsonl": 272
+  },
+  "advanced15k_v1/olympiadbench": {
+   "test_qwen-instruct_t0.6_k8_s85_e169.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s254_e338.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s423_e507.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s507_e591.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s591_e675.jsonl": 84,
+   "test_qwen-instruct_t0.6_k8_s0_e85.jsonl": 85,
+   "test_qwen-instruct_t0.6_k8_s169_e254.jsonl": 85,
+   "test_qwen-instruct_t0.6_k8_s338_e423.jsonl": 85
+  },
+  "advanced15k_v1/gpqa": {
+   "test_qwen-instruct_t0.6_k8_s0_e198.jsonl": 198
   }
  }
 }
