@@ -29,6 +29,8 @@ if [ -n "${SLURM_JOB_ID:-}" ] && [ "${SLURM_JOB_NAME:-}" != "rsft_bootstrap" ]; 
 fi
 DATASETS=${DATASETS:-"aime amc cn_math_2024 gpqa kaoyan math minerva olympiadbench"}
 GPU_MEM_UTIL=${GPU_MEM_UTIL:-0.92}
+# optional sharding of one benchmark by question index [START, END): separate result file, separate summary row
+START=${START:-0}; END=${END:--1}
 export HF_HOME=$P/hf_cache
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
 module reset; module load Miniconda3/25.11.1-1 CUDA/12.8.0
@@ -72,39 +74,41 @@ PY
 declare -A SIZES=( [aime]=30 [amc]=40 [cn_math_2024]=30 [gpqa]=198 [kaoyan]=199 [math]=500 [minerva]=272 [olympiadbench]=675 )   # math: 500 records (README says 499 = line count without trailing newline)
 FAIL=0
 for DATA in $DATASETS; do
-  echo "=============== $DATA  $(date)"
+  KEY=$DATA; EXPECTED=${SIZES[$DATA]}; SHARDARG=""
+  if [ "$END" != "-1" ] || [ "$START" != "0" ]; then KEY="${DATA}@s${START}-e${END}"; EXPECTED=$((END - START)); SHARDARG="--shard s${START}_e${END}"; fi
+  echo "=============== $KEY  $(date)"
   # resume / cross-cluster idempotency: skip a benchmark already recorded complete in summary.tsv
-  if [ -f $OUT/summary.tsv ] && awk -F'\t' -v d="$DATA" '$1==d && $NF=="True"{f=1} END{exit !f}' $OUT/summary.tsv; then
-    echo "$DATA already complete in $OUT/summary.tsv; skipping"; continue
+  if [ -f $OUT/summary.tsv ] && awk -F'\t' -v d="$KEY" '$1==d && $NF=="True"{f=1} END{exit !f}' $OUT/summary.tsv; then
+    echo "$KEY already complete in $OUT/summary.tsv; skipping"; continue
   fi
   T0=$(date +%s)
   set +e
   # run in its own process group so a hung exit (vLLM engine / grader pool not terminating) can be killed as a unit
   setsid python eval.py --model_name_or_path "$MODEL" --data_name "$DATA" --prompt_type "qwen-instruct" \
-    --temperature 0.6 --top_p 0.95 --start_idx 0 --end_idx -1 --n_sampling 8 --k 1 --split test \
+    --temperature 0.6 --top_p 0.95 --start_idx $START --end_idx $END --n_sampling 8 --k 1 --split test \
     --max_tokens 32768 --seed 0 --surround_with_messages --output_dir "$OUT" \
-    --completions_save_dir "$OUT/completions" --gpu_memory_utilization "$GPU_MEM_UTIL" > "$OUT/log_${DATA}.txt" 2>&1 &
+    --completions_save_dir "$OUT/completions" --gpu_memory_utilization "$GPU_MEM_UTIL" > "$OUT/log_${KEY}.txt" 2>&1 &
   PID=$!
   RC=""; DONE_AT=""
   while kill -0 $PID 2>/dev/null; do
     sleep 20
     # watchdog: scores printed means the work is done; if the process is still alive 5 min later, it is hung at exit
-    if [ -z "$DONE_AT" ] && grep -q "^Pass@1:" "$OUT/log_${DATA}.txt" 2>/dev/null; then DONE_AT=$(date +%s); fi
+    if [ -z "$DONE_AT" ] && grep -q "^Pass@1:" "$OUT/log_${KEY}.txt" 2>/dev/null; then DONE_AT=$(date +%s); fi
     if [ -n "$DONE_AT" ] && [ $(( $(date +%s) - DONE_AT )) -gt 300 ]; then
-      echo "WATCHDOG: scores logged $(( $(date +%s) - DONE_AT ))s ago but process $PID still alive; killing process group" | tee -a "$OUT/log_${DATA}.txt"
+      echo "WATCHDOG: scores logged $(( $(date +%s) - DONE_AT ))s ago but process $PID still alive; killing process group" | tee -a "$OUT/log_${KEY}.txt"
       kill -TERM -- -$PID 2>/dev/null; sleep 15; kill -KILL -- -$PID 2>/dev/null
       RC=0; break
     fi
   done
   if [ -z "$RC" ]; then wait $PID; RC=$?; fi
-  tail -n 4 "$OUT/log_${DATA}.txt"
+  tail -n 4 "$OUT/log_${KEY}.txt"
   # a result file + scores in the log means success even if the exit was forced
-  if [ $RC -ne 0 ] && grep -q "^Pass@1:" "$OUT/log_${DATA}.txt" && ls "$OUT"/*/*/"$DATA"/test_*.jsonl >/dev/null 2>&1; then echo "exit $RC after scores were logged; treating as success"; RC=0; fi
+  if [ $RC -ne 0 ] && grep -q "^Pass@1:" "$OUT/log_${KEY}.txt" && [ -n "$(find "$OUT" -path '*/completions' -prune -o -path "*/$DATA/test_*.jsonl" -print | head -1)" ]; then echo "exit $RC after scores were logged; treating as success"; RC=0; fi
   set -e
   T1=$(date +%s)
-  echo "eval.py exit=$RC elapsed=$((T1-T0))s" | tee -a "$OUT/log_${DATA}.txt"
+  echo "eval.py exit=$RC elapsed=$((T1-T0))s" | tee -a "$OUT/log_${KEY}.txt"
   if [ $RC -ne 0 ]; then FAIL=1; continue; fi
-  python $P/code/scripts/eval_summary.py --run-dir "$OUT" --data "$DATA" --expected "${SIZES[$DATA]}" --elapsed $((T1-T0)) || FAIL=1
+  python $P/code/scripts/eval_summary.py --run-dir "$OUT" --data "$DATA" --key "$KEY" $SHARDARG --expected "$EXPECTED" --elapsed $((T1-T0)) || FAIL=1
 done
 echo "=============== summary"; cat $OUT/summary.tsv 2>/dev/null || true
 exit $FAIL

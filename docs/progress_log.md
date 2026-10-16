@@ -90,6 +90,46 @@ Mean generated length 0.7K to 2.7K tokens; at most 5% of samples hit the length 
 
 - 17:10: Both datasets pushed to the Hub as **private** repos: `yuan-zhou-hf/acereason-random15k` (362 MB json + manifest + pool stats + card) and `yuan-zhou-hf/acereason-advanced15k` (323 MB). Must be made public or shared with the instructor before submission. Team GitHub repo: https://github.com/yuan-zhou-git/Course_Project_Trustworthy_ML (private, same caveat); populating it with code, configs, logs and drafts.
 
+- 17:15: GitHub repo made public by the user; initial commit pushed (52 files: scripts, slurm, yamls, data manifests, env freezes, base eval outputs, both training records, docs, report draft). Local clone: `repo/`. Hub datasets still private (user to flip before submission).
+
+- 17:20: Fine-tuned evals are slow: vLLM reports ~1.3K output tokens/s per L40S (long 32K-context decoding is memory-bandwidth bound), i.e. ~4 s per generated sample on MATH. Projection: MATH ~21:00, OlympiadBench 8-10 h, Minerva+Kaoyan+GPQA in series 15-20 h (at the 20 h limit). Splitting group 3 into one job per benchmark.
+
+- 19:50: OlympiadBench ETA from vLLM: 13 h (random) and 27 h (selected) remaining, i.e. the selected run would hit the 20 h limit and lose everything (the course script writes results only at the end). Cancelled both and resubmitted as **4 index shards per model** (0-169, 169-338, 338-507, 507-675; jobs 648090-648097); wrapper, summary and aggregation now handle shards (separate result files, merged by question id). MATH ~90% done for both models; Kaoyan/Minerva (random) finishing within ~1.5 h. 6 jobs running, 10 queued against the 10-job QoS limit.
+
+- 21:00: First fine-tuned score: random model Kaoyan pass@1 0.292 (base 0.219). The summary step missed the result file (eval.py nests local-checkpoint outputs one directory deeper than Hub ids); results are intact. Fixed the lookup (recursive) and added `finalize_summary.slurm`, which writes any missing summary rows and runs the aggregation; the already-queued eval jobs keep the old wrapper, so their rows come from the finalize job.
+
+- 22:25: Fine-tuned rows so far (pass@8 / pass@1, mean gen tokens, frac at 32K cap): random Kaoyan 0.653/0.292 (base 0.548/0.219), 11.0K tok, 8.7% capped; random Minerva 0.471/0.255 (base 0.452/0.287), 10.6K tok, 14.8% capped; selected MATH 0.886/0.652 (base 0.840/0.653), 7.6K tok, 8.4% capped. Pattern: pass@8 up everywhere so far, pass@1 flat or down where many answers hit the cap. Summary rows now write correctly (the fixed summary script is read at run time).
+
+- 22:55: random GPQA 0.737/0.230 (base 0.717/0.294), 14.5K tok mean, **26.5% of answers hit the 32K cap**; pass@1 drops where the model loops. Selected Kaoyan result written (row pending). OlympiadBench shards still queued behind other users' jobs.
+
+- 23:05: random MATH 0.884/0.647 (base 0.840/0.653); selected Kaoyan 0.688/0.290 vs random 0.653/0.292 (base 0.548/0.219). First head-to-head: selected +3.5 pts pass@8 on Kaoyan, pass@1 equal.
+
+- 23:15: L40S start estimates for the OlympiadBench shards slipped to Oct 16 04:28 ... Oct 17 (other users' jobs took the freed GPUs). Added a parallel path: 8 shards of ~85 problems per model on the A30 partition (23 h limit, 16 jobs, QoS allows 10 running). Different index ranges produce different result files; the aggregator merges by question id, so both paths can coexist and the slower one is cancelled once coverage is complete.
+
+- 23:45: selected AIME24 0.267/0.088 (base 0.167/0.071), mean 21K tokens, 37% capped. One L40S OlympiadBench shard and three A30 shards running.
+
+- 00:15 (Oct 16): random AIME24 0.333/0.071; selected Minerva 0.463/0.243 vs random 0.471/0.255 (base 0.452/0.287). Remaining: AMC + CN_MATH (both, in the g2 jobs), selected GPQA, OlympiadBench shards (5 running, 19 queued).
+
+- 01:00: selected AMC 0.700/0.350 (base 0.650/0.391); selected GPQA 0.722/0.224 vs random 0.737/0.230 (base 0.717/0.294). Only AMC+CN_MATH (random), CN_MATH (selected) and OlympiadBench remain; 8 shards running.
+
+- 01:45: random AMC 0.575/0.344 (selected 0.700/0.350, base 0.650/0.391); selected CN_MATH 0.300/0.071 (base 0.367/0.104). First OlympiadBench A30 shard finished in 2.5 h (random, idx 169-254: 0.600/0.332), so the A30 path will finish OlympiadBench by ~06:00. Selected model has 7/8 benchmarks; random 7/8 (CN_MATH running).
+
+- 04:50: Random model fully evaluated (OlympiadBench covered by 7 shard files, L40S + A30 mix); its 3 redundant shard jobs cancelled. Selected model: 2 of 8 OlympiadBench ranges done, 8 shard jobs running, 2 queued.
+
+- 05:05: **Random vs base, all 8 benchmarks (preview, B=300):** macro-6 pass@8 0.549 vs 0.539 (+0.010, 95% CI [-0.044, +0.063]); macro-6 pass@1 0.246 vs 0.262 (-0.016, CI [-0.037, +0.002]). Random OlympiadBench 0.521/0.274 (base 0.498/0.277). Aggregation bug fixed (records without `id` now keyed by shard start + line index).
+
+- 07:15 (Oct 16): **All evaluations complete; finalize job 649016 wrote `reports/results.md`.**
+
+**FINAL (pass@8 / pass@1), macro = 6 leaderboard benchmarks:**
+
+| model | aime | math | cn_math | kaoyan | amc | minerva | olympiad | gpqa | **macro p@8** | macro p@1 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| base | .167/.071 | .840/.653 | .367/.104 | .548/.219 | .650/.391 | .452/.287 | .498/.277 | .717/.294 | **.539** | .262 |
+| random15k | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .521/.274 | .737/.230 | **.549** | .246 |
+| selected15k | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .521/.288 | .722/.224 | **.566** | .244 |
+
+Paired bootstrap (B=2000), macro pass@8: selected − random +0.017 [−0.022, +0.057]; selected − base +0.027 [−0.019, +0.072]; random − base +0.010 [−0.042, +0.062]. Macro pass@1: both SFT models ≈ −0.017 vs base (CI touching 0), selected − random −0.001. Significant per-benchmark gains: Kaoyan (+0.14 p@8 selected, +0.11 random), MATH (+0.045 both); significant pass@1 losses on Minerva and GPQA for both SFT models, driven by answers hitting the 32K cap (15-27% of samples vs <1% for base). Selected beats random on AMC (+0.125, CI edge at 0) and OlympiadBench pass@1 (+0.014 [+0.001, +0.027]).
+
 ## Open risks
 
 - Queue saturation is the critical risk, not compute. If nothing starts by morning, consider the Falcon A30 cluster for the env build and data prep (not done without the user's OK since the instruction was Tinkercliffs).

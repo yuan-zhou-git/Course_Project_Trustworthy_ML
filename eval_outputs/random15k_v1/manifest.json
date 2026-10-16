@@ -1,0 +1,91 @@
+{
+ "model": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/random15k",
+ "config_md5": "9d7a897aa3095cfc5954a4eea5ed97e3",
+ "safetensors_index_md5": "fa2ceef076ed71a8da45775302ed2066",
+ "settings": {
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "n_sampling": 8,
+  "max_tokens": 32768,
+  "seed": 0,
+  "prompt_type": "qwen-instruct",
+  "system_prompt": "Please reason step by step, and put your final answer within \\boxed{}."
+ },
+ "eval_commit": "638989b9f1a02322fea5cf5b2be5042dbd99c209",
+ "env_freeze": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/envs/eval_env_freeze.txt",
+ "created": "2026-10-15T16:35:45.509876",
+ "jobs": [
+  {
+   "job": "646668",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "646669",
+   "datasets": "math aime amc cn_math_2024"
+  },
+  {
+   "job": "646670",
+   "datasets": "minerva kaoyan gpqa"
+  },
+  {
+   "job": "647763",
+   "datasets": "minerva"
+  },
+  {
+   "job": "647764",
+   "datasets": "kaoyan"
+  },
+  {
+   "job": "647765",
+   "datasets": "gpqa"
+  },
+  {
+   "job": "648458",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648459",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648460",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648090",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648091",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648461",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648462",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648463",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648464",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648465",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648092",
+   "datasets": "olympiadbench"
+  },
+  {
+   "job": "648093",
+   "datasets": "olympiadbench"
+  }
+ ]
+}

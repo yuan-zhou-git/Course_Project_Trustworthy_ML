@@ -1,0 +1,768 @@
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+current stop list: None
+Random seed set as 0
+current eval model: /projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k
+use n = 8, generation epoch is: 1
+available_gpus: ['0']
+  0%|          | 0/84 [00:00<?, ?it/s]100%|██████████| 84/84 [00:00<00:00, 1475.67it/s]
+<|im_start|>system
+Please reason step by step, and put your final answer within \boxed{}.<|im_end|>
+<|im_start|>user
+A circle passes through the origin and the points of intersection of the parabolas $y=x^{2}-3$ and $y=-x^{2}-2 x+9$. Determine the coordinates of the centre of this circle.<|im_end|>
+<|im_start|>assistant
+
+(MainProcess pid=2281891) INFO 10-16 02:59:46 [api_utils.py:286] non-default args: {'trust_remote_code': True, 'gpu_memory_utilization': 0.9, 'disable_log_stats': True, 'model': '/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k'}
+(MainProcess pid=2281891) INFO 10-16 02:59:46 [model.py:699] Resolved architecture: Qwen2ForCausalLM
+(MainProcess pid=2281891) INFO 10-16 02:59:46 [model.py:2109] Using max model len 32768
+(MainProcess pid=2281891) INFO 10-16 02:59:46 [scheduler.py:308] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(MainProcess pid=2281891) INFO 10-16 02:59:46 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+(EngineCore pid=2281913) INFO 10-16 03:00:00 [core.py:129] Initializing a V1 LLM engine (v0.31.0) with config: model='/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k', speculative_config=None, tokenizer='/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=2281913) INFO 10-16 03:00:02 [parallel_state.py:1825] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///localscratch/648469/vllm_dist_c33a0cf5ba97470980b31250f6a47aad backend=nccl
+(EngineCore pid=2281913) INFO 10-16 03:00:02 [parallel_state.py:2269] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=2281913) INFO 10-16 03:00:02 [gpu_worker.py:479] Using V2 Model Runner
+(EngineCore pid=2281913) INFO 10-16 03:00:02 [model_runner.py:375] Loading model from scratch...
+(EngineCore pid=2281913) INFO 10-16 03:00:04 [cuda.py:526] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=2281913) INFO 10-16 03:00:04 [flash_attn.py:1167] Using FlashAttention version 2
+(EngineCore pid=2281913) INFO 10-16 03:00:05 [weight_utils.py:1063] Filesystem type for checkpoints: NFS4. Checkpoint size: 5.75 GiB. Available RAM: 471.69 GiB.
+(EngineCore pid=2281913) INFO 10-16 03:00:05 [weight_utils.py:1025] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=2281913) INFO 10-16 03:00:06 [weight_utils.py:997] Prefetching checkpoint files: 10% (1/2)
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:05<00:05,  5.33s/it]
+(EngineCore pid=2281913) INFO 10-16 03:00:10 [weight_utils.py:997] Prefetching checkpoint files: 20% (2/2)
+(EngineCore pid=2281913) INFO 10-16 03:00:10 [weight_utils.py:1020] Prefetching checkpoint files into page cache finished in 5.34s
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.35s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.80s/it]
+
+(EngineCore pid=2281913) INFO 10-16 03:00:10 [default_loader.py:484] Loading weights took 5.62 seconds
+(EngineCore pid=2281913) INFO 10-16 03:00:11 [model_runner.py:407] Model loading took 5.79 GiB memory and 8.781660 seconds
+(EngineCore pid=2281913) INFO 10-16 03:00:11 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=2281913) INFO 10-16 03:00:11 [torch_utils.py:286] Reducing Torch threads from 4 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=2281913) INFO 10-16 03:00:11 [utils.py:343] Using LBNHC KV cache layout.
+(EngineCore pid=2281913) INFO 10-16 03:00:15 [caching.py:342] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=37
+(EngineCore pid=2281913) INFO 10-16 03:00:15 [decorators.py:312] Directly load AOT compilation from path /home/yuanzhou1/.cache/vllm/torch_compile_cache/torch_aot_compile/b3382497703d829e5af317b79a94d2069f572dff656371eb2b3da9225e8030d0/rank_0_0/model
+(EngineCore pid=2281913) INFO 10-16 03:00:15 [monitor.py:53] torch.compile took 0.35 s in total
+(EngineCore pid=2281913) INFO 10-16 03:00:15 [monitor.py:81] Initial profiling/warmup run took 0.08 s
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:03, 13.27it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:00<00:03, 13.60it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:00<00:03, 13.80it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:03, 13.89it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:00<00:02, 14.46it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:00<00:02, 14.79it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:02, 15.12it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:01<00:02, 15.40it/s]Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:01<00:02, 16.17it/s]Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:01<00:01, 15.65it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:01<00:01, 16.65it/s]Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:01<00:01, 17.39it/s]Capturing CUDA graphs (PIECEWISE):  53%|█████▎    | 27/51 [00:01<00:01, 18.41it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:01, 18.65it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 19.42it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:02<00:00, 20.34it/s]Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:02<00:01, 11.46it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:03<00:01,  7.95it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:03<00:00, 10.08it/s]Capturing CUDA graphs (PIECEWISE):  92%|█████████▏| 47/51 [00:03<00:00, 12.27it/s]Capturing CUDA graphs (PIECEWISE):  98%|█████████▊| 50/51 [00:03<00:00, 14.48it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:03<00:00, 14.17it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 32.08it/s]
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [model_runner.py:1087] Graph capturing finished in 4 secs, took 0.37 GiB
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [gpu_worker.py:692] Available KV cache memory: 14.09 GiB
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [gpu_worker.py:707] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9000 is equivalent to --gpu-memory-utilization=0.8822 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9178. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [kv_cache_utils.py:2464] GPU KV cache size: 410,320 tokens, Maximum concurrency for 32,768 tokens per request: 12.52x
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=2281913) INFO 10-16 03:00:21 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:00<00:05,  9.94it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:00<00:04, 11.66it/s]Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:00<00:03, 12.86it/s]Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:00<00:03, 13.51it/s]Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:00<00:02, 14.07it/s]Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:00<00:02, 14.59it/s]Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:00<00:02, 14.98it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:01<00:02, 15.23it/s]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:01<00:02, 15.70it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:01<00:01, 16.76it/s]Capturing CUDA graphs (PIECEWISE):  41%|████      | 21/51 [00:01<00:01, 17.58it/s]Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:01<00:01, 18.16it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:01<00:01, 18.67it/s]Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:01<00:01, 19.37it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:01<00:01, 19.96it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:01<00:00, 20.70it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:02<00:00, 21.55it/s]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:02<00:00, 22.17it/s]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [00:02<00:00, 22.80it/s]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:02<00:00, 23.16it/s]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:02<00:00, 23.43it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 18.84it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  11%|█▏        | 4/35 [00:00<00:00, 32.63it/s]Capturing CUDA graphs (FULL):  23%|██▎       | 8/35 [00:00<00:00, 32.71it/s]Capturing CUDA graphs (FULL):  34%|███▍      | 12/35 [00:00<00:00, 33.80it/s]Capturing CUDA graphs (FULL):  46%|████▌     | 16/35 [00:00<00:00, 34.75it/s]Capturing CUDA graphs (FULL):  60%|██████    | 21/35 [00:00<00:00, 38.41it/s]Capturing CUDA graphs (FULL):  74%|███████▍  | 26/35 [00:00<00:00, 41.42it/s]Capturing CUDA graphs (FULL):  89%|████████▊ | 31/35 [00:00<00:00, 43.26it/s]Capturing CUDA graphs (FULL): 100%|██████████| 35/35 [00:00<00:00, 40.36it/s]
+(EngineCore pid=2281913) INFO 10-16 03:00:28 [model_runner.py:1087] Graph capturing finished in 4 secs, took 0.22 GiB
+(EngineCore pid=2281913) INFO 10-16 03:00:28 [gpu_worker.py:892] CUDA graph pool memory: 0.22 GiB (actual), 0.42 GiB (estimated), difference: 0.2 GiB (93.7%).
+(EngineCore pid=2281913) INFO 10-16 03:00:28 [gpu_worker.py:955] Free memory on device (23.37/23.6 GiB) on startup. Desired GPU memory utilization is (0.9, 21.24 GiB). Actual usage is 6.12 GiB for consumed memory (weights + non-torch), 1.03 GiB for peak activation, and 0.22 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=14736498996` (13.72 GiB) to fit into requested memory, or `--kv-cache-memory=17024019968` (15.85 GiB) to fully utilize gpu memory. Current kv cache memory in use is 14.09 GiB.
+(EngineCore pid=2281913) INFO 10-16 03:00:30 [jit_monitor.py:84] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=2281913) INFO 10-16 03:00:30 [core.py:373] init engine (profile, create kv cache, warmup model) took 19.10 s (compilation: 0.35 s)
+(EngineCore pid=2281913) INFO 10-16 03:00:30 [kernel.py:408] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=2281891) INFO 10-16 03:00:31 [hf.py:646] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+Rendering prompts:   0%|          | 0/84 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 84/84 [00:00<00:00, 1669.63it/s]
+Processed prompts:   0%|          | 0/672 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   1%|          | 8/672 [01:16<1:46:27,  9.62s/it, est. speed input: 8.52 toks/s, output: 164.89 toks/s]Processed prompts:   2%|▏         | 16/672 [01:32<55:40,  5.09s/it, est. speed input: 12.73 toks/s, output: 281.80 toks/s]Processed prompts:   4%|▎         | 24/672 [02:43<1:13:52,  6.84s/it, est. speed input: 11.39 toks/s, output: 255.86 toks/s]Processed prompts:   5%|▍         | 32/672 [06:25<2:40:54, 15.08s/it, est. speed input: 6.39 toks/s, output: 218.20 toks/s] Processed prompts:   6%|▌         | 40/672 [07:02<1:59:04, 11.30s/it, est. speed input: 7.58 toks/s, output: 346.71 toks/s]Processed prompts:   7%|▋         | 48/672 [09:20<2:18:51, 13.35s/it, est. speed input: 6.73 toks/s, output: 329.91 toks/s]Processed prompts:   8%|▊         | 56/672 [09:22<1:33:01,  9.06s/it, est. speed input: 8.39 toks/s, output: 392.79 toks/s]Processed prompts:  10%|▉         | 64/672 [17:47<4:26:17, 26.28s/it, est. speed input: 5.99 toks/s, output: 331.09 toks/s]Processed prompts:  11%|█         | 72/672 [17:53<3:02:56, 18.29s/it, est. speed input: 7.46 toks/s, output: 512.05 toks/s]Processed prompts:  12%|█▏        | 80/672 [18:16<2:13:24, 13.52s/it, est. speed input: 8.11 toks/s, output: 591.68 toks/s]Processed prompts:  13%|█▎        | 88/672 [18:20<1:32:53,  9.54s/it, est. speed input: 8.84 toks/s, output: 668.28 toks/s]Processed prompts:  14%|█▍        | 96/672 [18:26<1:05:45,  6.85s/it, est. speed input: 9.29 toks/s, output: 759.88 toks/s]Processed prompts:  15%|█▌        | 104/672 [22:11<2:05:57, 13.30s/it, est. speed input: 8.67 toks/s, output: 657.45 toks/s]Processed prompts:  17%|█▋        | 112/672 [22:39<1:36:41, 10.36s/it, est. speed input: 9.01 toks/s, output: 664.67 toks/s]Processed prompts:  18%|█▊        | 120/672 [24:27<1:43:56, 11.30s/it, est. speed input: 9.75 toks/s, output: 780.85 toks/s]Processed prompts:  19%|█▉        | 128/672 [25:22<1:30:16,  9.96s/it, est. speed input: 9.90 toks/s, output: 792.82 toks/s]Processed prompts:  20%|██        | 136/672 [26:04<1:16:12,  8.53s/it, est. speed input: 9.94 toks/s, output: 793.95 toks/s]Processed prompts:  21%|██▏       | 144/672 [27:37<1:23:19,  9.47s/it, est. speed input: 9.87 toks/s, output: 786.88 toks/s]Processed prompts:  23%|██▎       | 152/672 [27:52<1:02:28,  7.21s/it, est. speed input: 10.41 toks/s, output: 870.57 toks/s]Processed prompts:  24%|██▍       | 160/672 [29:39<1:17:12,  9.05s/it, est. speed input: 10.29 toks/s, output: 858.01 toks/s]Processed prompts:  25%|██▌       | 168/672 [30:26<1:08:04,  8.10s/it, est. speed input: 10.48 toks/s, output: 857.28 toks/s]Processed prompts:  26%|██▌       | 176/672 [33:37<1:45:59, 12.82s/it, est. speed input: 9.95 toks/s, output: 782.16 toks/s] Processed prompts:  27%|██▋       | 184/672 [33:43<1:14:49,  9.20s/it, est. speed input: 10.16 toks/s, output: 786.33 toks/s]Processed prompts:  29%|██▊       | 192/672 [34:55<1:13:01,  9.13s/it, est. speed input: 10.15 toks/s, output: 873.01 toks/s]Processed prompts:  30%|██▉       | 200/672 [35:29<1:00:21,  7.67s/it, est. speed input: 10.36 toks/s, output: 900.04 toks/s]Processed prompts:  31%|███       | 208/672 [36:10<53:30,  6.92s/it, est. speed input: 10.51 toks/s, output: 924.51 toks/s]  Processed prompts:  32%|███▏      | 216/672 [39:09<1:27:51, 11.56s/it, est. speed input: 10.31 toks/s, output: 883.69 toks/s]Processed prompts:  33%|███▎      | 224/672 [41:26<1:38:39, 13.21s/it, est. speed input: 10.16 toks/s, output: 891.10 toks/s]Processed prompts:  35%|███▍      | 232/672 [42:03<1:18:00, 10.64s/it, est. speed input: 10.30 toks/s, output: 890.13 toks/s]Processed prompts:  36%|███▌      | 240/672 [42:17<57:32,  7.99s/it, est. speed input: 10.48 toks/s, output: 916.70 toks/s]  Processed prompts:  37%|███▋      | 248/672 [43:31<59:06,  8.36s/it, est. speed input: 10.41 toks/s, output: 915.34 toks/s]Processed prompts:  38%|███▊      | 256/672 [44:23<54:09,  7.81s/it, est. speed input: 10.54 toks/s, output: 913.20 toks/s]Processed prompts:  39%|███▉      | 264/672 [45:11<49:21,  7.26s/it, est. speed input: 10.66 toks/s, output: 902.10 toks/s]Processed prompts:  40%|████      | 272/672 [45:52<44:12,  6.63s/it, est. speed input: 10.86 toks/s, output: 911.62 toks/s]Processed prompts:  42%|████▏     | 280/672 [46:42<42:28,  6.50s/it, est. speed input: 11.20 toks/s, output: 947.75 toks/s]Processed prompts:  43%|████▎     | 288/672 [47:12<36:23,  5.69s/it, est. speed input: 11.36 toks/s, output: 944.03 toks/s]Processed prompts:  44%|████▍     | 296/672 [47:59<35:53,  5.73s/it, est. speed input: 11.34 toks/s, output: 947.77 toks/s]Processed prompts:  45%|████▌     | 304/672 [50:04<53:26,  8.71s/it, est. speed input: 11.04 toks/s, output: 925.07 toks/s]Processed prompts:  46%|████▋     | 312/672 [53:03<1:16:43, 12.79s/it, est. speed input: 10.81 toks/s, output: 936.87 toks/s]Processed prompts:  48%|████▊     | 320/672 [54:30<1:11:38, 12.21s/it, est. speed input: 10.84 toks/s, output: 940.37 toks/s]Processed prompts:  49%|████▉     | 328/672 [54:39<50:56,  8.88s/it, est. speed input: 11.12 toks/s, output: 1002.55 toks/s] Processed prompts:  50%|█████     | 336/672 [59:09<1:31:30, 16.34s/it, est. speed input: 10.43 toks/s, output: 967.71 toks/s]Processed prompts:  51%|█████     | 344/672 [1:01:34<1:32:17, 16.88s/it, est. speed input: 10.20 toks/s, output: 939.60 toks/s]Processed prompts:  52%|█████▏    | 352/672 [1:03:42<1:28:43, 16.64s/it, est. speed input: 10.12 toks/s, output: 921.43 toks/s]Processed prompts:  54%|█████▎    | 360/672 [1:11:28<2:31:18, 29.10s/it, est. speed input: 9.43 toks/s, output: 840.66 toks/s] Processed prompts:  55%|█████▍    | 368/672 [1:11:40<1:45:31, 20.83s/it, est. speed input: 9.70 toks/s, output: 884.27 toks/s]Processed prompts:  56%|█████▌    | 376/672 [1:12:57<1:26:09, 17.47s/it, est. speed input: 9.70 toks/s, output: 895.29 toks/s]Processed prompts:  57%|█████▋    | 384/672 [1:13:24<1:03:39, 13.26s/it, est. speed input: 9.81 toks/s, output: 913.10 toks/s]Processed prompts:  58%|█████▊    | 392/672 [1:13:37<45:33,  9.76s/it, est. speed input: 9.95 toks/s, output: 924.16 toks/s]  Processed prompts:  60%|█████▉    | 400/672 [1:14:09<36:21,  8.02s/it, est. speed input: 10.08 toks/s, output: 951.36 toks/s]Processed prompts:  61%|██████    | 408/672 [1:15:56<42:26,  9.65s/it, est. speed input: 10.00 toks/s, output: 959.37 toks/s]Processed prompts:  62%|██████▏   | 416/672 [1:17:22<42:33,  9.97s/it, est. speed input: 9.97 toks/s, output: 945.15 toks/s] Processed prompts:  63%|██████▎   | 424/672 [1:21:16<1:05:09, 15.76s/it, est. speed input: 9.67 toks/s, output: 917.22 toks/s]Processed prompts:  64%|██████▍   | 432/672 [1:21:36<47:01, 11.76s/it, est. speed input: 9.77 toks/s, output: 925.30 toks/s]  Processed prompts:  65%|██████▌   | 440/672 [1:22:39<40:57, 10.59s/it, est. speed input: 9.75 toks/s, output: 942.51 toks/s]Processed prompts:  67%|██████▋   | 448/672 [1:23:38<35:55,  9.62s/it, est. speed input: 9.74 toks/s, output: 936.57 toks/s]Processed prompts:  68%|██████▊   | 456/672 [1:24:20<29:55,  8.31s/it, est. speed input: 9.81 toks/s, output: 938.80 toks/s]Processed prompts:  69%|██████▉   | 464/672 [1:25:43<31:00,  8.94s/it, est. speed input: 9.79 toks/s, output: 937.22 toks/s]Processed prompts:  70%|███████   | 472/672 [1:32:51<1:14:20, 22.30s/it, est. speed input: 9.25 toks/s, output: 880.84 toks/s]Processed prompts:  71%|███████▏  | 480/672 [1:33:41<55:57, 17.48s/it, est. speed input: 9.30 toks/s, output: 896.45 toks/s]  Processed prompts:  73%|███████▎  | 488/672 [1:33:59<39:41, 12.94s/it, est. speed input: 9.36 toks/s, output: 915.83 toks/s]Processed prompts:  74%|███████▍  | 496/672 [1:34:12<27:57,  9.53s/it, est. speed input: 9.44 toks/s, output: 940.10 toks/s]Processed prompts:  75%|███████▌  | 504/672 [1:34:28<20:20,  7.27s/it, est. speed input: 9.92 toks/s, output: 962.15 toks/s]Processed prompts:  76%|███████▌  | 512/672 [1:37:35<32:16, 12.10s/it, est. speed input: 9.81 toks/s, output: 962.10 toks/s]Processed prompts:  77%|███████▋  | 520/672 [1:43:13<53:32, 21.14s/it, est. speed input: 9.39 toks/s, output: 935.57 toks/s]Processed prompts:  79%|███████▊  | 528/672 [1:47:21<57:49, 24.09s/it, est. speed input: 9.18 toks/s, output: 912.28 toks/s]Processed prompts:  80%|███████▉  | 536/672 [1:51:30<59:27, 26.23s/it, est. speed input: 8.98 toks/s, output: 895.70 toks/s]Processed prompts:  81%|████████  | 544/672 [1:52:19<43:05, 20.20s/it, est. speed input: 8.99 toks/s, output: 902.74 toks/s]Processed prompts:  82%|████████▏ | 552/672 [1:53:46<34:46, 17.39s/it, est. speed input: 9.06 toks/s, output: 921.39 toks/s]Processed prompts:  83%|████████▎ | 560/672 [1:54:17<24:54, 13.35s/it, est. speed input: 9.10 toks/s, output: 937.17 toks/s]Processed prompts:  85%|████████▍ | 568/672 [2:01:36<44:42, 25.79s/it, est. speed input: 8.63 toks/s, output: 889.49 toks/s]Processed prompts:  86%|████████▌ | 576/672 [2:03:59<37:27, 23.42s/it, est. speed input: 8.66 toks/s, output: 904.89 toks/s]Processed prompts:  87%|████████▋ | 584/672 [2:10:46<46:27, 31.67s/it, est. speed input: 8.29 toks/s, output: 883.05 toks/s]Processed prompts:  88%|████████▊ | 592/672 [2:12:12<33:51, 25.39s/it, est. speed input: 8.31 toks/s, output: 893.69 toks/s]Processed prompts:  89%|████████▉ | 600/672 [2:13:54<25:53, 21.57s/it, est. speed input: 8.27 toks/s, output: 889.44 toks/s]Processed prompts:  90%|█████████ | 608/672 [2:14:19<17:06, 16.04s/it, est. speed input: 8.36 toks/s, output: 905.15 toks/s]Processed prompts:  92%|█████████▏| 616/672 [2:18:13<18:40, 20.01s/it, est. speed input: 8.18 toks/s, output: 909.62 toks/s]Processed prompts:  93%|█████████▎| 624/672 [2:28:04<28:57, 36.19s/it, est. speed input: 7.71 toks/s, output: 878.47 toks/s]Processed prompts:  94%|█████████▍| 632/672 [2:30:55<21:09, 31.75s/it, est. speed input: 7.65 toks/s, output: 874.63 toks/s]Processed prompts:  95%|█████████▌| 640/672 [2:31:07<12:04, 22.65s/it, est. speed input: 8.13 toks/s, output: 885.52 toks/s]Processed prompts:  96%|█████████▋| 648/672 [2:31:24<06:36, 16.50s/it, est. speed input: 8.61 toks/s, output: 896.13 toks/s]Processed prompts:  98%|█████████▊| 656/672 [2:31:26<03:06, 11.64s/it, est. speed input: 9.72 toks/s, output: 907.66 toks/s]Processed prompts:  99%|█████████▉| 664/672 [2:33:22<01:39, 12.47s/it, est. speed input: 10.71 toks/s, output: 917.89 toks/s]Processed prompts: 100%|██████████| 672/672 [2:39:24<00:00, 22.31s/it, est. speed input: 10.38 toks/s, output: 908.11 toks/s]Processed prompts: 100%|██████████| 672/672 [2:39:24<00:00, 22.31s/it, est. speed input: 10.38 toks/s, output: 908.11 toks/s]Processed prompts: 100%|██████████| 672/672 [2:39:24<00:00, 14.23s/it, est. speed input: 10.38 toks/s, output: 908.11 toks/s]
+llm generate done
+84
+check correct...:   0%|          | 0/84 [00:00<?, ?it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:   2%|▏         | 2/84 [00:00<00:33,  2.42it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:   4%|▎         | 3/84 [00:01<00:26,  3.04it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:   6%|▌         | 5/84 [00:01<00:25,  3.10it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:   8%|▊         | 7/84 [00:03<00:42,  1.81it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  11%|█         | 9/84 [00:03<00:28,  2.60it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  12%|█▏        | 10/84 [00:03<00:25,  2.88it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  13%|█▎        | 11/84 [00:04<00:38,  1.92it/s]check correct...:  14%|█▍        | 12/84 [00:05<00:31,  2.28it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  17%|█▋        | 14/84 [00:06<00:44,  1.58it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  18%|█▊        | 15/84 [00:07<00:40,  1.71it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  19%|█▉        | 16/84 [00:09<01:06,  1.03it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  20%|██        | 17/84 [00:11<01:27,  1.30s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  23%|██▎       | 19/84 [00:12<00:57,  1.13it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  26%|██▌       | 22/84 [00:14<00:45,  1.36it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  30%|██▉       | 25/84 [00:14<00:30,  1.92it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  31%|███       | 26/84 [00:14<00:27,  2.12it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  32%|███▏      | 27/84 [00:15<00:33,  1.73it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  33%|███▎      | 28/84 [00:17<00:48,  1.16it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  36%|███▌      | 30/84 [00:18<00:35,  1.52it/s]check correct...:  38%|███▊      | 32/84 [00:20<00:36,  1.42it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  39%|███▉      | 33/84 [00:21<00:45,  1.12it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  40%|████      | 34/84 [00:22<00:39,  1.27it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  42%|████▏     | 35/84 [00:23<00:49,  1.01s/it]<string>:1: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
+<string>:1: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  43%|████▎     | 36/84 [00:24<00:45,  1.05it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  45%|████▌     | 38/84 [00:25<00:35,  1.28it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  46%|████▋     | 39/84 [00:27<00:45,  1.02s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  48%|████▊     | 40/84 [00:28<00:44,  1.00s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  51%|█████     | 43/84 [00:29<00:27,  1.50it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  52%|█████▏    | 44/84 [00:31<00:33,  1.20it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  55%|█████▍    | 46/84 [00:32<00:27,  1.37it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  56%|█████▌    | 47/84 [00:33<00:34,  1.06it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  57%|█████▋    | 48/84 [00:35<00:38,  1.08s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  60%|█████▉    | 50/84 [00:37<00:32,  1.04it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  62%|██████▏   | 52/84 [00:38<00:28,  1.13it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  63%|██████▎   | 53/84 [00:40<00:35,  1.16s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  64%|██████▍   | 54/84 [00:41<00:30,  1.03s/it]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  70%|███████   | 59/84 [00:42<00:14,  1.74it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  71%|███████▏  | 60/84 [00:44<00:16,  1.48it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  73%|███████▎  | 61/84 [00:45<00:19,  1.17it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  74%|███████▍  | 62/84 [00:46<00:16,  1.31it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  76%|███████▌  | 64/84 [00:46<00:11,  1.71it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  79%|███████▊  | 66/84 [00:47<00:08,  2.18it/s]check correct...:  86%|████████▌ | 72/84 [00:47<00:02,  4.53it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  93%|█████████▎| 78/84 [00:48<00:01,  5.03it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  96%|█████████▋| 81/84 [00:50<00:00,  3.68it/s]ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  99%|█████████▉| 83/84 [00:50<00:00,  3.50it/s]check correct...: 100%|██████████| 84/84 [00:50<00:00,  1.66it/s]
+writing generation to jsonl file...:   0%|          | 0/84 [00:00<?, ?it/s]writing generation to jsonl file...:  82%|████████▏ | 69/84 [00:00<00:00, 687.10it/s]writing generation to jsonl file...: 100%|██████████| 84/84 [00:00<00:00, 624.40it/s]
+correct cnt / total cnt: 45/84
+Acc: 0.5357
+Pass@1: 25.875/84 = 0.3080
+(MainProcess pid=2281891) INFO 10-16 05:40:47 [utils.py:638] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=2281913) INFO 10-16 05:40:47 [core.py:1409] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=2281913) INFO 10-16 05:40:47 [core.py:1558] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=2281913) INFO 10-16 05:40:47 [core.py:1589] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=2281913) INFO 10-16 05:40:47 [core.py:1422] [shutdown] EngineCore: exiting busy loop
+eval.py exit=0 elapsed=9692s

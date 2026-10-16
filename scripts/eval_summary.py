@@ -14,12 +14,17 @@ ap.add_argument("--expected", type=int, required=True)
 ap.add_argument("--n", type=int, default=8)
 ap.add_argument("--max-tokens", type=int, default=32768)
 ap.add_argument("--elapsed", type=int, default=-1)
+ap.add_argument("--shard", default="", help="e.g. s0_e169: select the result file of this index range")
+ap.add_argument("--key", default="", help="row name in summary.tsv (default: --data)")
 a = ap.parse_args()
+key = a.key or a.data
 
-files = [f for f in glob.glob(f"{a.run_dir}/*/*/{a.data}/test_*.jsonl") + glob.glob(f"{a.run_dir}/*/{a.data}/test_*.jsonl")
-         if "completions" not in f]
+# eval.py nests results under the last 3 components of the model path (2 for a Hub id, 3 for a local checkpoint)
+files = [f for f in glob.glob(f"{a.run_dir}/**/{a.data}/test_*.jsonl", recursive=True) if "/completions/" not in f.replace("\\", "/")]
+if a.shard:
+    files = [f for f in files if f"_{a.shard}.jsonl" in f]
 if not files:
-    print(f"[summary] ERROR no result jsonl for {a.data} under {a.run_dir}"); sys.exit(4)
+    print(f"[summary] ERROR no result jsonl for {a.data} shard='{a.shard}' under {a.run_dir}"); sys.exit(4)
 res = files[0]
 rows = [json.loads(l) for l in open(res, encoding="utf-8")]
 nq = len(rows)
@@ -32,7 +37,7 @@ acc = p1 = float("nan")
 if rows and all("answers_correctness" in r for r in rows):
     acc = sum(1 for r in rows if any(r["answers_correctness"])) / nq
     p1 = sum(sum(bool(x) for x in r["answers_correctness"]) / len(r["answers_correctness"]) for r in rows) / nq
-log = f"{a.run_dir}/log_{a.data}.txt"
+log = f"{a.run_dir}/log_{key}.txt"
 if os.path.isfile(log):
     txt = open(log, encoding="utf-8", errors="replace").read()
     m = re.findall(r"^Acc:\s*([0-9.]+)", txt, re.M)
@@ -42,6 +47,8 @@ if os.path.isfile(log):
 # generation lengths and finish reasons from the saved vLLM completions (pickles, one per generation round)
 lens, capped, total = [], 0, 0
 for pk in sorted(glob.glob(f"{a.run_dir}/completions/**/{a.data}/*.pkl", recursive=True)):
+    if a.shard and f"_{a.shard}_" not in os.path.basename(pk):
+        continue
     try:
         comps = pickle.load(open(pk, "rb"))
     except Exception as e:  # noqa
@@ -61,5 +68,5 @@ path = f"{a.run_dir}/summary.tsv"
 new = not os.path.isfile(path)
 with open(path, "a") as f:
     if new: f.write(hdr)
-    f.write(f"{a.data}\t{nq}\t{','.join(map(str, per_q))}\t{acc:.4f}\t{p1:.4f}\t{mean:.0f}\t{p95}\t{frac:.3f}\t{a.elapsed}\t{ok}\n")
+    f.write(f"{key}\t{nq}\t{','.join(map(str, per_q))}\t{acc:.4f}\t{p1:.4f}\t{mean:.0f}\t{p95}\t{frac:.3f}\t{a.elapsed}\t{ok}\n")
 sys.exit(0 if ok else 5)

@@ -14,7 +14,7 @@ Macro average ("leaderboard-style") = mean over the 6 locally available leaderbo
 by the course leaderboard definition. Paired bootstrap resamples question ids within each benchmark (keeping each
 question's 8 samples together) and recomputes the difference between runs; CI = 2.5/97.5 percentiles.
 """
-import argparse, glob, json, os, random, statistics, sys
+import argparse, glob, json, os, random, re, statistics, sys
 
 LEADER = ["cn_math_2024", "kaoyan", "amc", "minerva", "olympiadbench", "gpqa"]
 ALL = ["aime", "math", "cn_math_2024", "kaoyan", "amc", "minerva", "olympiadbench", "gpqa"]
@@ -29,12 +29,24 @@ a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 runs = dict(r.split("=", 1) for r in a.runs)
 
+SIZES = {"aime": 30, "amc": 40, "cn_math_2024": 30, "gpqa": 198, "kaoyan": 199, "math": 500, "minerva": 272, "olympiadbench": 675}
+
 def load(run_id, bench):
+    """Concatenate all result files of a benchmark (a full run or several index shards), dedupe by question id."""
     files = [f for f in glob.glob(f"{a.root}/{run_id}/**/{bench}/test_*.jsonl", recursive=True) if "/completions/" not in f.replace("\\", "/")]
     if not files:
         return None
-    rows = [json.loads(l) for l in open(files[0], encoding="utf-8")]
-    rows.sort(key=lambda r: r.get("id", 0))
+    # question key = shard start index + line position (records of some benchmarks carry no `id` field)
+    byid = {}
+    for f in sorted(files):
+        m = re.search(r"_s(\d+)_e(-?\d+)\.jsonl$", os.path.basename(f))
+        start = int(m.group(1)) if m else 0
+        for i, l in enumerate(open(f, encoding="utf-8")):
+            r = json.loads(l)
+            byid.setdefault(start + i, r)
+    rows = [byid[k] for k in sorted(byid)]
+    if len(rows) != SIZES.get(bench, len(rows)):
+        print(f"WARNING {run_id}/{bench}: {len(rows)} questions found, expected {SIZES.get(bench)} ({len(files)} files)", file=sys.stderr)
     return [[bool(x) for x in r["answers_correctness"]] for r in rows]
 
 def p1(c):  return statistics.mean(statistics.mean(q) for q in c)
