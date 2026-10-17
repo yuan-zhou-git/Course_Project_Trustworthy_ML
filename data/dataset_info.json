@@ -10,5 +10,13 @@
   "rsft_pilot400": {
     "file_name": "pilot400.json",
     "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+  },
+  "rsft_probe2k": {
+    "file_name": "probe2k.json",
+    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+  },
+  "rsft_lp15k": {
+    "file_name": "lp15k.json",
+    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
   }
 }

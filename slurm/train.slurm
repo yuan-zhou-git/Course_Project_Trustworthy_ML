@@ -45,6 +45,11 @@ echo "=== job $SLURM_JOB_ID run=$RUN config=$CONFIG"; date; hostname
 nvidia-smi --query-gpu=index,name,memory.total --format=csv
 echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-unset}  cpus=$SLURM_CPUS_PER_TASK"
 
+# optional: wait (bounded) for a data file produced by a job on another cluster, so this job can be queued early
+if [ -n "${WAIT_FOR:-}" ]; then
+  W=0; while [ ! -s "$WAIT_FOR" ]; do [ $W -ge ${WAIT_MAX_MIN:-360} ] && { echo "WAIT_FOR $WAIT_FOR not present after $W min; exiting 4"; exit 4; }; sleep 60; W=$((W+1)); done
+  echo "WAIT_FOR satisfied after $W min: $WAIT_FOR"; sleep 30
+fi
 # fast IO: training data on scratch, checkpoints on scratch
 mkdir -p $S/data $S/ckpt/$RUN; touch $S/ckpt/$RUN/.keep
 rsync -a $P/data/selections/ $S/data/
@@ -55,7 +60,15 @@ cp $P/envs/train_env_freeze.txt $S/ckpt/$RUN/
 NGPU=$(nvidia-smi --query-gpu=index --format=csv,noheader | wc -l)
 GA=$(( 8 / NGPU )); [ $GA -lt 1 ] && GA=1
 sed -E "s/^gradient_accumulation_steps: .*/gradient_accumulation_steps: $GA/" $P/code/$CONFIG > $S/ckpt/$RUN/config_used.yaml
-echo "NGPU=$NGPU grad_accum=$GA"; grep -E "gradient_accumulation|per_device_train|deepspeed|cutoff_len|num_train_epochs|max_steps" $S/ckpt/$RUN/config_used.yaml
+# resume-from-latest: if this run already has checkpoints (e.g. requeued after preemption), continue from the newest one
+LATEST=$( (ls -d $S/ckpt/$RUN/checkpoint-* 2>/dev/null || true) | sed -E 's/.*checkpoint-//' | sort -n | tail -1 )
+if [ -n "$LATEST" ] && [ -f $S/ckpt/$RUN/checkpoint-$LATEST/trainer_state.json ]; then
+  echo "resuming from own checkpoint-$LATEST"
+  grep -q '^resume_from_checkpoint:' $S/ckpt/$RUN/config_used.yaml \
+    && sed -i -E "s#^resume_from_checkpoint: .*#resume_from_checkpoint: $S/ckpt/$RUN/checkpoint-$LATEST#" $S/ckpt/$RUN/config_used.yaml \
+    || echo "resume_from_checkpoint: $S/ckpt/$RUN/checkpoint-$LATEST" >> $S/ckpt/$RUN/config_used.yaml
+fi
+echo "NGPU=$NGPU grad_accum=$GA"; grep -E "gradient_accumulation|per_device_train|deepspeed|cutoff_len|num_train_epochs|max_steps|resume_from|save_st" $S/ckpt/$RUN/config_used.yaml
 export NNODES=1 NODE_RANK=0 NPROC_PER_NODE=$NGPU MASTER_ADDR=127.0.0.1 MASTER_PORT=$((20000 + SLURM_JOB_ID % 20000))
 cd $P/code/LLaMA-Factory
 START=$(date +%s)
