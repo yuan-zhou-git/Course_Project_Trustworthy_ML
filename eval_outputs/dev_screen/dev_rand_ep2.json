@@ -1,0 +1,4017 @@
+{
+ "summary": {
+  "label": "rand_ep2",
+  "model": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/random15k/checkpoint-3750",
+  "questions": 200,
+  "n": 2,
+  "acc_per_sample": 0.2125,
+  "pass_at_n": 0.34,
+  "frac_capped": 0.32,
+  "mean_tokens": 17643.5825,
+  "p95_tokens": 32704,
+  "gen_seconds": 8483.868069887161,
+  "seed": 0
+ },
+ "rows": [
+  {
+   "pos": 195,
+   "answer": "3",
+   "preds": [
+    "",
+    "3"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32710,
+    3270
+   ]
+  },
+  {
+   "pos": 264,
+   "answer": "(0, -4)",
+   "preds": [
+    "\\text{No solution}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8024,
+    32711
+   ]
+  },
+  {
+   "pos": 871,
+   "answer": "-3",
+   "preds": [
+    "(-4, -2)",
+    "\\emptyset"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9200,
+    14909
+   ]
+  },
+  {
+   "pos": 1089,
+   "answer": "1",
+   "preds": [
+    "0",
+    "\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12229,
+    12669
+   ]
+  },
+  {
+   "pos": 1461,
+   "answer": "\\frac{11 - \\sqrt{13}}{2}",
+   "preds": [
+    "\\text{No solution}",
+    "9"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12259,
+    30585
+   ]
+  },
+  {
+   "pos": 1727,
+   "answer": "-32",
+   "preds": [
+    "-32",
+    "-32"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    649,
+    717
+   ]
+  },
+  {
+   "pos": 2401,
+   "answer": "-\\sqrt{2}",
+   "preds": [
+    "-\\frac{\\sqrt{3}}{6} + \\frac{\\sqrt{2}}{5}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    22223,
+    25325
+   ]
+  },
+  {
+   "pos": 2683,
+   "answer": "1",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32679,
+    32679
+   ]
+  },
+  {
+   "pos": 3795,
+   "answer": "3",
+   "preds": [
+    "",
+    "16"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32675,
+    32675
+   ]
+  },
+  {
+   "pos": 5076,
+   "answer": "\\frac{2 \\sqrt{p}}{e \\ln p}",
+   "preds": [
+    "\\frac{2}{\\sqrt{p} \\ln p}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17753,
+    8120
+   ]
+  },
+  {
+   "pos": 5129,
+   "answer": "90^\\circ \\text{ and } 90^\\circ",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4692,
+    1575
+   ]
+  },
+  {
+   "pos": 5484,
+   "answer": "6",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32709,
+    32709
+   ]
+  },
+  {
+   "pos": 5916,
+   "answer": "f(x) = x + c",
+   "preds": [
+    "",
+    "f(x) = x"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32703,
+    4904
+   ]
+  },
+  {
+   "pos": 6359,
+   "answer": "(0, 0)",
+   "preds": [
+    "m = 0",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    5237,
+    32707
+   ]
+  },
+  {
+   "pos": 7136,
+   "answer": "20",
+   "preds": [
+    "30",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9696,
+    10799
+   ]
+  },
+  {
+   "pos": 7833,
+   "answer": "35",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32604,
+    32604
+   ]
+  },
+  {
+   "pos": 8520,
+   "answer": "\\sum_{k=1}^n \\frac{(-1)^{k-1} x^k}{k^2}",
+   "preds": [
+    "\\ln(1+x)",
+    "\\sum_{k=1}^{n} \\frac{(-1)^{k+1}}{k^2} x^k"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12433,
+    8016
+   ]
+  },
+  {
+   "pos": 9881,
+   "answer": "1",
+   "preds": [
+    "10",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10475,
+    13997
+   ]
+  },
+  {
+   "pos": 10110,
+   "answer": "\\dfrac{9}{7}",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    6975,
+    32694
+   ]
+  },
+  {
+   "pos": 10720,
+   "answer": "9",
+   "preds": [
+    "9",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    9618,
+    32621
+   ]
+  },
+  {
+   "pos": 11283,
+   "answer": "25",
+   "preds": [
+    "25",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    13031,
+    32700
+   ]
+  },
+  {
+   "pos": 13244,
+   "answer": "r^2 = 2c^2 \\sin(2\\theta)",
+   "preds": [
+    "r = \\dfrac{2}{1 + 2 \\cos\\theta}",
+    "x = 0 \\text{ and } y = 0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11037,
+    17851
+   ]
+  },
+  {
+   "pos": 14235,
+   "answer": "135",
+   "preds": [
+    "16",
+    "48"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32677,
+    20462
+   ]
+  },
+  {
+   "pos": 15411,
+   "answer": "(-1, 1)",
+   "preds": [
+    "(-1, 1)",
+    "(-1, 1)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5556,
+    6675
+   ]
+  },
+  {
+   "pos": 15489,
+   "answer": "2",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9678,
+    2390
+   ]
+  },
+  {
+   "pos": 15517,
+   "answer": "1",
+   "preds": [
+    "1",
+    "\\frac{1}{2}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19648,
+    18144
+   ]
+  },
+  {
+   "pos": 16184,
+   "answer": "3",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32671,
+    19083
+   ]
+  },
+  {
+   "pos": 16897,
+   "answer": "1 \\text{ and } 2",
+   "preds": [
+    "a=1, 2, 4, 5, 7, 10",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    18522,
+    32557
+   ]
+  },
+  {
+   "pos": 17468,
+   "answer": "7",
+   "preds": [
+    "0",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    5954,
+    32696
+   ]
+  },
+  {
+   "pos": 17487,
+   "answer": "4",
+   "preds": [
+    "1",
+    "17"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11095,
+    11960
+   ]
+  },
+  {
+   "pos": 17518,
+   "answer": "9",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32697,
+    32697
+   ]
+  },
+  {
+   "pos": 17901,
+   "answer": "100",
+   "preds": [
+    "200",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    22887,
+    32585
+   ]
+  },
+  {
+   "pos": 17944,
+   "answer": "Yes",
+   "preds": [
+    "a) \\text{No}, \\quad b) \\text{Yes}",
+    "\\text{No}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8149,
+    13219
+   ]
+  },
+  {
+   "pos": 19797,
+   "answer": "23",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6456,
+    5360
+   ]
+  },
+  {
+   "pos": 20328,
+   "answer": "(-4, 3, 3)",
+   "preds": [
+    "(-4, 3, 3)",
+    "(-4, 3, 3)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1594,
+    3709
+   ]
+  },
+  {
+   "pos": 20859,
+   "answer": "-\\frac{4}{3}",
+   "preds": [
+    "-\\frac{1}{3}",
+    "-\\dfrac{14}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3912,
+    3160
+   ]
+  },
+  {
+   "pos": 20899,
+   "answer": "\\dfrac{5+\\sqrt{13}}{2}",
+   "preds": [
+    "\\sqrt{3} + 1",
+    "6"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21399,
+    19398
+   ]
+  },
+  {
+   "pos": 20987,
+   "answer": "1827",
+   "preds": [
+    "1250 - 625\\pi",
+    "100\\pi - 10000"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21124,
+    26798
+   ]
+  },
+  {
+   "pos": 21364,
+   "answer": "\\frac{1}{m - n + 1} I",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32697,
+    32697
+   ]
+  },
+  {
+   "pos": 21669,
+   "answer": "8",
+   "preds": [
+    "-4",
+    "8"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21444,
+    4338
+   ]
+  },
+  {
+   "pos": 22180,
+   "answer": "222",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32656,
+    32656
+   ]
+  },
+  {
+   "pos": 22977,
+   "answer": "\\dfrac{35}{16} - \\dfrac{1535}{16 \\cdot 5^{25}}",
+   "preds": [
+    "",
+    "17 \\cdot 5^{23} + 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32681,
+    14983
+   ]
+  },
+  {
+   "pos": 23100,
+   "answer": "125",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32668,
+    32668
+   ]
+  },
+  {
+   "pos": 23892,
+   "answer": "1800",
+   "preds": [
+    "1800",
+    "3600"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5359,
+    5547
+   ]
+  },
+  {
+   "pos": 23925,
+   "answer": "-1 + 2\\sqrt{3}",
+   "preds": [
+    "-1 + 2\\sqrt{3}",
+    "2\\sqrt{3} - 1"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3163,
+    2586
+   ]
+  },
+  {
+   "pos": 24037,
+   "answer": "2",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2623,
+    6664
+   ]
+  },
+  {
+   "pos": 24806,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "Yes",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    3967,
+    32697
+   ]
+  },
+  {
+   "pos": 24810,
+   "answer": "4",
+   "preds": [
+    "4",
+    "4"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1131,
+    1152
+   ]
+  },
+  {
+   "pos": 24972,
+   "answer": "0.417",
+   "preds": [
+    "",
+    "0.00002345"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32615,
+    27181
+   ]
+  },
+  {
+   "pos": 26257,
+   "answer": "\\emptyset",
+   "preds": [
+    "\\left( -\\infty, -\\frac{2\\sqrt{5}}{5} \\right] \\cup \\left[ \\frac{2\\sqrt{5}}{5}, \\infty \\right)",
+    "(-\\infty, 0] \\cup [2, \\infty)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4766,
+    5507
+   ]
+  },
+  {
+   "pos": 26312,
+   "answer": "\\frac{1}{3}",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32654,
+    32654
+   ]
+  },
+  {
+   "pos": 26391,
+   "answer": "2",
+   "preds": [
+    "\\frac{4}{3}",
+    "\\frac{4}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11961,
+    14602
+   ]
+  },
+  {
+   "pos": 27254,
+   "answer": "0",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32653,
+    32653
+   ]
+  },
+  {
+   "pos": 27301,
+   "answer": "0",
+   "preds": [
+    "",
+    "\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32671,
+    11813
+   ]
+  },
+  {
+   "pos": 27560,
+   "answer": "25",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3994,
+    8475
+   ]
+  },
+  {
+   "pos": 27744,
+   "answer": "(6, 3)",
+   "preds": [
+    "(6, 3)",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    17086,
+    32699
+   ]
+  },
+  {
+   "pos": 28327,
+   "answer": "\\frac{\\pi}{2} - \\ln 2",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32614,
+    32614
+   ]
+  },
+  {
+   "pos": 28373,
+   "answer": "60^\\circ",
+   "preds": [
+    "60^\\circ",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    20668,
+    32661
+   ]
+  },
+  {
+   "pos": 28578,
+   "answer": "2\\sqrt{2}",
+   "preds": [
+    "6",
+    "3\\sqrt{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17488,
+    15205
+   ]
+  },
+  {
+   "pos": 29631,
+   "answer": "12",
+   "preds": [
+    "12",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    1870,
+    32711
+   ]
+  },
+  {
+   "pos": 29680,
+   "answer": "\\frac{15\\sqrt{481}}{37}",
+   "preds": [
+    "13",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    23003,
+    32634
+   ]
+  },
+  {
+   "pos": 30356,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17516,
+    19039
+   ]
+  },
+  {
+   "pos": 30362,
+   "answer": "Kati",
+   "preds": [
+    "Kati",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    17432,
+    32694
+   ]
+  },
+  {
+   "pos": 30470,
+   "answer": "(-1, 1]",
+   "preds": [
+    "\\dfrac{1}{2}",
+    "-\\frac{\\sqrt{2}}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13325,
+    5427
+   ]
+  },
+  {
+   "pos": 30923,
+   "answer": "9",
+   "preds": [
+    "305",
+    "9"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11285,
+    3229
+   ]
+  },
+  {
+   "pos": 31336,
+   "answer": "3",
+   "preds": [
+    "0",
+    "\\dfrac{1}{243}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4236,
+    6149
+   ]
+  },
+  {
+   "pos": 31579,
+   "answer": "1383",
+   "preds": [
+    "19999",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    31431,
+    32713
+   ]
+  },
+  {
+   "pos": 31893,
+   "answer": "\\Delta ABC",
+   "preds": [
+    "\\text{Construct } \\Delta{ABC} \\text{ with side } a, \\text{ difference } c - b = d, \\text{ and difference in heights } h_b - h_c = e \\text{ using straight edge and compass.}",
+    "\\text{Construct side } a \\text{ of length } n, then construct sides "
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12395,
+    13154
+   ]
+  },
+  {
+   "pos": 32909,
+   "answer": "\\ln \\left| \\frac{x + \\sin x}{x + \\cos x} \\right| + C",
+   "preds": [
+    "\\ln \\left| x + \\cos x \\right| + \\ln \\left| x + \\sin x \\right| - \\ln \\left| x \\right| + C",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14893,
+    32704
+   ]
+  },
+  {
+   "pos": 33012,
+   "answer": "19846",
+   "preds": [
+    "19837",
+    "19550"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8870,
+    13111
+   ]
+  },
+  {
+   "pos": 33678,
+   "answer": "Hodge Conjecture",
+   "preds": [
+    "\\text{Riemann Hypothesis}",
+    "P\\text{ vs }NP"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    728,
+    4787
+   ]
+  },
+  {
+   "pos": 34319,
+   "answer": "13",
+   "preds": [
+    "7",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    4713,
+    32685
+   ]
+  },
+  {
+   "pos": 34336,
+   "answer": "100",
+   "preds": [
+    "100",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    23708,
+    32578
+   ]
+  },
+  {
+   "pos": 34929,
+   "answer": "Russia",
+   "preds": [
+    "Palestine",
+    "Russia"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3127,
+    6013
+   ]
+  },
+  {
+   "pos": 35234,
+   "answer": "x^2 - x - 1",
+   "preds": [
+    "x^2 + 1",
+    "x - 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7506,
+    5688
+   ]
+  },
+  {
+   "pos": 35317,
+   "answer": "16",
+   "preds": [
+    "32",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    2498,
+    32708
+   ]
+  },
+  {
+   "pos": 35693,
+   "answer": "20",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32692,
+    32692
+   ]
+  },
+  {
+   "pos": 36215,
+   "answer": "-\\dfrac{2007}{4018}",
+   "preds": [
+    "\\dfrac{1}{2}",
+    "-\\frac{1}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16205,
+    21120
+   ]
+  },
+  {
+   "pos": 36393,
+   "answer": "50",
+   "preds": [
+    "100",
+    "50"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5900,
+    5876
+   ]
+  },
+  {
+   "pos": 37548,
+   "answer": "12",
+   "preds": [
+    "12",
+    "144"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10867,
+    23983
+   ]
+  },
+  {
+   "pos": 38354,
+   "answer": "2",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32626,
+    5876
+   ]
+  },
+  {
+   "pos": 38591,
+   "answer": "\\frac{(n+1)^{(n+1)/2}}{2^n}",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    6375,
+    32685
+   ]
+  },
+  {
+   "pos": 40063,
+   "answer": "30",
+   "preds": [
+    "54^\\circ",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    13410,
+    32654
+   ]
+  },
+  {
+   "pos": 40370,
+   "answer": "2^{n-1} - 1",
+   "preds": [
+    "",
+    "2^{n-2} - 2^{n-3} + 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32684,
+    14789
+   ]
+  },
+  {
+   "pos": 40376,
+   "answer": "\\log_{a+1}(b+1)",
+   "preds": [
+    "\\log_a b",
+    "\\log_{a+1}(b+1)"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7091,
+    7512
+   ]
+  },
+  {
+   "pos": 41129,
+   "answer": "S",
+   "preds": [
+    "\\dfrac{S}{2}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    19214,
+    32614
+   ]
+  },
+  {
+   "pos": 43651,
+   "answer": "8",
+   "preds": [
+    "17",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23138,
+    6533
+   ]
+  },
+  {
+   "pos": 44608,
+   "answer": "n > 1",
+   "preds": [
+    "n \\text{ is a prime}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    5811,
+    32633
+   ]
+  },
+  {
+   "pos": 44874,
+   "answer": "1024",
+   "preds": [
+    "",
+    "\\{1024\\}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32707,
+    13247
+   ]
+  },
+  {
+   "pos": 45484,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7514,
+    9313
+   ]
+  },
+  {
+   "pos": 47838,
+   "answer": "f(n) = n",
+   "preds": [
+    "",
+    "f(n) = n"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32651,
+    6977
+   ]
+  },
+  {
+   "pos": 47928,
+   "answer": "1",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    18096,
+    32654
+   ]
+  },
+  {
+   "pos": 48191,
+   "answer": "\\frac{1}{105}",
+   "preds": [
+    "\\dfrac{1}{280}",
+    "\\dfrac{1}{630}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4048,
+    11732
+   ]
+  },
+  {
+   "pos": 49451,
+   "answer": "34.96",
+   "preds": [
+    "34.96",
+    "34.96"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1112,
+    2624
+   ]
+  },
+  {
+   "pos": 50009,
+   "answer": "\\dfrac{a - b}{c - d}",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10659,
+    32629
+   ]
+  },
+  {
+   "pos": 50097,
+   "answer": "120",
+   "preds": [
+    "60",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10795,
+    32648
+   ]
+  },
+  {
+   "pos": 50232,
+   "answer": "2.87",
+   "preds": [
+    "5 \\text{Si}(\\pi)",
+    "\\frac{2}{\\pi} \\arcsin\\left( \\frac{1}{5} \\right)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16262,
+    7688
+   ]
+  },
+  {
+   "pos": 50314,
+   "answer": "(90^\\circ, 180^\\circ)",
+   "preds": [
+    "",
+    "(60^\\circ, 180^\\circ)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32709,
+    17298
+   ]
+  },
+  {
+   "pos": 50333,
+   "answer": "89",
+   "preds": [
+    "1024",
+    "3628800"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6691,
+    6029
+   ]
+  },
+  {
+   "pos": 50352,
+   "answer": "35.5",
+   "preds": [
+    "",
+    "78"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32629,
+    12792
+   ]
+  },
+  {
+   "pos": 50602,
+   "answer": "21",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32658,
+    32658
+   ]
+  },
+  {
+   "pos": 51504,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{None}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5956,
+    2659
+   ]
+  },
+  {
+   "pos": 51524,
+   "answer": "3",
+   "preds": [
+    "3",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8198,
+    32707
+   ]
+  },
+  {
+   "pos": 51866,
+   "answer": "101",
+   "preds": [
+    "0",
+    "100"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11517,
+    9890
+   ]
+  },
+  {
+   "pos": 52209,
+   "answer": "2",
+   "preds": [
+    "0",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4885,
+    18028
+   ]
+  },
+  {
+   "pos": 52553,
+   "answer": "\\infty",
+   "preds": [
+    "0",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    11787,
+    32715
+   ]
+  },
+  {
+   "pos": 53923,
+   "answer": "First player",
+   "preds": [
+    "\\text{First Player}",
+    "second"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3596,
+    4001
+   ]
+  },
+  {
+   "pos": 54199,
+   "answer": "2:1",
+   "preds": [
+    "\\dfrac{4}{3}",
+    "1 + \\sqrt{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17280,
+    15851
+   ]
+  },
+  {
+   "pos": 54800,
+   "answer": "0",
+   "preds": [
+    "-\\frac{1}{4}",
+    "-\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9772,
+    7908
+   ]
+  },
+  {
+   "pos": 54995,
+   "answer": "0",
+   "preds": [
+    "\\text{No solution}",
+    "0"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10981,
+    12211
+   ]
+  },
+  {
+   "pos": 55423,
+   "answer": "28",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32696,
+    32696
+   ]
+  },
+  {
+   "pos": 56729,
+   "answer": "2^{2006}",
+   "preds": [
+    "2^{2006}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10519,
+    32671
+   ]
+  },
+  {
+   "pos": 56836,
+   "answer": "\\dfrac{4\\sqrt{2}}{3}",
+   "preds": [
+    "2",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11853,
+    15098
+   ]
+  },
+  {
+   "pos": 57084,
+   "answer": "a^{4} + b^{4} + c^{4} \\geqslant 16 S^{2}",
+   "preds": [
+    "",
+    "a^4 + b^4 + c^4 \\geq 16 S^2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32470,
+    23237
+   ]
+  },
+  {
+   "pos": 57132,
+   "answer": "\\dfrac{e^{4} - e^{-4}}{4}",
+   "preds": [
+    "\\frac{9}{8} - \\frac{1}{8e^8}",
+    "\\dfrac{e^4 - e^{-4}}{4}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8572,
+    12565
+   ]
+  },
+  {
+   "pos": 57336,
+   "answer": "\\frac{12 + 2\\sqrt{3}}{3}",
+   "preds": [
+    "\\sqrt{3}",
+    "\\frac{4\\sqrt{3} + 3\\sqrt{2}}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13036,
+    13791
+   ]
+  },
+  {
+   "pos": 57394,
+   "answer": "0",
+   "preds": [
+    "",
+    "\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32613,
+    12212
+   ]
+  },
+  {
+   "pos": 57761,
+   "answer": "\\frac{3}{8} \\ln\\left(\\frac{e+1}{2}\\right)",
+   "preds": [
+    "\\frac{3}{8 \\ln\\left(\\frac{e + 1}{2}\\right)}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8067,
+    2837
+   ]
+  },
+  {
+   "pos": 59009,
+   "answer": "93",
+   "preds": [
+    "21",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14293,
+    32671
+   ]
+  },
+  {
+   "pos": 59036,
+   "answer": "1",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32695,
+    32695
+   ]
+  },
+  {
+   "pos": 59223,
+   "answer": "\\frac{1}{2}",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32704,
+    32704
+   ]
+  },
+  {
+   "pos": 59477,
+   "answer": "90^\\circ",
+   "preds": [
+    "45^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14610,
+    17345
+   ]
+  },
+  {
+   "pos": 59957,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13798,
+    6733
+   ]
+  },
+  {
+   "pos": 60089,
+   "answer": "\\frac{\\pi}{4}",
+   "preds": [
+    "\\frac{1}{3}",
+    "\\frac{\\pi}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12187,
+    10933
+   ]
+  },
+  {
+   "pos": 60445,
+   "answer": "13",
+   "preds": [
+    "25",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    4177,
+    32688
+   ]
+  },
+  {
+   "pos": 60581,
+   "answer": "0",
+   "preds": [
+    "answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I think the correct answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I'm not sure. Given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I think the correct answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I'm not sure. Given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I'm not sure. Given that I've spent a lot of time on this and I can't find a clear pattern, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given that this is a math competition-style problem, the answer is likely to be expressed using the formula for the number of integer compositions with distinct parts.But I'm not sure. Given that I can't find a clear pattern and the problem is likely expecting an answer in terms of the number of divisors or some other combinatorial function, but I can't recall the exact formula, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of x^R. However, since the problem requires a numerical answer, and given the time I've spent and the complexity, I think the answer is that the number of solutions is equal to the number of ways to choose a subset of distinct numbers and arrange them to sum to R, which is the same as the number of integer compositions with distinct parts. This number can be calculated using the generating function (1 + x)(1 + x^2)...(1 + x^k) and finding the coefficient of",
+    "\\begin{cases} 1 & \\text{if } k = 1 \\text{ and } R = 1, \\\\\\frac{R - 1}{2} & \\text{if } k \\geq 2 \\text{ and } R \\text{ is odd}, \\\\0 & \\text{otherwise}.\\end{cases}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32627,
+    15482
+   ]
+  },
+  {
+   "pos": 61272,
+   "answer": "-1",
+   "preds": [
+    "-1",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    9184,
+    32601
+   ]
+  },
+  {
+   "pos": 61774,
+   "answer": "14",
+   "preds": [
+    "14",
+    "28"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9192,
+    14491
+   ]
+  },
+  {
+   "pos": 62213,
+   "answer": "y = 4 - x^2",
+   "preds": [
+    "\\text{The graph of } y = f(|x|) \\text{ is the same as the graph of } f(x) = 4 - x^2",
+    "y = f(|x|) \\text{ is symmetric about the y-axis and the graph is a downward-opening parabola with vertex at } (0, 4)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4189,
+    2084
+   ]
+  },
+  {
+   "pos": 63566,
+   "answer": "120",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32687,
+    32687
+   ]
+  },
+  {
+   "pos": 64138,
+   "answer": "1716",
+   "preds": [
+    "20160",
+    "28"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3702,
+    517
+   ]
+  },
+  {
+   "pos": 64364,
+   "answer": "(0, \\log_2 \\frac{4}{3}) \\cup (1, \\infty)",
+   "preds": [
+    "\\left(0, 1\\right) \\cup \\left(1, \\infty\\right)",
+    "(-\\infty, 0) \\cup (1, \\infty)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16674,
+    15983
+   ]
+  },
+  {
+   "pos": 65270,
+   "answer": "k \\text{ is prime}",
+   "preds": [
+    "",
+    "\\text{All natural numbers } k \\geq 2 \\text{ that are not perfect squares}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32634,
+    27826
+   ]
+  },
+  {
+   "pos": 66431,
+   "answer": "\\frac{9}{13}",
+   "preds": [
+    "\\frac{3}{20}",
+    "\\frac{2}{5}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21273,
+    6224
+   ]
+  },
+  {
+   "pos": 66985,
+   "answer": "787",
+   "preds": [
+    "4608",
+    "4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10509,
+    32679
+   ]
+  },
+  {
+   "pos": 67275,
+   "answer": "9",
+   "preds": [
+    "3",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13267,
+    3747
+   ]
+  },
+  {
+   "pos": 67364,
+   "answer": "f(x) = x",
+   "preds": [
+    "f(x) = x",
+    "f(x) = x"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32665,
+    9597
+   ]
+  },
+  {
+   "pos": 67475,
+   "answer": "\\frac{4}{3}",
+   "preds": [
+    "\\dfrac{1}{4}",
+    "\\frac{1}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20007,
+    26392
+   ]
+  },
+  {
+   "pos": 68163,
+   "answer": "Yes",
+   "preds": [
+    "\\text{No}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    13561,
+    32671
+   ]
+  },
+  {
+   "pos": 68490,
+   "answer": "2712927485",
+   "preds": [
+    "",
+    "36893601"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32650,
+    17355
+   ]
+  },
+  {
+   "pos": 68737,
+   "answer": "256",
+   "preds": [
+    "20520",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8412,
+    32694
+   ]
+  },
+  {
+   "pos": 68865,
+   "answer": "X^2 + 3X + 3 = 0",
+   "preds": [
+    "X^2 + 3X + 3 = 0",
+    "X^2 + 3X + 3 = 0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    941,
+    2876
+   ]
+  },
+  {
+   "pos": 68894,
+   "answer": "30^\\circ",
+   "preds": [
+    "20^\\circ",
+    "30^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4869,
+    11861
+   ]
+  },
+  {
+   "pos": 69523,
+   "answer": "595",
+   "preds": [
+    "\\text{No solution}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    15596,
+    32691
+   ]
+  },
+  {
+   "pos": 70215,
+   "answer": "f(x) = ax + bx^3",
+   "preds": [
+    "0",
+    "f(x) = ax"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3255,
+    8624
+   ]
+  },
+  {
+   "pos": 70759,
+   "answer": "\\sqrt{2}",
+   "preds": [
+    "\\sqrt{2}",
+    "2\\sqrt{2}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5386,
+    6702
+   ]
+  },
+  {
+   "pos": 71971,
+   "answer": "35",
+   "preds": [
+    "15",
+    "10"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13353,
+    7431
+   ]
+  },
+  {
+   "pos": 72136,
+   "answer": "Yes",
+   "preds": [
+    "Yes",
+    "\\text{No}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10559,
+    4182
+   ]
+  },
+  {
+   "pos": 72371,
+   "answer": "a \\text{ is a perfect square}",
+   "preds": [
+    "a \\text{ is a perfect square}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    4434,
+    32695
+   ]
+  },
+  {
+   "pos": 73464,
+   "answer": "2^{3997}",
+   "preds": [
+    "2^{1998}",
+    "2^{1998}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2105,
+    4736
+   ]
+  },
+  {
+   "pos": 73952,
+   "answer": "380160",
+   "preds": [
+    "7200",
+    "330"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13352,
+    10672
+   ]
+  },
+  {
+   "pos": 74001,
+   "answer": "3",
+   "preds": [
+    "4",
+    "3"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4409,
+    2435
+   ]
+  },
+  {
+   "pos": 74538,
+   "answer": "y = \\dfrac{2\\sqrt{5}}{5}x + \\dfrac{4\\sqrt{5}}{5}",
+   "preds": [
+    "y = \\dfrac{2}{3}x",
+    "y = \\frac{2}{\\sqrt{5}}x + \\frac{4\\sqrt{5}}{5}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13138,
+    23504
+   ]
+  },
+  {
+   "pos": 74987,
+   "answer": "6",
+   "preds": [
+    "6",
+    "6"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    715,
+    611
+   ]
+  },
+  {
+   "pos": 75117,
+   "answer": "\\frac{16\\sqrt{13}}{65}",
+   "preds": [
+    "",
+    "\\dfrac{\\sqrt{65}}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32609,
+    32609
+   ]
+  },
+  {
+   "pos": 75235,
+   "answer": "2240",
+   "preds": [
+    "70",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    20454,
+    32697
+   ]
+  },
+  {
+   "pos": 75389,
+   "answer": "3",
+   "preds": [
+    "3",
+    "1"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32552,
+    10682
+   ]
+  },
+  {
+   "pos": 77209,
+   "answer": "90^\\circ",
+   "preds": [
+    "",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32598,
+    20325
+   ]
+  },
+  {
+   "pos": 77419,
+   "answer": "385",
+   "preds": [
+    "515",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    3648,
+    32712
+   ]
+  },
+  {
+   "pos": 77560,
+   "answer": "22",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32617,
+    32617
+   ]
+  },
+  {
+   "pos": 78166,
+   "answer": "\\text{No solution}",
+   "preds": [
+    "",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32699,
+    10916
+   ]
+  },
+  {
+   "pos": 79084,
+   "answer": "658640",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32661,
+    32661
+   ]
+  },
+  {
+   "pos": 80997,
+   "answer": "30",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32598,
+    32598
+   ]
+  },
+  {
+   "pos": 83966,
+   "answer": "\\frac{20\\sqrt{3}}{3}",
+   "preds": [
+    "\\frac{20\\sqrt{3}}{3}",
+    "10\\sqrt{3}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5714,
+    13461
+   ]
+  },
+  {
+   "pos": 84312,
+   "answer": "6(\\sqrt{3} + 1)",
+   "preds": [
+    "12",
+    "12"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3649,
+    7498
+   ]
+  },
+  {
+   "pos": 84657,
+   "answer": "A",
+   "preds": [
+    "D",
+    "D"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6753,
+    3056
+   ]
+  },
+  {
+   "pos": 84659,
+   "answer": "\\frac{20}{3}",
+   "preds": [
+    "",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32712,
+    32712
+   ]
+  },
+  {
+   "pos": 85251,
+   "answer": "f(x) = \\frac{x(x^2 + 7)}{2(1 - x^2)}",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32678,
+    32678
+   ]
+  },
+  {
+   "pos": 85711,
+   "answer": "20",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32674,
+    32674
+   ]
+  },
+  {
+   "pos": 86035,
+   "answer": "24",
+   "preds": [
+    "24",
+    "24"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13206,
+    9962
+   ]
+  },
+  {
+   "pos": 86181,
+   "answer": "SB = SC",
+   "preds": [
+    "SA = SB",
+    "SA = SB"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4726,
+    1860
+   ]
+  },
+  {
+   "pos": 86530,
+   "answer": "5 + \\sqrt{2}",
+   "preds": [
+    "\\frac{\\sqrt{41} + \\sqrt{17} + 5 + \\sqrt{185}}{4}",
+    "\\dfrac{3 + \\sqrt{37}}{\\sqrt{2}}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4177,
+    10916
+   ]
+  },
+  {
+   "pos": 86823,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{No solutions}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10424,
+    22043
+   ]
+  },
+  {
+   "pos": 87153,
+   "answer": "1",
+   "preds": [
+    "0",
+    "1"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2526,
+    6745
+   ]
+  },
+  {
+   "pos": 87992,
+   "answer": "(x + 1)(3x - 5)^3(3x - 2)^3(x - 3)^3(x - 2)^3",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32307,
+    32307
+   ]
+  },
+  {
+   "pos": 88284,
+   "answer": "20",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32698,
+    32698
+   ]
+  },
+  {
+   "pos": 88439,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "Yes",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    2433,
+    32656
+   ]
+  },
+  {
+   "pos": 88445,
+   "answer": "A",
+   "preds": [
+    "",
+    "A"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32670,
+    9895
+   ]
+  },
+  {
+   "pos": 88499,
+   "answer": "60",
+   "preds": [
+    "\\frac{145}{6}",
+    "30"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15332,
+    19124
+   ]
+  },
+  {
+   "pos": 88599,
+   "answer": "y = \\frac{1}{2} \\cosh(2x)",
+   "preds": [
+    "y = a \\cosh\\left(\\frac{x}{a}\\right) + k",
+    "parabola"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21234,
+    14677
+   ]
+  },
+  {
+   "pos": 89031,
+   "answer": "2",
+   "preds": [
+    "18",
+    "2"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9583,
+    3825
+   ]
+  },
+  {
+   "pos": 89502,
+   "answer": "\\dfrac{3}{16}",
+   "preds": [
+    "",
+    "\\dfrac{3}{16}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32639,
+    11325
+   ]
+  },
+  {
+   "pos": 89980,
+   "answer": "18N(N - 1)",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32597,
+    32597
+   ]
+  },
+  {
+   "pos": 90047,
+   "answer": "180^\\circ",
+   "preds": [
+    "",
+    "180"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32655,
+    15897
+   ]
+  },
+  {
+   "pos": 90253,
+   "answer": "\\frac{25}{24}",
+   "preds": [
+    "9",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23961,
+    5347
+   ]
+  },
+  {
+   "pos": 90905,
+   "answer": "Second player",
+   "preds": [
+    "\\text{First player}",
+    "\\text{Second Player}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5494,
+    12169
+   ]
+  },
+  {
+   "pos": 91073,
+   "answer": "w_a = R\\sqrt{2} \\sin(2\\theta)",
+   "preds": [
+    "\\triangle ABC \\text{ is constructed with the given conditions.}",
+    "ABC"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14726,
+    14090
+   ]
+  },
+  {
+   "pos": 91749,
+   "answer": "888 + 88 + 8 + 8 + 8",
+   "preds": [
+    "",
+    "888 + 88 + 8 + 8 + 8"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32722,
+    1752
+   ]
+  },
+  {
+   "pos": 92436,
+   "answer": "\\frac{L}{2}",
+   "preds": [
+    "2a",
+    "2P"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18007,
+    16064
+   ]
+  },
+  {
+   "pos": 92606,
+   "answer": "55",
+   "preds": [
+    "4",
+    "4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1389,
+    6183
+   ]
+  },
+  {
+   "pos": 94256,
+   "answer": "1850",
+   "preds": [
+    "72",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    4868,
+    32694
+   ]
+  },
+  {
+   "pos": 94809,
+   "answer": "90^\\circ - \\dfrac{\\alpha}{2}",
+   "preds": [
+    "\\arccos\\left( \\frac{h}{\\sqrt{a^2 + h^2}} \\right)",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16479,
+    17416
+   ]
+  },
+  {
+   "pos": 97357,
+   "answer": "F_{n+2}",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32707,
+    32707
+   ]
+  },
+  {
+   "pos": 97872,
+   "answer": "\\frac{255}{4}",
+   "preds": [
+    "\\frac{255}{4}",
+    "\\frac{255}{4}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2791,
+    2371
+   ]
+  },
+  {
+   "pos": 98065,
+   "answer": "\\frac{1}{450}",
+   "preds": [
+    "",
+    "-\\dfrac{682}{675}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32709,
+    32709
+   ]
+  },
+  {
+   "pos": 98116,
+   "answer": "\\frac{1}{2}x^2 + C",
+   "preds": [
+    "\\frac{1}{2}x^2 + C",
+    "0"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10443,
+    10534
+   ]
+  },
+  {
+   "pos": 99235,
+   "answer": "138",
+   "preds": [
+    "6",
+    "138"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32702,
+    15310
+   ]
+  },
+  {
+   "pos": 99329,
+   "answer": "9802",
+   "preds": [
+    "",
+    "9802"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32659,
+    3187
+   ]
+  },
+  {
+   "pos": 99922,
+   "answer": "4",
+   "preds": [
+    "\\sqrt{11}",
+    "4"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16487,
+    11370
+   ]
+  },
+  {
+   "pos": 99994,
+   "answer": "40",
+   "preds": [
+    "10",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    16620,
+    32686
+   ]
+  }
+ ]
+}

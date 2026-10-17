@@ -1,0 +1,2 @@
+data	n_questions	resp_per_q	acc_pass8	pass1	mean_gen_tokens	p95_gen_tokens	frac_len_capped	elapsed_s	complete
+amc	40	8	0.7000	0.4188	1341	1608	0.016	621	True

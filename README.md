@@ -15,7 +15,7 @@ once with a cheap, label-free selected subset, and evaluate all three models on 
 | SFT selected 15K | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .520/.288 | .722/.224 | **.566**/.244 |
 
 Paired bootstrap, macro pass@8: selected minus random +0.016 [-0.024, +0.056]; selected minus base +0.027 [-0.020, +0.071].
-The selected-minus-random gap is concentrated in five AMC questions. One training run per arm, so the comparison is "higher
+The selected-minus-random gap is concentrated in five AMC questions; with a second generation seed the AMC gap shrinks to two questions (report section 6b). A held-out checkpoint screen shows both arms improving monotonically through epoch 3, so the final checkpoints are the ones compared. One training run per arm, so the comparison is "higher
 observed pass@8 in this run", not "reliably superior". Both SFT models lose pass@1 on Minerva and GPQA because 15-27% of their
 samples hit the 32K cap while still reasoning (`reports/stopping_failures.md`).
 

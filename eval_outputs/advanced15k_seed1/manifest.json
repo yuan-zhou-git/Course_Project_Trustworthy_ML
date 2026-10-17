@@ -1,0 +1,23 @@
+{
+ "model": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k",
+ "config_md5": "9d7a897aa3095cfc5954a4eea5ed97e3",
+ "safetensors_index_md5": "fa2ceef076ed71a8da45775302ed2066",
+ "settings": {
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "n_sampling": 8,
+  "max_tokens": 32768,
+  "seed": 1,
+  "prompt_type": "qwen-instruct",
+  "system_prompt": "Please reason step by step, and put your final answer within \\boxed{}."
+ },
+ "eval_commit": "638989b9f1a02322fea5cf5b2be5042dbd99c209",
+ "env_freeze": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/envs/eval_env_freeze.txt",
+ "created": "2026-10-16T20:41:32.130996",
+ "jobs": [
+  {
+   "job": "654197",
+   "datasets": "amc"
+  }
+ ]
+}

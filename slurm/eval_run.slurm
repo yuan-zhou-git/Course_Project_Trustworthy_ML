@@ -31,6 +31,8 @@ DATASETS=${DATASETS:-"aime amc cn_math_2024 gpqa kaoyan math minerva olympiadben
 GPU_MEM_UTIL=${GPU_MEM_UTIL:-0.92}
 # optional sharding of one benchmark by question index [START, END): separate result file, separate summary row
 START=${START:-0}; END=${END:--1}
+# optional generation seed (official protocol: 0). Use a distinct RUN_ID per seed: result filenames do not encode the seed.
+SEED=${SEED:-0}
 export HF_HOME=$P/hf_cache
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
 module reset; module load Miniconda3/25.11.1-1 CUDA/12.8.0
@@ -57,7 +59,7 @@ def h(p):
 cfg_hash = h(os.path.join(model, "config.json")) if os.path.isdir(model) else None
 idx_hash = h(os.path.join(model, "model.safetensors.index.json")) if os.path.isdir(model) else None
 man = {"model": model, "config_md5": cfg_hash, "safetensors_index_md5": idx_hash,
-       "settings": {"temperature": 0.6, "top_p": 0.95, "n_sampling": 8, "max_tokens": 32768, "seed": 0,
+       "settings": {"temperature": 0.6, "top_p": 0.95, "n_sampling": 8, "max_tokens": 32768, "seed": int(os.environ.get("SEED", "0")),
                     "prompt_type": "qwen-instruct", "system_prompt": "Please reason step by step, and put your final answer within \\boxed{}."},
        "eval_commit": subprocess.run(["git", "-C", f"{P}/code/Project-Reasoning-SFT-LLM", "log", "-1", "--format=%H"], capture_output=True, text=True).stdout.strip(),
        "env_freeze": f"{P}/envs/eval_env_freeze.txt", "created": datetime.datetime.now().isoformat(),
@@ -86,7 +88,7 @@ for DATA in $DATASETS; do
   # run in its own process group so a hung exit (vLLM engine / grader pool not terminating) can be killed as a unit
   setsid python eval.py --model_name_or_path "$MODEL" --data_name "$DATA" --prompt_type "qwen-instruct" \
     --temperature 0.6 --top_p 0.95 --start_idx $START --end_idx $END --n_sampling 8 --k 1 --split test \
-    --max_tokens 32768 --seed 0 --surround_with_messages --output_dir "$OUT" \
+    --max_tokens 32768 --seed $SEED --surround_with_messages --output_dir "$OUT" \
     --completions_save_dir "$OUT/completions" --gpu_memory_utilization "$GPU_MEM_UTIL" > "$OUT/log_${KEY}.txt" 2>&1 &
   PID=$!
   RC=""; DONE_AT=""

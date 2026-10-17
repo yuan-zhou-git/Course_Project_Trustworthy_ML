@@ -169,6 +169,43 @@ Whether a larger generation budget would convert those samples into correct answ
   The historical spread between two random draws (4.1 points) is larger than our selected-minus-random difference, so a second
   seed per arm would be the next experiment. AIME/CN_MATH have 30 questions each and move by 0.033 per question.
 
+## 6b. Follow-up experiments (after the main comparison was frozen)
+
+Both were run after the audit of the main results and are reported separately; neither changes the main comparison.
+
+**Second generation seed on AMC (seed 1, all other settings official).** AMC carried most of the selected-vs-random gap.
+
+| model | seed 0 pass@8 / pass@1 | seed 1 pass@8 / pass@1 | two-seed mean pass@8 |
+|---|---|---|---:|
+| base | 0.650 / 0.391 | 0.700 / 0.419 | 0.675 |
+| random 15K | 0.575 / 0.344 | 0.700 / 0.356 | 0.638 |
+| selected 15K | 0.700 / 0.350 | 0.750 / 0.394 | 0.725 |
+
+The selected model leads on both seeds, but the gap over random shrinks from five questions to two, and the random model alone
+moved five questions between seeds. The direction of the AMC advantage is consistent; its size is within sampling noise on a
+40-question set. Run dirs `eval_outputs/*_seed1`.
+
+**Checkpoint screening on a held-out development panel (no benchmark data).** 200 math questions drawn from pool rows that are
+in neither 15K set (36,491 eligible), stratified by teacher-response length, scored against the teacher's final `\boxed{}` answer
+with the course grader (teacher agreement, not independent ground truth). Official decoding, 2 samples per question. Promotion
+rule fixed in advance: an earlier checkpoint is promoted to the full 8-sample evaluation only if its pass@2 beats the final
+checkpoint by more than 0.03 with a lower cap rate.
+
+| checkpoint | acc per sample | pass@2 | samples at 32K cap | mean tokens |
+|---|---:|---:|---:|---:|
+| selected, epoch 1 | 0.153 | 0.240 | 55.5% | 22.9K |
+| selected, epoch 2 | 0.250 | 0.375 | 28.3% | 17.0K |
+| selected, epoch 3 (final) | 0.290 | 0.440 | 23.5% | 16.4K |
+| random, epoch 1 | 0.183 | 0.285 | 52.8% | 22.0K |
+| random, epoch 2 | 0.213 | 0.340 | 32.0% | 17.6K |
+| random, epoch 3 (final) | 0.263 | 0.380 | 21.8% | 16.1K |
+
+The panel is hard (teacher traces up to 75K characters) and over half of the epoch-1 samples hit the cap, so it mostly measures
+whether a checkpoint finishes its reasoning. Both arms improve monotonically with training on every column; the final
+checkpoints are the best ones, so no earlier checkpoint was promoted and the main comparison stands as the 3-epoch models.
+The screening also shows that more SFT reduces, rather than causes, the run-on behaviour: the cap rate falls from ~55% to
+~24% between epoch 1 and epoch 3. Files: `eval_outputs/dev_screen/`, panel `data/dev200.jsonl`.
+
 ## 7. Reproducibility and artifacts
 
 - Models (Hugging Face): `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k`, `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k`
