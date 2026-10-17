@@ -148,6 +148,8 @@ Paired bootstrap (B=2000), macro pass@8: selected − random +0.017 [−0.022, +
 
 - 04:15 (Oct 17): Follow-up experiments written into the report (section 6b) and pushed. All experiments finished; remaining items are the Hub model upload (awaiting go-ahead), dataset visibility, read-through, Canvas submission (deadline Tue Oct 20 23:59 ET).
 
+- 04:45 (Oct 17): User approved training the selected arm to **5 epochs** as a separate optimization run. Resumed from `checkpoint-5625` (optimizer/scheduler/RNG on scratch) with `num_train_epochs: 5` (cosine re-created for 9,375 steps: warm restart at ~1.7e-6 decaying to 0), same data/global batch; output `advanced15k_ep5`. Job 655494 (4x L40S, 9 h limit). Full 8-benchmark evaluation chained behind it: 5 L40S jobs (math, minerva, gpqa, kaoyan, {aime, amc, cn_math}) + 8 A30 OlympiadBench shards, run dir `advanced15k_ep5_v1` (jobs 655495-655507). Expected: training done ~11:00, evaluation ~18:00 Oct 17. The 3-epoch comparison remains the main result.
+
 ## Open risks
 
 - Queue saturation is the critical risk, not compute. If nothing starts by morning, consider the Falcon A30 cluster for the env build and data prep (not done without the user's OK since the instruction was Tinkercliffs).
