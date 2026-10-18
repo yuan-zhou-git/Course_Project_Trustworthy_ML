@@ -169,6 +169,8 @@ Paired bootstrap (B=2000), macro pass@8: selected − random +0.017 [−0.022, +
 
 - 20:45 (Oct 17): TC node tc-dgx001 is DOWN (that was the "idle" node); all other A100 nodes are planned; even the 1-GPU lp15k twin estimates Oct 21. Falcon 4-L40S twins estimate 12:12 Oct 18. Added a Falcon **2-L40S twin with ZeRO-3 optimizer offload** (`lp15k_2gpu.yaml`, same math, grad-accum 4). Twin guard changed: a starting twin no longer cancels pending twins (a fast failure must not kill the others); losers are cancelled by hand once a run is clearly training.
 
+- 22:40 (Oct 17): **lp15k training started** on Falcon as the 2-L40S offload twin (job 656357, fal044): 3.9K tokens/s early → ~21 h for 3 epochs (297M tokens), finishing ~19:40 Oct 18 against a 23 h limit; the 4-GPU twin's 12:12 estimated start would have finished at about the same time, so the running job is kept and all other lp15k twins cancelled. Chained behind it on Falcon: the full evaluation (5 L40S jobs + 8 A30 OlympiadBench shards, run dir `lp15k_v1`) and the dev-panel screen (`lp_ep3`). ep5 twins remain queued (TC 8044800, Falcon 656358).
+
 ## Open risks
 
 - Queue saturation is the critical risk, not compute. If nothing starts by morning, consider the Falcon A30 cluster for the env build and data prep (not done without the user's OK since the instruction was Tinkercliffs).
