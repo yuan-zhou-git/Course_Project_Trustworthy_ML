@@ -161,6 +161,14 @@ Paired bootstrap (B=2000), macro pass@8: selected − random +0.017 [−0.022, +
 
 - 18:20 (Oct 17): Probe SFT twin failed at start (exit 2): the new resume-from-latest block ran `ls` on a not-yet-existing checkpoint dir inside a command substitution under `set -e`. Fixed (`|| true`), redeployed, and every queued training twin (which had the stale script spooled) cancelled and resubmitted: TC probe 8043030/8043031, lp15k 8043032/8043033 (afterok select 8042936), ep5 8043034/8043035; Falcon ep5 656139, lp15k 656140 (WAIT_FOR). Probe-scoring deps re-pointed.
 
+- 18:35 (Oct 17): Scorer fixed twice (float32 logits of a whole batch; batch size computed from the shortest row) and now runs: ~960 rows per shard in the first 4 min on A100s (jobs 8043151-8043154). Probe SFT (1 GPU) at 15 min. Projection: base scoring ~2 h, probe scoring ~2 h after the probe SFT, selection ~23:00; lp15k training then waits for 4 GPUs (TC twins 4/2 GPUs, Falcon 4 L40S).
+
+- 20:20 (Oct 17): **LP scoring + selection complete.** Base scoring 4x ~86 min, probe scoring 4x ~87 min (A100, ~62K rows each pass). Probe SFT: 2,000 rows, 250 steps, 47 min on 1 A100. `lp15k`: 15,000 rows, 99.1M tokens/epoch (median 6.1K/row; vs 107.6M selected, 113.4M random), OpenMathReasoning 11,891 / NuminaMath-CoT 3,109; score (loss drop) median 0.31 vs 0.27 for all candidates; mean base loss of selected rows 1.00 vs 1.60 for candidates (the signal favours more predictable solutions, a known caveat); overlap 3,753 rows with advanced15k, 2,241 with random15k. Training twins queued on TC (4/2 GPUs) and Falcon (4 L40S, WAIT_FOR now satisfied).
+
+- 20:30 (Oct 17): TC 4-GPU estimates still Oct 21-22 (tc-dgx001 idle but planned for another job); Falcon twins estimate 12:12 Oct 18. Added a **1-GPU A100 twin for lp15k** (single-GPU jobs start promptly; full FT fits 80 GB with Liger; ~18 h for 3 epochs, same global batch via grad-accum 8). Dropped the 2-GPU ep5 twin: a ZeRO-3 optimizer checkpoint can only be resumed with the original world size (4), so ep5 keeps only 4-GPU twins (TC 8043034, Falcon 656139).
+
+- 20:45 (Oct 17): TC node tc-dgx001 is DOWN (that was the "idle" node); all other A100 nodes are planned; even the 1-GPU lp15k twin estimates Oct 21. Falcon 4-L40S twins estimate 12:12 Oct 18. Added a Falcon **2-L40S twin with ZeRO-3 optimizer offload** (`lp15k_2gpu.yaml`, same math, grad-accum 4). Twin guard changed: a starting twin no longer cancels pending twins (a fast failure must not kill the others); losers are cancelled by hand once a run is clearly training.
+
 ## Open risks
 
 - Queue saturation is the critical risk, not compute. If nothing starts by morning, consider the Falcon A30 cluster for the env build and data prep (not done without the user's OK since the instruction was Tinkercliffs).

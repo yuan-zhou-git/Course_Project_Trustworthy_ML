@@ -20,10 +20,13 @@ set -euo pipefail
 P=/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft
 S=/scratch/yuanzhou1/reasoning_sft
 : "${RUN:?set RUN}"; : "${CONFIG:?set CONFIG}"
-# twin guard (same job name submitted to several partitions): first to start wins, pending twins are cancelled
+# twin guard (same job name submitted with several GPU counts / partitions): if a twin is already RUNNING, exit.
+# Pending twins are NOT cancelled here (a twin that fails early must not take the others with it); the operator
+# cancels them once this run has clearly started training. A twin that starts after the winner finished finds the
+# finished output and exits via the resume logic (nothing to train).
 OTHERS=$(squeue -u yuanzhou1 -h -n "$SLURM_JOB_NAME" -o "%i %T" | grep -v "^$SLURM_JOB_ID " || true)
 if echo "$OTHERS" | grep -q RUNNING; then echo "twin already running: $OTHERS; exiting"; exit 0; fi
-for j in $(echo "$OTHERS" | awk '$2=="PENDING"{print $1}'); do scancel $j && echo "cancelled pending twin $j"; done
+[ -f "$S/ckpt/$RUN/train_results.json" ] 2>/dev/null && { echo "run $RUN already finished on this cluster; exiting"; exit 0; }
 export HF_HOME=$P/hf_cache
 export HF_HUB_OFFLINE=1
 export WANDB_MODE=offline
