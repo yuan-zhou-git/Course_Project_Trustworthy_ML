@@ -27,6 +27,8 @@ S=/scratch/yuanzhou1/reasoning_sft
 OTHERS=$(squeue -u yuanzhou1 -h -n "$SLURM_JOB_NAME" -o "%i %T" | grep -v "^$SLURM_JOB_ID " || true)
 if echo "$OTHERS" | grep -q RUNNING; then echo "twin already running: $OTHERS; exiting"; exit 0; fi
 [ -f "$S/ckpt/$RUN/train_results.json" ] 2>/dev/null && { echo "run $RUN already finished on this cluster; exiting"; exit 0; }
+# finished on the other cluster and staged to the shared project folder: nothing left to train here
+[ -f "$P/models/$RUN/train_results.json" ] && { echo "run $RUN already finished and staged in $P/models/$RUN; exiting"; exit 0; }
 export HF_HOME=$P/hf_cache
 export HF_HUB_OFFLINE=1
 export WANDB_MODE=offline
@@ -63,8 +65,15 @@ cp $P/envs/train_env_freeze.txt $S/ckpt/$RUN/
 NGPU=$(nvidia-smi --query-gpu=index --format=csv,noheader | wc -l)
 GA=$(( 8 / NGPU )); [ $GA -lt 1 ] && GA=1
 sed -E "s/^gradient_accumulation_steps: .*/gradient_accumulation_steps: $GA/" $P/code/$CONFIG > $S/ckpt/$RUN/config_used.yaml
+# optional: continue a run started on another cluster from a checkpoint copied through /projects (SEED_CKPT_FROM = dir that
+# holds checkpoint-N/). Only used when this cluster has no complete checkpoint yet; ZeRO-3 needs the same GPU count.
+if [ -n "${SEED_CKPT_FROM:-}" ]; then
+  HAVE=$( (ls -d $S/ckpt/$RUN/checkpoint-* 2>/dev/null || true) | while read -r d; do if [ -f "$d/trainer_state.json" ]; then echo x; fi; done | tail -1 )
+  if [ -z "$HAVE" ]; then echo "seeding $S/ckpt/$RUN from $SEED_CKPT_FROM"; rsync -a $SEED_CKPT_FROM/checkpoint-* $S/ckpt/$RUN/; ls $S/ckpt/$RUN; fi
+fi
 # resume-from-latest: if this run already has checkpoints (e.g. requeued after preemption), continue from the newest one
-LATEST=$( (ls -d $S/ckpt/$RUN/checkpoint-* 2>/dev/null || true) | sed -E 's/.*checkpoint-//' | sort -n | tail -1 )
+# (only checkpoints with trainer_state.json, which is written last: a copy killed mid-save must not hide the previous one)
+LATEST=$( (ls -d $S/ckpt/$RUN/checkpoint-* 2>/dev/null || true) | while read -r d; do if [ -f "$d/trainer_state.json" ]; then echo "${d##*checkpoint-}"; fi; done | sort -n | tail -1 )
 if [ -n "$LATEST" ] && [ -f $S/ckpt/$RUN/checkpoint-$LATEST/trainer_state.json ]; then
   echo "resuming from own checkpoint-$LATEST"
   grep -q '^resume_from_checkpoint:' $S/ckpt/$RUN/config_used.yaml \
@@ -82,8 +91,12 @@ set -e
 END=$(date +%s)
 echo "=== train exit code $RC after $((END-START)) s"
 
-# stage results to the project folder (skip DeepSpeed optimizer shards)
-mkdir -p $P/models/$RUN
+# stage results to the project folder (skip DeepSpeed optimizer shards); never overwrite a finished run staged by a copy on
+# the other cluster (copies of one run may train concurrently on Tinkercliffs and Falcon; the first to finish wins)
+if [ -f $P/models/$RUN/train_results.json ] && [ ! -f $S/ckpt/$RUN/.staged_from_here ]; then
+  echo "=== $P/models/$RUN already holds a finished run from another copy; not staging (this copy stays in $S/ckpt/$RUN)"; exit $RC
+fi
+mkdir -p $P/models/$RUN; touch $S/ckpt/$RUN/.staged_from_here
 rsync -a --exclude 'global_step*' --exclude '*.pt' $S/ckpt/$RUN/ $P/models/$RUN/
 echo "=== staged to $P/models/$RUN"; du -sh $P/models/$RUN; ls $P/models/$RUN
 exit $RC

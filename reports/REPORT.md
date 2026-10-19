@@ -316,10 +316,12 @@ Training and evaluation are unchanged (3 epochs, global batch 8, lr 5e-6; offici
 99.1M); median 4.4K tokens per example; OpenMathReasoning 11,591 / NuminaMath-CoT 3,409; overlap 2,267 rows with random,
 3,777 with the first selected set and 3,795 with the learning-progress set.
 
-**Status (Oct 18, 21:30 ET).** The selection is done and frozen (`data/short15k_manifest.json`). Training and the full
-evaluation run as one Tinkercliffs job (`slurm/pipeline_tc.slurm`: environment check, training with the unchanged recipe,
-19 benchmark shards plus the held-out panel on 4 A100s, aggregation), rehearsed end to end on Falcon; it is queued, with the
-scheduler's estimated start on Oct 20. Results will be added here if they arrive before the deadline.
+**Status: not completed (no results reported).** The selection is done and frozen (`data/short15k_manifest.json`), and
+training started on Oct 19 as one Tinkercliffs job (`slurm/pipeline_tc.slurm`, rehearsed end to end on Falcon). The node it
+landed on had power-brake-throttled GPUs (throttle reason 0x88, about 40% of normal speed), so training could not finish
+within the job limit; it was stopped at about step 2,800 of 5,625, before any evaluation. Given the deadline and the results
+already in hand, we did not continue this arm. It remains a ready-to-run next step: the selection, config and single-job
+pipeline are in the repo.
 
 ## 7. Reproducibility and artifacts
 

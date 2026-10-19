@@ -78,6 +78,8 @@ set -e
 [ $RC -eq 0 ] || { stamp "training failed (exit $RC)"; exit $RC; }
 [ -s $MODEL/config.json ] && ls $MODEL/*.safetensors >/dev/null 2>&1 || { stamp "no exported model in $MODEL"; exit 5; }
 stamp "model ready: $MODEL"
+# PIPE_STOP_AFTER_TRAIN=1: train (or continue) and stage only; the evaluation runs as separate shard jobs elsewhere
+if [ "${PIPE_STOP_AFTER_TRAIN:-0}" = 1 ]; then stamp "PIPE_STOP_AFTER_TRAIN=1: model staged, evaluation runs elsewhere"; exit 0; fi
 
 if [ $EVAL_OK -ne 1 ]; then
   touch $MODEL/.needs_eval_elsewhere
