@@ -16,7 +16,11 @@
 # then runs the aggregation. Needs the eval env only to unpickle vLLM completion objects (lengths / finish reasons).
 set -euo pipefail
 P=/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft
-RUNS=${RUNS:-"random15k_v1 advanced15k_v1"}
+RUNS=${RUNS:-"random15k_v1 advanced15k_v1 advanced15k_ep5_v1 lp15k_v1"}
+# label=run_id list for the aggregation and its output dir (default: all five models, kept apart from the frozen 3-model tables)
+AGG_RUNS=${AGG_RUNS:-"base=base_v1 random=random15k_v1 advanced=advanced15k_v1 ep5=advanced15k_ep5_v1 lp=lp15k_v1"}
+AGG_OUT=${AGG_OUT:-$P/reports/five_models}
+mkdir -p $AGG_OUT
 module reset; module load Miniconda3/25.11.1-1 CUDA/12.8.0
 source activate $P/envs/eval_env
 declare -A SIZES=( [aime]=30 [amc]=40 [cn_math_2024]=30 [gpqa]=198 [kaoyan]=199 [math]=500 [minerva]=272 [olympiadbench]=675 )
@@ -33,8 +37,8 @@ for R in $RUNS; do
   done
   echo "== $R summary.tsv"; cat $OUT/summary.tsv 2>/dev/null || echo "(no rows yet)"
 done
-python $P/code/scripts/aggregate_results.py --root $P/eval_outputs --runs base=base_v1 random=random15k_v1 advanced=advanced15k_v1 \
-  --out $P/reports --B 2000 --eval-data $P/code/Project-Reasoning-SFT-LLM/eval/data | tail -60
+python $P/code/scripts/aggregate_results.py --root $P/eval_outputs --runs $AGG_RUNS \
+  --out $AGG_OUT --B 2000 --eval-data $P/code/Project-Reasoning-SFT-LLM/eval/data | tail -60
 echo "=== stopping-failure inspection"
-python $P/code/scripts/inspect_caps.py --root $P/eval_outputs --runs base=base_v1 random=random15k_v1 advanced=advanced15k_v1 --out $P/reports
+python $P/code/scripts/inspect_caps.py --root $P/eval_outputs --runs $AGG_RUNS --out $AGG_OUT
 echo "=== FINALIZE DONE $(date)"

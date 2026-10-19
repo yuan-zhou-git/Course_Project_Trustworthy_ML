@@ -1,0 +1,33 @@
+### Same recipe as lp15k.yaml; only difference: ZeRO-3 with CPU optimizer offload so that 2x 44 GB L40S suffice
+### (optimizer math unchanged: DeepSpeed CPUAdam == torch AdamW semantics). Global batch stays 8 (train.slurm sets grad-accum 4).
+model_name_or_path: Qwen/Qwen2.5-3B-Instruct
+trust_remote_code: false
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
+flash_attn: fa2
+enable_liger_kernel: true
+dataset: rsft_lp15k
+dataset_dir: /scratch/yuanzhou1/reasoning_sft/data
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 16
+template: qwen
+output_dir: /scratch/yuanzhou1/reasoning_sft/ckpt/lp15k
+logging_steps: 1
+save_strategy: epoch
+save_total_limit: 3
+plot_loss: true
+overwrite_output_dir: true
+include_num_input_tokens_seen: true
+report_to: wandb
+run_name: rsft_lp15k
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-6
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_ratio: 0.0
+bf16: true
+ddp_timeout: 180000000

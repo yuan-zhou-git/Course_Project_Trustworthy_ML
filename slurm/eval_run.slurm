@@ -22,7 +22,8 @@ set -euo pipefail
 P=/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft
 : "${MODEL:?set MODEL}"; : "${RUN_ID:?set RUN_ID}"
 # twin guard (same job name submitted to several partitions): first to start wins, pending twins are cancelled
-if [ -n "${SLURM_JOB_ID:-}" ] && [ "${SLURM_JOB_NAME:-}" != "rsft_bootstrap" ]; then
+# (SKIP_TWIN_GUARD=1 when several copies run inside one allocation, e.g. pipeline_tc.slurm)
+if [ -n "${SLURM_JOB_ID:-}" ] && [ "${SLURM_JOB_NAME:-}" != "rsft_bootstrap" ] && [ "${SKIP_TWIN_GUARD:-0}" != "1" ]; then
   OTHERS=$(squeue -u yuanzhou1 -h -n "$SLURM_JOB_NAME" -o "%i %T" | grep -v "^$SLURM_JOB_ID " || true)
   if echo "$OTHERS" | grep -q RUNNING; then echo "twin already running: $OTHERS; exiting"; exit 0; fi
   for j in $(echo "$OTHERS" | awk '$2=="PENDING"{print $1}'); do scancel $j && echo "cancelled pending twin $j"; done
@@ -64,13 +65,16 @@ man = {"model": model, "config_md5": cfg_hash, "safetensors_index_md5": idx_hash
        "eval_commit": subprocess.run(["git", "-C", f"{P}/code/Project-Reasoning-SFT-LLM", "log", "-1", "--format=%H"], capture_output=True, text=True).stdout.strip(),
        "env_freeze": f"{P}/envs/eval_env_freeze.txt", "created": datetime.datetime.now().isoformat(),
        "jobs": []}
-json.dump(man, open(f"{out}/manifest.json", "w"), indent=1)
+tmp = f"{out}/manifest.json.tmp{os.getpid()}"
+json.dump(man, open(tmp, "w"), indent=1); os.replace(tmp, f"{out}/manifest.json")   # atomic: concurrent readers never see a partial file
 PY
 fi
-python - "$OUT" "$SLURM_JOB_ID" "$DATASETS" <<'PY'
-import json, sys
+# bookkeeping only (which job evaluated what): atomic replace, and never fatal
+python - "$OUT" "$SLURM_JOB_ID" "$DATASETS ${START}-${END}" <<'PY' || echo "WARN: manifest job entry not recorded"
+import json, os, sys
 m = json.load(open(f"{sys.argv[1]}/manifest.json")); m["jobs"].append({"job": sys.argv[2], "datasets": sys.argv[3]})
-json.dump(m, open(f"{sys.argv[1]}/manifest.json", "w"), indent=1)
+tmp = f"{sys.argv[1]}/manifest.json.tmp{os.getpid()}"
+json.dump(m, open(tmp, "w"), indent=1); os.replace(tmp, f"{sys.argv[1]}/manifest.json")
 PY
 
 declare -A SIZES=( [aime]=30 [amc]=40 [cn_math_2024]=30 [gpqa]=198 [kaoyan]=199 [math]=500 [minerva]=272 [olympiadbench]=675 )   # math: 500 records (README says 499 = line count without trailing newline)

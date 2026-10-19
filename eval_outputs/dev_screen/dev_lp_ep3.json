@@ -1,0 +1,4017 @@
+{
+ "summary": {
+  "label": "lp_ep3",
+  "model": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/lp15k",
+  "questions": 200,
+  "n": 2,
+  "acc_per_sample": 0.2775,
+  "pass_at_n": 0.405,
+  "frac_capped": 0.1475,
+  "mean_tokens": 13871.1175,
+  "p95_tokens": 32697,
+  "gen_seconds": 5470.411322593689,
+  "seed": 0
+ },
+ "rows": [
+  {
+   "pos": 195,
+   "answer": "3",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6166,
+    8956
+   ]
+  },
+  {
+   "pos": 264,
+   "answer": "(0, -4)",
+   "preds": [
+    "(0, -4)",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    7075,
+    32711
+   ]
+  },
+  {
+   "pos": 871,
+   "answer": "-3",
+   "preds": [
+    "(-\\infty, -3]",
+    "-3"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18568,
+    10879
+   ]
+  },
+  {
+   "pos": 1089,
+   "answer": "1",
+   "preds": [
+    "1 - \\frac{1}{e}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12458,
+    16492
+   ]
+  },
+  {
+   "pos": 1461,
+   "answer": "\\frac{11 - \\sqrt{13}}{2}",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32697,
+    15421
+   ]
+  },
+  {
+   "pos": 1727,
+   "answer": "-32",
+   "preds": [
+    "-32",
+    "-32"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    634,
+    803
+   ]
+  },
+  {
+   "pos": 2401,
+   "answer": "-\\sqrt{2}",
+   "preds": [
+    "-\\dfrac{\\sqrt{6}}{6}",
+    "-\\sqrt{2}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13749,
+    17765
+   ]
+  },
+  {
+   "pos": 2683,
+   "answer": "1",
+   "preds": [
+    "(\\ln 2)^m",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15110,
+    17019
+   ]
+  },
+  {
+   "pos": 3795,
+   "answer": "3",
+   "preds": [
+    "\\sqrt{42}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    20978,
+    32675
+   ]
+  },
+  {
+   "pos": 5076,
+   "answer": "\\frac{2 \\sqrt{p}}{e \\ln p}",
+   "preds": [
+    "\\frac{2}{\\sqrt{p}}",
+    "\\dfrac{2\\sqrt{p}}{e \\ln p}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2696,
+    5292
+   ]
+  },
+  {
+   "pos": 5129,
+   "answer": "90^\\circ \\text{ and } 90^\\circ",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6410,
+    4403
+   ]
+  },
+  {
+   "pos": 5484,
+   "answer": "6",
+   "preds": [
+    "",
+    "2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32709,
+    5838
+   ]
+  },
+  {
+   "pos": 5916,
+   "answer": "f(x) = x + c",
+   "preds": [
+    "f(x) = x",
+    "f(x) = x"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3178,
+    10187
+   ]
+  },
+  {
+   "pos": 6359,
+   "answer": "(0, 0)",
+   "preds": [
+    "(0, 0)",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    5402,
+    32707
+   ]
+  },
+  {
+   "pos": 7136,
+   "answer": "20",
+   "preds": [
+    "10",
+    "20"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11674,
+    4060
+   ]
+  },
+  {
+   "pos": 7833,
+   "answer": "35",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32604,
+    32604
+   ]
+  },
+  {
+   "pos": 8520,
+   "answer": "\\sum_{k=1}^n \\frac{(-1)^{k-1} x^k}{k^2}",
+   "preds": [
+    "\\sum_{k=1}^{n} \\frac{(-1)^{k+1} x^k}{k^2}",
+    "\\sum_{k=1}^{n} \\frac{(-1)^{k-1} x^k}{k^k}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3010,
+    5466
+   ]
+  },
+  {
+   "pos": 9881,
+   "answer": "1",
+   "preds": [
+    "",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32650,
+    16974
+   ]
+  },
+  {
+   "pos": 10110,
+   "answer": "\\dfrac{9}{7}",
+   "preds": [
+    "\\dfrac{9}{7}",
+    "\\dfrac{9}{7}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13296,
+    4727
+   ]
+  },
+  {
+   "pos": 10720,
+   "answer": "9",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32621,
+    32621
+   ]
+  },
+  {
+   "pos": 11283,
+   "answer": "25",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14692,
+    8755
+   ]
+  },
+  {
+   "pos": 13244,
+   "answer": "r^2 = 2c^2 \\sin(2\\theta)",
+   "preds": [
+    "r = c^2 \\sin 2\\theta",
+    "x^2 - y^2 = 2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15088,
+    25689
+   ]
+  },
+  {
+   "pos": 14235,
+   "answer": "135",
+   "preds": [
+    "",
+    "392 - 24\\sqrt{113}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32677,
+    17983
+   ]
+  },
+  {
+   "pos": 15411,
+   "answer": "(-1, 1)",
+   "preds": [
+    "(-1, 1)",
+    "(-1, 1)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6309,
+    11090
+   ]
+  },
+  {
+   "pos": 15489,
+   "answer": "2",
+   "preds": [
+    "\\frac{1}{4}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11952,
+    8779
+   ]
+  },
+  {
+   "pos": 15517,
+   "answer": "1",
+   "preds": [
+    "\\frac{1}{2}",
+    "\\frac{1}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13450,
+    11282
+   ]
+  },
+  {
+   "pos": 16184,
+   "answer": "3",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13205,
+    4708
+   ]
+  },
+  {
+   "pos": 16897,
+   "answer": "1 \\text{ and } 2",
+   "preds": [
+    "a=1",
+    "1 \\text{ and } 4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    22314,
+    13750
+   ]
+  },
+  {
+   "pos": 17468,
+   "answer": "7",
+   "preds": [
+    "5",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12644,
+    3459
+   ]
+  },
+  {
+   "pos": 17487,
+   "answer": "4",
+   "preds": [
+    "2",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16201,
+    12909
+   ]
+  },
+  {
+   "pos": 17518,
+   "answer": "9",
+   "preds": [
+    "6",
+    "\\mathbb{N}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13472,
+    8436
+   ]
+  },
+  {
+   "pos": 17901,
+   "answer": "100",
+   "preds": [
+    "",
+    "200"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32585,
+    12779
+   ]
+  },
+  {
+   "pos": 17944,
+   "answer": "Yes",
+   "preds": [
+    "\\text{No}",
+    "Yes"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8450,
+    7161
+   ]
+  },
+  {
+   "pos": 19797,
+   "answer": "23",
+   "preds": [
+    "23",
+    "23"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7714,
+    11635
+   ]
+  },
+  {
+   "pos": 20328,
+   "answer": "(-4, 3, 3)",
+   "preds": [
+    "(-4, 3, 3)",
+    "(-4, 3, 3)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2101,
+    1445
+   ]
+  },
+  {
+   "pos": 20859,
+   "answer": "-\\frac{4}{3}",
+   "preds": [
+    "-\\dfrac{4}{3}",
+    "-\\dfrac{1}{6}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10831,
+    3583
+   ]
+  },
+  {
+   "pos": 20899,
+   "answer": "\\dfrac{5+\\sqrt{13}}{2}",
+   "preds": [
+    "\\sqrt{11 + 4\\sqrt{7}}",
+    "\\sqrt{7} + 2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16647,
+    19762
+   ]
+  },
+  {
+   "pos": 20987,
+   "answer": "1827",
+   "preds": [
+    "\\frac{312.5\\pi - 625}{8}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    25981,
+    32539
+   ]
+  },
+  {
+   "pos": 21364,
+   "answer": "\\frac{1}{m - n + 1} I",
+   "preds": [
+    "\\frac{1}{1 - \\sigma^2} I",
+    "\\frac{1}{1 + m} I_{n \\times m}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    12255,
+    32697
+   ]
+  },
+  {
+   "pos": 21669,
+   "answer": "8",
+   "preds": [
+    "0",
+    "8"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3832,
+    6077
+   ]
+  },
+  {
+   "pos": 22180,
+   "answer": "222",
+   "preds": [
+    "",
+    "222"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32656,
+    10759
+   ]
+  },
+  {
+   "pos": 22977,
+   "answer": "\\dfrac{35}{16} - \\dfrac{1535}{16 \\cdot 5^{25}}",
+   "preds": [
+    "\\dfrac{55}{16}\\left(1 - \\dfrac{1}{5^{25}}\\right)",
+    "\\dfrac{25}{16} - \\dfrac{630}{5^{25}} - \\dfrac{5}{2} + \\dfrac{5}{2 \\cdot 5^{25}}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15151,
+    12488
+   ]
+  },
+  {
+   "pos": 23100,
+   "answer": "125",
+   "preds": [
+    "36",
+    "44"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7815,
+    13012
+   ]
+  },
+  {
+   "pos": 23892,
+   "answer": "1800",
+   "preds": [
+    "1800",
+    "2160"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5855,
+    4395
+   ]
+  },
+  {
+   "pos": 23925,
+   "answer": "-1 + 2\\sqrt{3}",
+   "preds": [
+    "-1 + 2\\sqrt{3}",
+    "-1 + 2\\sqrt{3}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1415,
+    2525
+   ]
+  },
+  {
+   "pos": 24037,
+   "answer": "2",
+   "preds": [
+    "1",
+    "2"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7576,
+    5814
+   ]
+  },
+  {
+   "pos": 24806,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "No",
+    "Yes"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5083,
+    13801
+   ]
+  },
+  {
+   "pos": 24810,
+   "answer": "4",
+   "preds": [
+    "4",
+    "4"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2274,
+    1505
+   ]
+  },
+  {
+   "pos": 24972,
+   "answer": "0.417",
+   "preds": [
+    "0.0048",
+    "0.6168"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13564,
+    12778
+   ]
+  },
+  {
+   "pos": 26257,
+   "answer": "\\emptyset",
+   "preds": [
+    "(-\\infty, \\frac{3 - \\sqrt{5}}{2}]",
+    "[-1, 1]"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11811,
+    10963
+   ]
+  },
+  {
+   "pos": 26312,
+   "answer": "\\frac{1}{3}",
+   "preds": [
+    "\\dfrac{\\sqrt{2}}{4}",
+    "\\dfrac{1}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12024,
+    13827
+   ]
+  },
+  {
+   "pos": 26391,
+   "answer": "2",
+   "preds": [
+    "\\dfrac{17}{12}",
+    "4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12717,
+    4308
+   ]
+  },
+  {
+   "pos": 27254,
+   "answer": "0",
+   "preds": [
+    "0",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    12162,
+    32653
+   ]
+  },
+  {
+   "pos": 27301,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6830,
+    3430
+   ]
+  },
+  {
+   "pos": 27560,
+   "answer": "25",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1778,
+    6225
+   ]
+  },
+  {
+   "pos": 27744,
+   "answer": "(6, 3)",
+   "preds": [
+    "",
+    "(6, 3)"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32699,
+    24241
+   ]
+  },
+  {
+   "pos": 28327,
+   "answer": "\\frac{\\pi}{2} - \\ln 2",
+   "preds": [
+    "\\ln 2 + \\dfrac{\\pi}{2}",
+    "\\dfrac{\\pi}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3716,
+    3953
+   ]
+  },
+  {
+   "pos": 28373,
+   "answer": "60^\\circ",
+   "preds": [
+    "60^\\circ",
+    "180^\\circ"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20953,
+    14910
+   ]
+  },
+  {
+   "pos": 28578,
+   "answer": "2\\sqrt{2}",
+   "preds": [
+    "4",
+    "3\\sqrt[4]{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17239,
+    17631
+   ]
+  },
+  {
+   "pos": 29631,
+   "answer": "12",
+   "preds": [
+    "",
+    "12"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32711,
+    3971
+   ]
+  },
+  {
+   "pos": 29680,
+   "answer": "\\frac{15\\sqrt{481}}{37}",
+   "preds": [
+    "10",
+    "12"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19741,
+    17511
+   ]
+  },
+  {
+   "pos": 30356,
+   "answer": "0",
+   "preds": [
+    "0",
+    "-\\dfrac{1}{3}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12426,
+    12204
+   ]
+  },
+  {
+   "pos": 30362,
+   "answer": "Kati",
+   "preds": [
+    "Kati",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8289,
+    32694
+   ]
+  },
+  {
+   "pos": 30470,
+   "answer": "(-1, 1]",
+   "preds": [
+    "1",
+    "\\sqrt{5} - 2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11456,
+    3610
+   ]
+  },
+  {
+   "pos": 30923,
+   "answer": "9",
+   "preds": [
+    "9",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    5267,
+    32699
+   ]
+  },
+  {
+   "pos": 31336,
+   "answer": "3",
+   "preds": [
+    "0",
+    "3"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9964,
+    6620
+   ]
+  },
+  {
+   "pos": 31579,
+   "answer": "1383",
+   "preds": [
+    "467",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    12076,
+    32713
+   ]
+  },
+  {
+   "pos": 31893,
+   "answer": "\\Delta ABC",
+   "preds": [
+    "\\Delta ABC \\text{ constructed with given elements } a, |c - b|, \\text{ and } h_b - h_c",
+    "\\text{Construct triangle } \\Delta ABC \\text{ with sides } AB = b, AC = c, BC = a, \\text{ and heights } h_b \\text{ and } h_c \\text{ such that } h_b - h_c = \\text{given.}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15708,
+    9247
+   ]
+  },
+  {
+   "pos": 32909,
+   "answer": "\\ln \\left| \\frac{x + \\sin x}{x + \\cos x} \\right| + C",
+   "preds": [
+    "\\ln|x + \\sin x| - \\ln|x + \\cos x| + C",
+    "\\ln\\left|x + \\sin x + \\cos x\\right| + C"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32704,
+    20312
+   ]
+  },
+  {
+   "pos": 33012,
+   "answer": "19846",
+   "preds": [
+    "19800",
+    "19840"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15037,
+    15308
+   ]
+  },
+  {
+   "pos": 33678,
+   "answer": "Hodge Conjecture",
+   "preds": [
+    "P\\text{ versus }NP",
+    "\\text{Riemann hypothesis}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1565,
+    3013
+   ]
+  },
+  {
+   "pos": 34319,
+   "answer": "13",
+   "preds": [
+    "25",
+    "8"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3232,
+    8286
+   ]
+  },
+  {
+   "pos": 34336,
+   "answer": "100",
+   "preds": [
+    "50",
+    "100"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    22349,
+    17359
+   ]
+  },
+  {
+   "pos": 34929,
+   "answer": "Russia",
+   "preds": [
+    "Russia",
+    "United\\ States"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1366,
+    11640
+   ]
+  },
+  {
+   "pos": 35234,
+   "answer": "x^2 - x - 1",
+   "preds": [
+    "x^2 - 1",
+    "x^2 - 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8155,
+    7962
+   ]
+  },
+  {
+   "pos": 35317,
+   "answer": "16",
+   "preds": [
+    "16",
+    "16"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8877,
+    6715
+   ]
+  },
+  {
+   "pos": 35693,
+   "answer": "20",
+   "preds": [
+    "10",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8083,
+    7459
+   ]
+  },
+  {
+   "pos": 36215,
+   "answer": "-\\dfrac{2007}{4018}",
+   "preds": [
+    "\\frac{1}{3}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12593,
+    12063
+   ]
+  },
+  {
+   "pos": 36393,
+   "answer": "50",
+   "preds": [
+    "50",
+    "50"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4574,
+    4052
+   ]
+  },
+  {
+   "pos": 37548,
+   "answer": "12",
+   "preds": [
+    "144",
+    "3"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7181,
+    21770
+   ]
+  },
+  {
+   "pos": 38354,
+   "answer": "2",
+   "preds": [
+    "10",
+    "17"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15985,
+    7232
+   ]
+  },
+  {
+   "pos": 38591,
+   "answer": "\\frac{(n+1)^{(n+1)/2}}{2^n}",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32685,
+    9513
+   ]
+  },
+  {
+   "pos": 40063,
+   "answer": "30",
+   "preds": [
+    "90^\\circ",
+    "45^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9655,
+    12679
+   ]
+  },
+  {
+   "pos": 40370,
+   "answer": "2^{n-1} - 1",
+   "preds": [
+    "2^{n-1} - 1",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    11425,
+    32684
+   ]
+  },
+  {
+   "pos": 40376,
+   "answer": "\\log_{a+1}(b+1)",
+   "preds": [
+    "\\log_{a+1}(b+1)",
+    "\\log_a b"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13194,
+    8310
+   ]
+  },
+  {
+   "pos": 41129,
+   "answer": "S",
+   "preds": [
+    "\\frac{S}{2}",
+    "\\frac{S}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10707,
+    20389
+   ]
+  },
+  {
+   "pos": 43651,
+   "answer": "8",
+   "preds": [
+    "13",
+    "35 + 4\\sqrt[3]{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4329,
+    17215
+   ]
+  },
+  {
+   "pos": 44608,
+   "answer": "n > 1",
+   "preds": [
+    "2",
+    "7"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13649,
+    20803
+   ]
+  },
+  {
+   "pos": 44874,
+   "answer": "1024",
+   "preds": [
+    "\\{1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024\\}",
+    "\\text{All prime numbers between 1003 and 2000}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4521,
+    10622
+   ]
+  },
+  {
+   "pos": 45484,
+   "answer": "0",
+   "preds": [
+    "1",
+    "0"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11439,
+    5221
+   ]
+  },
+  {
+   "pos": 47838,
+   "answer": "f(n) = n",
+   "preds": [
+    "f(n) = n",
+    "2^n"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10112,
+    17692
+   ]
+  },
+  {
+   "pos": 47928,
+   "answer": "1",
+   "preds": [
+    "1",
+    "\\dfrac{7}{6}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8097,
+    6454
+   ]
+  },
+  {
+   "pos": 48191,
+   "answer": "\\frac{1}{105}",
+   "preds": [
+    "\\frac{1}{1260}",
+    "\\frac{23}{1260}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6947,
+    12372
+   ]
+  },
+  {
+   "pos": 49451,
+   "answer": "34.96",
+   "preds": [
+    "34.97",
+    "34.96"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7094,
+    11747
+   ]
+  },
+  {
+   "pos": 50009,
+   "answer": "\\dfrac{a - b}{c - d}",
+   "preds": [
+    "\\frac{a - b}{c - d}",
+    "e"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4373,
+    17148
+   ]
+  },
+  {
+   "pos": 50097,
+   "answer": "120",
+   "preds": [
+    "45",
+    "120"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3418,
+    10083
+   ]
+  },
+  {
+   "pos": 50232,
+   "answer": "2.87",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32684,
+    32684
+   ]
+  },
+  {
+   "pos": 50314,
+   "answer": "(90^\\circ, 180^\\circ)",
+   "preds": [
+    "(90^\\circ, 180^\\circ)",
+    "180^\\circ"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5521,
+    17443
+   ]
+  },
+  {
+   "pos": 50333,
+   "answer": "89",
+   "preds": [
+    "",
+    "11!"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32672,
+    3713
+   ]
+  },
+  {
+   "pos": 50352,
+   "answer": "35.5",
+   "preds": [
+    "35.5",
+    "6"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11962,
+    5059
+   ]
+  },
+  {
+   "pos": 50602,
+   "answer": "21",
+   "preds": [
+    "8\\sqrt{5} - 8",
+    "166"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20865,
+    32236
+   ]
+  },
+  {
+   "pos": 51504,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23225,
+    10955
+   ]
+  },
+  {
+   "pos": 51524,
+   "answer": "3",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32707,
+    32707
+   ]
+  },
+  {
+   "pos": 51866,
+   "answer": "101",
+   "preds": [
+    "99",
+    "100"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3122,
+    12624
+   ]
+  },
+  {
+   "pos": 52209,
+   "answer": "2",
+   "preds": [
+    "0",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16296,
+    5189
+   ]
+  },
+  {
+   "pos": 52553,
+   "answer": "\\infty",
+   "preds": [
+    "\\infty",
+    "\\infty"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4492,
+    4514
+   ]
+  },
+  {
+   "pos": 53923,
+   "answer": "First player",
+   "preds": [
+    "First player",
+    "First player"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8784,
+    4374
+   ]
+  },
+  {
+   "pos": 54199,
+   "answer": "2:1",
+   "preds": [
+    "2",
+    "2:1"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9246,
+    6104
+   ]
+  },
+  {
+   "pos": 54800,
+   "answer": "0",
+   "preds": [
+    "-\\infty",
+    "\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10943,
+    6317
+   ]
+  },
+  {
+   "pos": 54995,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3836,
+    5683
+   ]
+  },
+  {
+   "pos": 55423,
+   "answer": "28",
+   "preds": [
+    "34",
+    "18"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4243,
+    20792
+   ]
+  },
+  {
+   "pos": 56729,
+   "answer": "2^{2006}",
+   "preds": [
+    "2^{2006}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    7107,
+    32671
+   ]
+  },
+  {
+   "pos": 56836,
+   "answer": "\\dfrac{4\\sqrt{2}}{3}",
+   "preds": [
+    "",
+    "\\dfrac{\\sqrt{10}}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32613,
+    14230
+   ]
+  },
+  {
+   "pos": 57084,
+   "answer": "a^{4} + b^{4} + c^{4} \\geqslant 16 S^{2}",
+   "preds": [
+    "7",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    23569,
+    32470
+   ]
+  },
+  {
+   "pos": 57132,
+   "answer": "\\dfrac{e^{4} - e^{-4}}{4}",
+   "preds": [
+    "\\frac{1}{2} \\sinh(4)",
+    "\\dfrac{e^4 - e^{-4}}{4}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5170,
+    11645
+   ]
+  },
+  {
+   "pos": 57336,
+   "answer": "\\frac{12 + 2\\sqrt{3}}{3}",
+   "preds": [
+    "\\sqrt{6} + \\sqrt{3}",
+    "\\dfrac{4\\sqrt{3} + 6}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13393,
+    12516
+   ]
+  },
+  {
+   "pos": 57394,
+   "answer": "0",
+   "preds": [
+    "\\infty",
+    "\\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10527,
+    6750
+   ]
+  },
+  {
+   "pos": 57761,
+   "answer": "\\frac{3}{8} \\ln\\left(\\frac{e+1}{2}\\right)",
+   "preds": [
+    "\\dfrac{3\\pi}{16}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10340,
+    5754
+   ]
+  },
+  {
+   "pos": 59009,
+   "answer": "93",
+   "preds": [
+    "",
+    "638"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32671,
+    17032
+   ]
+  },
+  {
+   "pos": 59036,
+   "answer": "1",
+   "preds": [
+    "",
+    "1"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32695,
+    16424
+   ]
+  },
+  {
+   "pos": 59223,
+   "answer": "\\frac{1}{2}",
+   "preds": [
+    "\\dfrac{\\sqrt{3}}{2}",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14505,
+    14483
+   ]
+  },
+  {
+   "pos": 59477,
+   "answer": "90^\\circ",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4962,
+    17976
+   ]
+  },
+  {
+   "pos": 59957,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14675,
+    14004
+   ]
+  },
+  {
+   "pos": 60089,
+   "answer": "\\frac{\\pi}{4}",
+   "preds": [
+    "\\dfrac{2\\sqrt{2}}{5}",
+    "\\dfrac{2\\sqrt{2}}{5}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15671,
+    8959
+   ]
+  },
+  {
+   "pos": 60445,
+   "answer": "13",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32688,
+    9494
+   ]
+  },
+  {
+   "pos": 60581,
+   "answer": "0",
+   "preds": [
+    "\\left[ x^R \\right] \\prod_{i=1}^k (1 + x^i)",
+    "\\pi(R)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11195,
+    10144
+   ]
+  },
+  {
+   "pos": 61272,
+   "answer": "-1",
+   "preds": [
+    "-\\frac{\\sin(z) - i}{\\sin(z) + i}",
+    "-1"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10654,
+    14810
+   ]
+  },
+  {
+   "pos": 61774,
+   "answer": "14",
+   "preds": [
+    "14",
+    "14"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6308,
+    5757
+   ]
+  },
+  {
+   "pos": 62213,
+   "answer": "y = 4 - x^2",
+   "preds": [
+    "y = 4 - x^2",
+    "y = f(|x|)"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3718,
+    1950
+   ]
+  },
+  {
+   "pos": 63566,
+   "answer": "120",
+   "preds": [
+    "120",
+    "2"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14499,
+    9596
+   ]
+  },
+  {
+   "pos": 64138,
+   "answer": "1716",
+   "preds": [
+    "28",
+    "28"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1111,
+    1012
+   ]
+  },
+  {
+   "pos": 64364,
+   "answer": "(0, \\log_2 \\frac{4}{3}) \\cup (1, \\infty)",
+   "preds": [
+    "(0, 2 - \\log_2 3)",
+    "(-\\infty, 0) \\cup \\left(0, \\log_2\\left(\\frac{4}{3}\\right)\\right) \\cup (1, \\infty)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2762,
+    9980
+   ]
+  },
+  {
+   "pos": 65270,
+   "answer": "k \\text{ is prime}",
+   "preds": [
+    "4",
+    "\\text{All prime numbers}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4159,
+    7180
+   ]
+  },
+  {
+   "pos": 66431,
+   "answer": "\\frac{9}{13}",
+   "preds": [
+    "0",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14705,
+    32669
+   ]
+  },
+  {
+   "pos": 66985,
+   "answer": "787",
+   "preds": [
+    "4368",
+    "825"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18130,
+    11929
+   ]
+  },
+  {
+   "pos": 67275,
+   "answer": "9",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32698,
+    6418
+   ]
+  },
+  {
+   "pos": 67364,
+   "answer": "f(x) = x",
+   "preds": [
+    "",
+    "f(x) = x"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32665,
+    9035
+   ]
+  },
+  {
+   "pos": 67475,
+   "answer": "\\frac{4}{3}",
+   "preds": [
+    "\\frac{7}{3}",
+    "\\frac{1}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15867,
+    21236
+   ]
+  },
+  {
+   "pos": 68163,
+   "answer": "Yes",
+   "preds": [
+    "No",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    6382,
+    32671
+   ]
+  },
+  {
+   "pos": 68490,
+   "answer": "2712927485",
+   "preds": [
+    "",
+    "2011 \\times 2010"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32650,
+    24418
+   ]
+  },
+  {
+   "pos": 68737,
+   "answer": "256",
+   "preds": [
+    "2",
+    "258"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1756,
+    15258
+   ]
+  },
+  {
+   "pos": 68865,
+   "answer": "X^2 + 3X + 3 = 0",
+   "preds": [
+    "X^2 + 3X + 3 = 0",
+    "X^2 + 3X + 3 = 0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1428,
+    2268
+   ]
+  },
+  {
+   "pos": 68894,
+   "answer": "30^\\circ",
+   "preds": [
+    "40^\\circ",
+    "30^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18139,
+    13964
+   ]
+  },
+  {
+   "pos": 69523,
+   "answer": "595",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32691,
+    32691
+   ]
+  },
+  {
+   "pos": 70215,
+   "answer": "f(x) = ax + bx^3",
+   "preds": [
+    "0",
+    "f(x) = ax"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3356,
+    5884
+   ]
+  },
+  {
+   "pos": 70759,
+   "answer": "\\sqrt{2}",
+   "preds": [
+    "2",
+    "\\sqrt{2}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18991,
+    14159
+   ]
+  },
+  {
+   "pos": 71971,
+   "answer": "35",
+   "preds": [
+    "30",
+    "answer. Therefore, I must have made a wrong assumption.Wait, maybe the problem is that the nine integers are given, and we need to pick five of them such that their sum is divisible by 5, and the maximum sum is 40. But why 40?Alternatively, maybe the answer is 40. But I need to think differently.Wait, let's think of the maximum possible sum. If the nine integers are 0,1,2,3,4,5,6,7,8, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. So, the maximum sum is the sum of the five largest numbers, which is 30, 25, 25, etc. So, the maximum possible sum is 30. But why 30?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30 (5+6+7+8+0). But 30 is divisible by 5. So, the answer is 30. But why not 40?Alternatively, maybe the answer is 40. But I need to check.Wait, let's consider that the nine integers are 0,1,2,3,4,5,6,7,8. Then, the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. So, the maximum possible sum is 30. But why 30?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,11, then the maximum sum is 25 (5+6+7+8+5). 5+6+7+8+5=31, which is 31 mod 5=1. Not divisible by 5. So, that's not correct.Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8, then maximum sum is 30. So, maybe the answer is 30. But why not 40?Alternatively, maybe the answer is 40. But I need to think of another way.Wait, perhaps the problem is to find the maximum possible sum of five integers from nine integers, such that their sum is divisible by 5, and the nine integers are such that such a sum exists. But the problem doesn't state that. Therefore, the answer is that it's not possible.But the user expects an answer. Therefore, I think the problem is missing information. However, since I need to provide an answer, I'll go with the maximum possible sum of five numbers, which is 35. But I'm not sure.Alternatively, let's think of the nine integers as 0,1,2,3,4,5,6,7,8. Then, the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,15, then the maximum sum is 25. So, the maximum sum is 25. But 25 is divisible by 5. So, maybe the answer is 25.But why 25? Because 5+6+7+8+5=31, which is 31 mod 5=1. Not divisible by 5. So, that's not correct.Alternatively, 5+6+7+8+6=32, which is 32 mod 5=2. Not divisible by 5.Alternatively, 5+6+7+8+9=35, which is 35 mod 5=0. So, 35 is divisible by 5. So, 35 is a valid sum. So, the maximum sum would be 35. But why 35?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8, then the maximum sum is 30. But 30 is divisible by 5. So, 30 is a valid sum. So, 30 is larger than 35. Therefore, the answer is 30.But why 30? Because 5+6+7+8+0=36, which is 36 mod 5=1. Not divisible by 5. So, not valid. Therefore, the next possible sum is 35. But why 35?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. But 30 is divisible by 5. So, 30 is a valid sum. So, 30 is larger than 25. Therefore, the answer is 30.But why 30? Because 5+6+7+8+0=36, which is 36 mod 5=1. Not divisible by 5. So, not valid. Therefore, the next possible sum is 35. But 5+6+7+8+5=35. 35 mod 5=0. So, 35 is divisible by 5. So, 35 is a valid sum. So, the maximum sum is 35. But why 35?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. But 30 is divisible by 5. So, 30 is a valid sum. So, 30 is larger than 25. Therefore, the answer is 30.But why 30? Because 5+6+7+8+0=36, which is 36 mod 5=1. Not divisible by 5. So, not valid. Therefore, the next possible sum is 35. But 5+6+7+8+5=35. 35 mod 5=0. So, 35 is divisible by 5. So, 35 is a valid sum. So, the maximum sum is 35. But why 35?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,9, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,13, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,14, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,15, then the maximum sum is 25. So, the maximum sum is 25. But why 25?Alternatively, if the nine integers are 0,1,2,3,4,5,6,7,8,9, then the maximum sum is 30. If the nine integers are 0,1,2,3,4,5,6,7,8,10, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,11, then the maximum sum is 25. If the nine integers are 0,1,2,3,4,5,6,7,8,12,"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    11604,
+    32714
+   ]
+  },
+  {
+   "pos": 72136,
+   "answer": "Yes",
+   "preds": [
+    "\\text{No}",
+    "\\text{No}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6545,
+    16235
+   ]
+  },
+  {
+   "pos": 72371,
+   "answer": "a \\text{ is a perfect square}",
+   "preds": [
+    "a \\text{ is a perfect square}",
+    "a \\text{ is a perfect square}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7985,
+    3411
+   ]
+  },
+  {
+   "pos": 73464,
+   "answer": "2^{3997}",
+   "preds": [
+    "2^{1998}",
+    "2^{1998}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3661,
+    7191
+   ]
+  },
+  {
+   "pos": 73952,
+   "answer": "380160",
+   "preds": [
+    "72",
+    "1036800"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15531,
+    13020
+   ]
+  },
+  {
+   "pos": 74001,
+   "answer": "3",
+   "preds": [
+    "3",
+    "3"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2677,
+    1840
+   ]
+  },
+  {
+   "pos": 74538,
+   "answer": "y = \\dfrac{2\\sqrt{5}}{5}x + \\dfrac{4\\sqrt{5}}{5}",
+   "preds": [
+    "\\text{No common tangent exists}",
+    "y = \\frac{\\sqrt{5}}{5}x + \\frac{4\\sqrt{5}}{5}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16024,
+    18688
+   ]
+  },
+  {
+   "pos": 74987,
+   "answer": "6",
+   "preds": [
+    "6",
+    "6"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    481,
+    576
+   ]
+  },
+  {
+   "pos": 75117,
+   "answer": "\\frac{16\\sqrt{13}}{65}",
+   "preds": [
+    "",
+    "2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32609,
+    17382
+   ]
+  },
+  {
+   "pos": 75235,
+   "answer": "2240",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32697,
+    32697
+   ]
+  },
+  {
+   "pos": 75389,
+   "answer": "3",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10943,
+    11984
+   ]
+  },
+  {
+   "pos": 77209,
+   "answer": "90^\\circ",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11720,
+    11584
+   ]
+  },
+  {
+   "pos": 77419,
+   "answer": "385",
+   "preds": [
+    "0",
+    "515"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6706,
+    15186
+   ]
+  },
+  {
+   "pos": 77560,
+   "answer": "22",
+   "preds": [
+    "24",
+    "22"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18304,
+    16001
+   ]
+  },
+  {
+   "pos": 78166,
+   "answer": "\\text{No solution}",
+   "preds": [
+    "(123, 0)",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10600,
+    32699
+   ]
+  },
+  {
+   "pos": 79084,
+   "answer": "658640",
+   "preds": [
+    "",
+    "25824"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32661,
+    19147
+   ]
+  },
+  {
+   "pos": 80997,
+   "answer": "30",
+   "preds": [
+    "8",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8364,
+    32598
+   ]
+  },
+  {
+   "pos": 83966,
+   "answer": "\\frac{20\\sqrt{3}}{3}",
+   "preds": [
+    "\\frac{40\\sqrt{3}}{3}",
+    "\\dfrac{20\\sqrt{3}}{3}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3983,
+    12038
+   ]
+  },
+  {
+   "pos": 84312,
+   "answer": "6(\\sqrt{3} + 1)",
+   "preds": [
+    "\\sqrt{117 + 18\\sqrt{3}}",
+    "14"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21419,
+    10064
+   ]
+  },
+  {
+   "pos": 84657,
+   "answer": "A",
+   "preds": [
+    "D",
+    "C"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8264,
+    12345
+   ]
+  },
+  {
+   "pos": 84659,
+   "answer": "\\frac{20}{3}",
+   "preds": [
+    "\\dfrac{20}{3}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    15847,
+    32712
+   ]
+  },
+  {
+   "pos": 85251,
+   "answer": "f(x) = \\frac{x(x^2 + 7)}{2(1 - x^2)}",
+   "preds": [
+    "\\dfrac{x}{2} + \\dfrac{7}{3}",
+    "\\dfrac{x}{8}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17009,
+    16077
+   ]
+  },
+  {
+   "pos": 85711,
+   "answer": "20",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    9940,
+    32674
+   ]
+  },
+  {
+   "pos": 86035,
+   "answer": "24",
+   "preds": [
+    "39",
+    "36"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7009,
+    12601
+   ]
+  },
+  {
+   "pos": 86181,
+   "answer": "SB = SC",
+   "preds": [
+    "SA = SB",
+    "S \\text{ is the midpoint of arc } BC"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7521,
+    7507
+   ]
+  },
+  {
+   "pos": 86530,
+   "answer": "5 + \\sqrt{2}",
+   "preds": [
+    "5",
+    "7"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12723,
+    18051
+   ]
+  },
+  {
+   "pos": 86823,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14297,
+    11044
+   ]
+  },
+  {
+   "pos": 87153,
+   "answer": "1",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3817,
+    2348
+   ]
+  },
+  {
+   "pos": 87992,
+   "answer": "(x + 1)(3x - 5)^3(3x - 2)^3(x - 3)^3(x - 2)^3",
+   "preds": [
+    "9x^{36} - 39x^{35} - 30x^{34} + 810x^{33} - 3972x^{32} + 9534x^{31} - 5622x^{30} - 31542x^{29} + 84365x^{28} - 65369x^{27} - 45371x^{26} + 113208x^{25} - 79124x^{24} + 8222x^{23} + 28565x^{22} + 33758x^{21} - 159814x^{20} + 136307x^{19} + 111878x^{18} - 224144x^{17} + 80350x^{16} + 96372x^{15} - 70972x^{14} - 241222x^{13} + 373109x^{12} + 75143x^{11} - 487247x^{10} + 285230x^{9} + 121390x^{8} - 192460x^{7} + 15589x^{6} + 54742x^{5} + 65247x^{4} - 87710x^{3} + 7290x^{2} + 37800x - 27000",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    30379,
+    32307
+   ]
+  },
+  {
+   "pos": 88284,
+   "answer": "20",
+   "preds": [
+    "\\dfrac{5\\sqrt{1394}}{6}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    12983,
+    32698
+   ]
+  },
+  {
+   "pos": 88439,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "\\text{Yes}",
+    "1"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6961,
+    7268
+   ]
+  },
+  {
+   "pos": 88445,
+   "answer": "A",
+   "preds": [
+    "",
+    "A"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32670,
+    11062
+   ]
+  },
+  {
+   "pos": 88499,
+   "answer": "60",
+   "preds": [
+    "30",
+    "25"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16099,
+    18971
+   ]
+  },
+  {
+   "pos": 88599,
+   "answer": "y = \\frac{1}{2} \\cosh(2x)",
+   "preds": [
+    "y = 0",
+    "\\text{catenary curve}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11433,
+    8784
+   ]
+  },
+  {
+   "pos": 89031,
+   "answer": "2",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2477,
+    4458
+   ]
+  },
+  {
+   "pos": 89502,
+   "answer": "\\dfrac{3}{16}",
+   "preds": [
+    "",
+    "\\dfrac{3}{16}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32639,
+    9417
+   ]
+  },
+  {
+   "pos": 89980,
+   "answer": "18N(N - 1)",
+   "preds": [
+    "4\\sqrt{2}N",
+    "36\\sqrt{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17303,
+    18916
+   ]
+  },
+  {
+   "pos": 90047,
+   "answer": "180^\\circ",
+   "preds": [
+    "180",
+    "180^\\circ"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10303,
+    3585
+   ]
+  },
+  {
+   "pos": 90253,
+   "answer": "\\frac{25}{24}",
+   "preds": [
+    "\\frac{26}{9}",
+    "n"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13470,
+    7316
+   ]
+  },
+  {
+   "pos": 90905,
+   "answer": "Second player",
+   "preds": [
+    "\\text{First Player}",
+    "First Player"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11780,
+    5671
+   ]
+  },
+  {
+   "pos": 91073,
+   "answer": "w_a = R\\sqrt{2} \\sin(2\\theta)",
+   "preds": [
+    "\\text{No solution}",
+    "A = 90^\\circ - 2C, \\ B = C + 90^\\circ, \\ C"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14470,
+    11622
+   ]
+  },
+  {
+   "pos": 91749,
+   "answer": "888 + 88 + 8 + 8 + 8",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32722,
+    32722
+   ]
+  },
+  {
+   "pos": 92436,
+   "answer": "\\frac{L}{2}",
+   "preds": [
+    "\\dfrac{K}{6}",
+    "2\\sqrt{3}s"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12923,
+    5202
+   ]
+  },
+  {
+   "pos": 92606,
+   "answer": "55",
+   "preds": [
+    "5",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4920,
+    7997
+   ]
+  },
+  {
+   "pos": 94256,
+   "answer": "1850",
+   "preds": [
+    "(x, y) \\text{ where } x \\equiv y \\pmod{4} \\text{ and } 1 \\leq x < y \\leq 100",
+    "1850"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11539,
+    16944
+   ]
+  },
+  {
+   "pos": 94809,
+   "answer": "90^\\circ - \\dfrac{\\alpha}{2}",
+   "preds": [
+    "90^\\circ - \\alpha",
+    "90^\\circ - \\alpha"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23189,
+    15319
+   ]
+  },
+  {
+   "pos": 97357,
+   "answer": "F_{n+2}",
+   "preds": [
+    "F_{n+2}",
+    "F_{n+2}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3439,
+    12324
+   ]
+  },
+  {
+   "pos": 97872,
+   "answer": "\\frac{255}{4}",
+   "preds": [
+    "\\frac{255}{4}",
+    "-960"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    3487,
+    32651
+   ]
+  },
+  {
+   "pos": 98065,
+   "answer": "\\frac{1}{450}",
+   "preds": [
+    "\\dfrac{2}{15}",
+    "-\\dfrac{71}{6}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20429,
+    9788
+   ]
+  },
+  {
+   "pos": 98116,
+   "answer": "\\frac{1}{2}x^2 + C",
+   "preds": [
+    "\\frac{1}{2}x^2 + C",
+    "\\frac{x^2}{2} + C"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16828,
+    6611
+   ]
+  },
+  {
+   "pos": 99235,
+   "answer": "138",
+   "preds": [
+    "6",
+    "138"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2599,
+    3945
+   ]
+  },
+  {
+   "pos": 99329,
+   "answer": "9802",
+   "preds": [
+    "10000",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    19327,
+    32659
+   ]
+  },
+  {
+   "pos": 99922,
+   "answer": "4",
+   "preds": [
+    "1",
+    "2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13571,
+    19344
+   ]
+  },
+  {
+   "pos": 99994,
+   "answer": "40",
+   "preds": [
+    "30",
+    "10"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11814,
+    17783
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4017 @@
+{
+ "summary": {
+  "label": "adv_ep5",
+  "model": "/projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k_ep5",
+  "questions": 200,
+  "n": 2,
+  "acc_per_sample": 0.3125,
+  "pass_at_n": 0.42,
+  "frac_capped": 0.155,
+  "mean_tokens": 14478.4075,
+  "p95_tokens": 32694,
+  "gen_seconds": 6009.952442169189,
+  "seed": 0
+ },
+ "rows": [
+  {
+   "pos": 195,
+   "answer": "3",
+   "preds": [
+    "2",
+    "3"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5597,
+    3461
+   ]
+  },
+  {
+   "pos": 264,
+   "answer": "(0, -4)",
+   "preds": [
+    "(-2, 0)",
+    "(0, -4)"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6945,
+    5062
+   ]
+  },
+  {
+   "pos": 871,
+   "answer": "-3",
+   "preds": [
+    "[-3, -2]",
+    "(-\\infty, -3]"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6350,
+    6596
+   ]
+  },
+  {
+   "pos": 1089,
+   "answer": "1",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8760,
+    13550
+   ]
+  },
+  {
+   "pos": 1461,
+   "answer": "\\frac{11 - \\sqrt{13}}{2}",
+   "preds": [
+    "\\text{No such } k",
+    "4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19524,
+    20788
+   ]
+  },
+  {
+   "pos": 1727,
+   "answer": "-32",
+   "preds": [
+    "-32",
+    "-32"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    653,
+    794
+   ]
+  },
+  {
+   "pos": 2401,
+   "answer": "-\\sqrt{2}",
+   "preds": [
+    "-\\dfrac{\\sqrt{6}}{6}",
+    "-\\dfrac{\\sqrt{2}}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18725,
+    6602
+   ]
+  },
+  {
+   "pos": 2683,
+   "answer": "1",
+   "preds": [
+    "( \\ln 2 )^m \\zeta(m)",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    22010,
+    32679
+   ]
+  },
+  {
+   "pos": 3795,
+   "answer": "3",
+   "preds": [
+    "\\sqrt[12]{162} + \\sqrt[6]{27} + \\sqrt[4]{18}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    18921,
+    32675
+   ]
+  },
+  {
+   "pos": 5076,
+   "answer": "\\frac{2 \\sqrt{p}}{e \\ln p}",
+   "preds": [
+    "\\frac{2e}{\\sqrt{p} \\ln p}",
+    "\\dfrac{2}{e \\ln p}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7935,
+    3453
+   ]
+  },
+  {
+   "pos": 5129,
+   "answer": "90^\\circ \\text{ and } 90^\\circ",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3962,
+    7088
+   ]
+  },
+  {
+   "pos": 5484,
+   "answer": "6",
+   "preds": [
+    "0",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    11623,
+    32709
+   ]
+  },
+  {
+   "pos": 5916,
+   "answer": "f(x) = x + c",
+   "preds": [
+    "f(x) = x",
+    "f(x) = x"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6628,
+    3489
+   ]
+  },
+  {
+   "pos": 6359,
+   "answer": "(0, 0)",
+   "preds": [
+    "(0, 0)",
+    "(n, m) = (0, 0)"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9079,
+    3954
+   ]
+  },
+  {
+   "pos": 7136,
+   "answer": "20",
+   "preds": [
+    "20",
+    "80"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12152,
+    3222
+   ]
+  },
+  {
+   "pos": 7833,
+   "answer": "35",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8626,
+    8486
+   ]
+  },
+  {
+   "pos": 8520,
+   "answer": "\\sum_{k=1}^n \\frac{(-1)^{k-1} x^k}{k^2}",
+   "preds": [
+    "\\sum_{k=1}^{n} \\frac{(-1)^{k+1} x^{k}}{k^2}",
+    "\\sum_{k=0}^{n} \\frac{(-1)^k x^{k+1}}{(k+1)^2}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8491,
+    4231
+   ]
+  },
+  {
+   "pos": 9881,
+   "answer": "1",
+   "preds": [
+    "5",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14632,
+    32650
+   ]
+  },
+  {
+   "pos": 10110,
+   "answer": "\\dfrac{9}{7}",
+   "preds": [
+    "\\dfrac{9}{8}",
+    "\\frac{9}{7}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20403,
+    6601
+   ]
+  },
+  {
+   "pos": 10720,
+   "answer": "9",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10037,
+    15470
+   ]
+  },
+  {
+   "pos": 11283,
+   "answer": "25",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7579,
+    11657
+   ]
+  },
+  {
+   "pos": 13244,
+   "answer": "r^2 = 2c^2 \\sin(2\\theta)",
+   "preds": [
+    "\\theta = \\arctan\\left(\\frac{1}{c}\\right)",
+    "\\theta = \\frac{\\pi}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16097,
+    13525
+   ]
+  },
+  {
+   "pos": 14235,
+   "answer": "135",
+   "preds": [
+    "151",
+    "\\dfrac{1024}{49}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    24712,
+    18491
+   ]
+  },
+  {
+   "pos": 15411,
+   "answer": "(-1, 1)",
+   "preds": [
+    "(-1, 1)",
+    "(-1, 1)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8825,
+    9826
+   ]
+  },
+  {
+   "pos": 15489,
+   "answer": "2",
+   "preds": [
+    "0",
+    "3"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13532,
+    5829
+   ]
+  },
+  {
+   "pos": 15517,
+   "answer": "1",
+   "preds": [
+    "\\frac{1}{2}",
+    "\\dfrac{1}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20784,
+    22809
+   ]
+  },
+  {
+   "pos": 16184,
+   "answer": "3",
+   "preds": [
+    "0",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11599,
+    1974
+   ]
+  },
+  {
+   "pos": 16897,
+   "answer": "1 \\text{ and } 2",
+   "preds": [
+    "1",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    15073,
+    32557
+   ]
+  },
+  {
+   "pos": 17468,
+   "answer": "7",
+   "preds": [
+    "1",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19152,
+    7578
+   ]
+  },
+  {
+   "pos": 17487,
+   "answer": "4",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5116,
+    12110
+   ]
+  },
+  {
+   "pos": 17518,
+   "answer": "9",
+   "preds": [
+    "",
+    "9"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32697,
+    15821
+   ]
+  },
+  {
+   "pos": 17901,
+   "answer": "100",
+   "preds": [
+    "125",
+    "100n"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18399,
+    13988
+   ]
+  },
+  {
+   "pos": 17944,
+   "answer": "Yes",
+   "preds": [
+    "No",
+    "\\text{Yes}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12874,
+    4026
+   ]
+  },
+  {
+   "pos": 19797,
+   "answer": "23",
+   "preds": [
+    "23",
+    "1"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14721,
+    6259
+   ]
+  },
+  {
+   "pos": 20328,
+   "answer": "(-4, 3, 3)",
+   "preds": [
+    "(-4, 3, 3)",
+    "(-4, 3, 3)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1616,
+    7808
+   ]
+  },
+  {
+   "pos": 20859,
+   "answer": "-\\frac{4}{3}",
+   "preds": [
+    "-\\frac{4}{3}",
+    "-\\frac{4}{3}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21677,
+    8219
+   ]
+  },
+  {
+   "pos": 20899,
+   "answer": "\\dfrac{5+\\sqrt{13}}{2}",
+   "preds": [
+    "2\\sqrt{3}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    16052,
+    32685
+   ]
+  },
+  {
+   "pos": 20987,
+   "answer": "1827",
+   "preds": [
+    "877",
+    "\\frac{250\\pi - 25\\sqrt{10}}{1}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6486,
+    18216
+   ]
+  },
+  {
+   "pos": 21364,
+   "answer": "\\frac{1}{m - n + 1} I",
+   "preds": [
+    "I + \\frac{\\sigma^2}{n} \\cdot \\text{diag}\\left( \\frac{1}{1 + \\sigma_i^2} \\right)",
+    "\\frac{I + \\frac{m}{n}}{n + m}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14225,
+    14666
+   ]
+  },
+  {
+   "pos": 21669,
+   "answer": "8",
+   "preds": [
+    "8",
+    "8"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8303,
+    5652
+   ]
+  },
+  {
+   "pos": 22180,
+   "answer": "222",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32656,
+    32656
+   ]
+  },
+  {
+   "pos": 22977,
+   "answer": "\\dfrac{35}{16} - \\dfrac{1535}{16 \\cdot 5^{25}}",
+   "preds": [
+    "\\dfrac{23}{8} - \\dfrac{76}{5^{25}}",
+    "\\frac{1}{4} + \\frac{1}{2 \\cdot 5^{25}}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9603,
+    19970
+   ]
+  },
+  {
+   "pos": 23100,
+   "answer": "125",
+   "preds": [
+    "46",
+    "72"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10255,
+    14706
+   ]
+  },
+  {
+   "pos": 23892,
+   "answer": "1800",
+   "preds": [
+    "1080",
+    "1080"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4013,
+    3546
+   ]
+  },
+  {
+   "pos": 23925,
+   "answer": "-1 + 2\\sqrt{3}",
+   "preds": [
+    "-1 + 2\\sqrt{3}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    1756,
+    32711
+   ]
+  },
+  {
+   "pos": 24037,
+   "answer": "2",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32683,
+    2728
+   ]
+  },
+  {
+   "pos": 24806,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "Yes",
+    "Yes"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10884,
+    4289
+   ]
+  },
+  {
+   "pos": 24810,
+   "answer": "4",
+   "preds": [
+    "4",
+    "4"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1106,
+    1222
+   ]
+  },
+  {
+   "pos": 24972,
+   "answer": "0.417",
+   "preds": [
+    "",
+    "0.10800037"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32615,
+    26014
+   ]
+  },
+  {
+   "pos": 26257,
+   "answer": "\\emptyset",
+   "preds": [
+    "(-\\infty, -\\frac{2\\sqrt{5}}{5}] \\cup [\\frac{2\\sqrt{5}}{5}, \\infty)",
+    "[-2, 2]"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17273,
+    16728
+   ]
+  },
+  {
+   "pos": 26312,
+   "answer": "\\frac{1}{3}",
+   "preds": [
+    "\\dfrac{1}{2}",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32654,
+    32654
+   ]
+  },
+  {
+   "pos": 26391,
+   "answer": "2",
+   "preds": [
+    "4",
+    "\\dfrac{5}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12556,
+    11282
+   ]
+  },
+  {
+   "pos": 27254,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13766,
+    13498
+   ]
+  },
+  {
+   "pos": 27301,
+   "answer": "0",
+   "preds": [
+    "0",
+    "\\dfrac{1}{2^{k-1}} - \\dfrac{1}{(k-1)2^{k-1}}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14838,
+    32671
+   ]
+  },
+  {
+   "pos": 27560,
+   "answer": "25",
+   "preds": [
+    "25",
+    "25"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3227,
+    4677
+   ]
+  },
+  {
+   "pos": 27744,
+   "answer": "(6, 3)",
+   "preds": [
+    "(6, 3)",
+    "(6, 3)"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    22357,
+    18323
+   ]
+  },
+  {
+   "pos": 28327,
+   "answer": "\\frac{\\pi}{2} - \\ln 2",
+   "preds": [
+    "1",
+    "\\ln 2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17911,
+    6098
+   ]
+  },
+  {
+   "pos": 28373,
+   "answer": "60^\\circ",
+   "preds": [
+    "120^\\circ",
+    "60^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20346,
+    17906
+   ]
+  },
+  {
+   "pos": 28578,
+   "answer": "2\\sqrt{2}",
+   "preds": [
+    "2\\sqrt{2}",
+    "4"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17313,
+    20714
+   ]
+  },
+  {
+   "pos": 29631,
+   "answer": "12",
+   "preds": [
+    "12",
+    "12"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4772,
+    3252
+   ]
+  },
+  {
+   "pos": 29680,
+   "answer": "\\frac{15\\sqrt{481}}{37}",
+   "preds": [
+    "12",
+    "\\frac{\\sqrt{178322}}{25}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15865,
+    21400
+   ]
+  },
+  {
+   "pos": 30356,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16491,
+    18627
+   ]
+  },
+  {
+   "pos": 30362,
+   "answer": "Kati",
+   "preds": [
+    "Kati",
+    "Kati"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23599,
+    14641
+   ]
+  },
+  {
+   "pos": 30470,
+   "answer": "(-1, 1]",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6639,
+    9802
+   ]
+  },
+  {
+   "pos": 30923,
+   "answer": "9",
+   "preds": [
+    "9",
+    "23"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4560,
+    6270
+   ]
+  },
+  {
+   "pos": 31336,
+   "answer": "3",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7232,
+    8007
+   ]
+  },
+  {
+   "pos": 31579,
+   "answer": "1383",
+   "preds": [
+    "1999999",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32713,
+    32713
+   ]
+  },
+  {
+   "pos": 31893,
+   "answer": "\\Delta ABC",
+   "preds": [
+    "",
+    "\\text{Construct triangle ABC by drawing BC of length a, constructing a point A such that AB = AC = c - b, and ensuring the heights from B and C satisfy h_b - h_c = d.}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32697,
+    16058
+   ]
+  },
+  {
+   "pos": 32909,
+   "answer": "\\ln \\left| \\frac{x + \\sin x}{x + \\cos x} \\right| + C",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32704,
+    32704
+   ]
+  },
+  {
+   "pos": 33012,
+   "answer": "19846",
+   "preds": [
+    "19936",
+    "18971"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17751,
+    11939
+   ]
+  },
+  {
+   "pos": 33678,
+   "answer": "Hodge Conjecture",
+   "preds": [
+    "P\\text{ vs }\\text{NP}",
+    "P\\text{ vs }NP"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1904,
+    4463
+   ]
+  },
+  {
+   "pos": 34319,
+   "answer": "13",
+   "preds": [
+    "11",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10607,
+    32685
+   ]
+  },
+  {
+   "pos": 34336,
+   "answer": "100",
+   "preds": [
+    "50",
+    "100"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19032,
+    23664
+   ]
+  },
+  {
+   "pos": 34929,
+   "answer": "Russia",
+   "preds": [
+    "None",
+    "None"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9993,
+    9335
+   ]
+  },
+  {
+   "pos": 35234,
+   "answer": "x^2 - x - 1",
+   "preds": [
+    "x^2 - 1",
+    "x^3 + x^2 - x - 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7652,
+    10982
+   ]
+  },
+  {
+   "pos": 35317,
+   "answer": "16",
+   "preds": [
+    "",
+    "16"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32708,
+    3263
+   ]
+  },
+  {
+   "pos": 35693,
+   "answer": "20",
+   "preds": [
+    "5",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    15635,
+    32692
+   ]
+  },
+  {
+   "pos": 36215,
+   "answer": "-\\dfrac{2007}{4018}",
+   "preds": [
+    "-\\dfrac{11}{12}",
+    "\\dfrac{2007}{2009} H_{2008} - 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    17215,
+    20132
+   ]
+  },
+  {
+   "pos": 36393,
+   "answer": "50",
+   "preds": [
+    "50",
+    "50"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13544,
+    17231
+   ]
+  },
+  {
+   "pos": 37548,
+   "answer": "12",
+   "preds": [
+    "2",
+    "12"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12120,
+    7951
+   ]
+  },
+  {
+   "pos": 38354,
+   "answer": "2",
+   "preds": [
+    "",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32626,
+    12500
+   ]
+  },
+  {
+   "pos": 38591,
+   "answer": "\\frac{(n+1)^{(n+1)/2}}{2^n}",
+   "preds": [
+    "n",
+    "\\left\\lceil \\dfrac{n}{2} \\right\\rceil"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14286,
+    10414
+   ]
+  },
+  {
+   "pos": 40063,
+   "answer": "30",
+   "preds": [
+    "90^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12464,
+    14920
+   ]
+  },
+  {
+   "pos": 40370,
+   "answer": "2^{n-1} - 1",
+   "preds": [
+    "",
+    "2^{n-1} - 1"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32684,
+    10332
+   ]
+  },
+  {
+   "pos": 40376,
+   "answer": "\\log_{a+1}(b+1)",
+   "preds": [
+    "\\log_{a}b",
+    "\\log_{a+1}(b+1)"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11821,
+    3527
+   ]
+  },
+  {
+   "pos": 41129,
+   "answer": "S",
+   "preds": [
+    "S",
+    "\\dfrac{S}{2}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16683,
+    15649
+   ]
+  },
+  {
+   "pos": 43651,
+   "answer": "8",
+   "preds": [
+    "24",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7425,
+    12590
+   ]
+  },
+  {
+   "pos": 44608,
+   "answer": "n > 1",
+   "preds": [
+    "",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32633,
+    23832
+   ]
+  },
+  {
+   "pos": 44874,
+   "answer": "1024",
+   "preds": [
+    "\\{2048\\}",
+    "1024"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3113,
+    6116
+   ]
+  },
+  {
+   "pos": 45484,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8354,
+    8910
+   ]
+  },
+  {
+   "pos": 47838,
+   "answer": "f(n) = n",
+   "preds": [
+    "f(n) = n",
+    "f(n) = n"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12186,
+    4386
+   ]
+  },
+  {
+   "pos": 47928,
+   "answer": "1",
+   "preds": [
+    "1",
+    "1"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7587,
+    24024
+   ]
+  },
+  {
+   "pos": 48191,
+   "answer": "\\frac{1}{105}",
+   "preds": [
+    "",
+    "\\dfrac{13}{252}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32704,
+    8635
+   ]
+  },
+  {
+   "pos": 49451,
+   "answer": "34.96",
+   "preds": [
+    "35.71",
+    "34.96"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10724,
+    3635
+   ]
+  },
+  {
+   "pos": 50009,
+   "answer": "\\dfrac{a - b}{c - d}",
+   "preds": [
+    "\\frac{a - b}{c - d}",
+    "\\frac{b}{d}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3381,
+    10498
+   ]
+  },
+  {
+   "pos": 50097,
+   "answer": "120",
+   "preds": [
+    "45",
+    "45"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6711,
+    4299
+   ]
+  },
+  {
+   "pos": 50232,
+   "answer": "2.87",
+   "preds": [
+    "13.5",
+    "\\frac{3\\pi}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    21029,
+    20228
+   ]
+  },
+  {
+   "pos": 50314,
+   "answer": "(90^\\circ, 180^\\circ)",
+   "preds": [
+    "140^\\circ",
+    "(90^\\circ, 180^\\circ)"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18070,
+    17197
+   ]
+  },
+  {
+   "pos": 50333,
+   "answer": "89",
+   "preds": [
+    "",
+    "144"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32672,
+    14849
+   ]
+  },
+  {
+   "pos": 50352,
+   "answer": "35.5",
+   "preds": [
+    "27",
+    "28"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10782,
+    17599
+   ]
+  },
+  {
+   "pos": 50602,
+   "answer": "21",
+   "preds": [
+    "",
+    "30"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32658,
+    20523
+   ]
+  },
+  {
+   "pos": 51504,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{None}",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5845,
+    5577
+   ]
+  },
+  {
+   "pos": 51524,
+   "answer": "3",
+   "preds": [
+    "",
+    "1, 3, 5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32707,
+    5995
+   ]
+  },
+  {
+   "pos": 51866,
+   "answer": "101",
+   "preds": [
+    "100",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6481,
+    9353
+   ]
+  },
+  {
+   "pos": 52209,
+   "answer": "2",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7808,
+    7612
+   ]
+  },
+  {
+   "pos": 52553,
+   "answer": "\\infty",
+   "preds": [
+    "\\infty",
+    "\\infty"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4848,
+    7719
+   ]
+  },
+  {
+   "pos": 53923,
+   "answer": "First player",
+   "preds": [
+    "First player",
+    "First player"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3165,
+    7709
+   ]
+  },
+  {
+   "pos": 54199,
+   "answer": "2:1",
+   "preds": [
+    "2:1",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3487,
+    13185
+   ]
+  },
+  {
+   "pos": 54800,
+   "answer": "0",
+   "preds": [
+    "",
+    "\\dfrac{3}{4}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32683,
+    10744
+   ]
+  },
+  {
+   "pos": 54995,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3931,
+    4271
+   ]
+  },
+  {
+   "pos": 55423,
+   "answer": "28",
+   "preds": [
+    "40",
+    "42"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13950,
+    15771
+   ]
+  },
+  {
+   "pos": 56729,
+   "answer": "2^{2006}",
+   "preds": [
+    "",
+    "2^{2006}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32671,
+    11135
+   ]
+  },
+  {
+   "pos": 56836,
+   "answer": "\\dfrac{4\\sqrt{2}}{3}",
+   "preds": [
+    "2",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    16756,
+    14983
+   ]
+  },
+  {
+   "pos": 57084,
+   "answer": "a^{4} + b^{4} + c^{4} \\geqslant 16 S^{2}",
+   "preds": [
+    "",
+    "a^{4} + b^{4} + c^{4} \\geqslant 16 S^{2}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32470,
+    14814
+   ]
+  },
+  {
+   "pos": 57132,
+   "answer": "\\dfrac{e^{4} - e^{-4}}{4}",
+   "preds": [
+    "\\dfrac{e^4 - e^{-4}}{4}",
+    "\\dfrac{e^{4} - e^{-4}}{4}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3562,
+    7082
+   ]
+  },
+  {
+   "pos": 57336,
+   "answer": "\\frac{12 + 2\\sqrt{3}}{3}",
+   "preds": [
+    "3\\sqrt{3}",
+    "2\\sqrt{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9763,
+    18100
+   ]
+  },
+  {
+   "pos": 57394,
+   "answer": "0",
+   "preds": [
+    "\\infty",
+    "0 \\text{ and } \\infty"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7308,
+    8305
+   ]
+  },
+  {
+   "pos": 57761,
+   "answer": "\\frac{3}{8} \\ln\\left(\\frac{e+1}{2}\\right)",
+   "preds": [
+    "\\frac{3}{8} \\ln\\left( \\frac{e+1}{2} \\right)",
+    "\\dfrac{\\ln 2}{4}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3375,
+    13081
+   ]
+  },
+  {
+   "pos": 59009,
+   "answer": "93",
+   "preds": [
+    "102",
+    "102"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7250,
+    13251
+   ]
+  },
+  {
+   "pos": 59036,
+   "answer": "1",
+   "preds": [
+    "",
+    "\\dfrac{x(1 - x)^{N - 1} (1 + x)^{N - 1}}{N}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32695,
+    26336
+   ]
+  },
+  {
+   "pos": 59223,
+   "answer": "\\frac{1}{2}",
+   "preds": [
+    "-\\dfrac{1}{2}",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18341,
+    13200
+   ]
+  },
+  {
+   "pos": 59477,
+   "answer": "90^\\circ",
+   "preds": [
+    "45^\\circ",
+    "90^\\circ"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14022,
+    12016
+   ]
+  },
+  {
+   "pos": 59957,
+   "answer": "0",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14332,
+    13728
+   ]
+  },
+  {
+   "pos": 60089,
+   "answer": "\\frac{\\pi}{4}",
+   "preds": [
+    "\\frac{8\\sqrt{\\pi}}{3}",
+    "\\dfrac{5}{12} \\sqrt{\\pi}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6217,
+    16930
+   ]
+  },
+  {
+   "pos": 60445,
+   "answer": "13",
+   "preds": [
+    "12",
+    "5"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10785,
+    13113
+   ]
+  },
+  {
+   "pos": 60581,
+   "answer": "0",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32627,
+    32627
+   ]
+  },
+  {
+   "pos": 61272,
+   "answer": "-1",
+   "preds": [
+    "-1",
+    "-1"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10457,
+    16217
+   ]
+  },
+  {
+   "pos": 61774,
+   "answer": "14",
+   "preds": [
+    "14",
+    "14"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6166,
+    8941
+   ]
+  },
+  {
+   "pos": 62213,
+   "answer": "y = 4 - x^2",
+   "preds": [
+    "\\text{Reflect the right half of } f(x) = 4 - x^2 \\text{ over the y-axis to obtain } y = f(|x|)",
+    "\\text{The graph of } y = f(|x|) \\text{ is the same as the graph of } y = 4 - x^2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8712,
+    3456
+   ]
+  },
+  {
+   "pos": 63566,
+   "answer": "120",
+   "preds": [
+    "1288",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    17271,
+    32687
+   ]
+  },
+  {
+   "pos": 64138,
+   "answer": "1716",
+   "preds": [
+    "1725",
+    "28"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4632,
+    1394
+   ]
+  },
+  {
+   "pos": 64364,
+   "answer": "(0, \\log_2 \\frac{4}{3}) \\cup (1, \\infty)",
+   "preds": [
+    "(0, \\log_2(\\sqrt{5} - 1))",
+    "(-\\infty, 0) \\cup (1, \\infty)"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14925,
+    4700
+   ]
+  },
+  {
+   "pos": 65270,
+   "answer": "k \\text{ is prime}",
+   "preds": [
+    "k \\text{ is not a perfect square}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14099,
+    32634
+   ]
+  },
+  {
+   "pos": 66431,
+   "answer": "\\frac{9}{13}",
+   "preds": [
+    "\\dfrac{37}{13}",
+    "\\frac{56}{27}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    15238,
+    6998
+   ]
+  },
+  {
+   "pos": 66985,
+   "answer": "787",
+   "preds": [
+    "209",
+    "370"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9891,
+    14434
+   ]
+  },
+  {
+   "pos": 67275,
+   "answer": "9",
+   "preds": [
+    "",
+    "2"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32698,
+    6947
+   ]
+  },
+  {
+   "pos": 67364,
+   "answer": "f(x) = x",
+   "preds": [
+    "f(x) = x",
+    "f(x) = x"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6745,
+    7095
+   ]
+  },
+  {
+   "pos": 67475,
+   "answer": "\\frac{4}{3}",
+   "preds": [
+    "\\frac{32}{45}",
+    "\\frac{1}{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23264,
+    18172
+   ]
+  },
+  {
+   "pos": 68163,
+   "answer": "Yes",
+   "preds": [
+    "No",
+    "Yes"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6119,
+    5342
+   ]
+  },
+  {
+   "pos": 68490,
+   "answer": "2712927485",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32650,
+    32650
+   ]
+  },
+  {
+   "pos": 68737,
+   "answer": "256",
+   "preds": [
+    "45",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    17255,
+    32694
+   ]
+  },
+  {
+   "pos": 68865,
+   "answer": "X^2 + 3X + 3 = 0",
+   "preds": [
+    "x^2 + 3x + 3 = 0",
+    "X^2 + 3X + 3 = 0"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11379,
+    6974
+   ]
+  },
+  {
+   "pos": 68894,
+   "answer": "30^\\circ",
+   "preds": [
+    "10^\\circ",
+    "10^\\circ"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20342,
+    14625
+   ]
+  },
+  {
+   "pos": 69523,
+   "answer": "595",
+   "preds": [
+    "571",
+    "595"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14129,
+    2797
+   ]
+  },
+  {
+   "pos": 70215,
+   "answer": "f(x) = ax + bx^3",
+   "preds": [
+    "0",
+    "f(x) = kx"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8294,
+    5671
+   ]
+  },
+  {
+   "pos": 70759,
+   "answer": "\\sqrt{2}",
+   "preds": [
+    "\\frac{2}{3}",
+    "3\\sqrt{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20681,
+    8070
+   ]
+  },
+  {
+   "pos": 71971,
+   "answer": "35",
+   "preds": [
+    "a_1 + a_2 + a_3 + a_4 + a_5",
+    "41"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13916,
+    15209
+   ]
+  },
+  {
+   "pos": 72136,
+   "answer": "Yes",
+   "preds": [
+    "Yes",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    8749,
+    32634
+   ]
+  },
+  {
+   "pos": 72371,
+   "answer": "a \\text{ is a perfect square}",
+   "preds": [
+    "a \\text{ is a perfect square}",
+    "a"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14857,
+    2552
+   ]
+  },
+  {
+   "pos": 73464,
+   "answer": "2^{3997}",
+   "preds": [
+    "2^{1999}",
+    "2^{2001}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8922,
+    8091
+   ]
+  },
+  {
+   "pos": 73952,
+   "answer": "380160",
+   "preds": [
+    "",
+    "86400"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32705,
+    7384
+   ]
+  },
+  {
+   "pos": 74001,
+   "answer": "3",
+   "preds": [
+    "3",
+    "2"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11622,
+    4991
+   ]
+  },
+  {
+   "pos": 74538,
+   "answer": "y = \\dfrac{2\\sqrt{5}}{5}x + \\dfrac{4\\sqrt{5}}{5}",
+   "preds": [
+    "y = \\frac{\\sqrt{1 + \\sqrt{10}}}{3} x + \\frac{2(\\sqrt{10} - 1)}{3}",
+    "x^2 + y^2 = 1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19980,
+    18001
+   ]
+  },
+  {
+   "pos": 74987,
+   "answer": "6",
+   "preds": [
+    "6",
+    "6"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    620,
+    664
+   ]
+  },
+  {
+   "pos": 75117,
+   "answer": "\\frac{16\\sqrt{13}}{65}",
+   "preds": [
+    "1",
+    "\\frac{8}{13}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13980,
+    11959
+   ]
+  },
+  {
+   "pos": 75235,
+   "answer": "2240",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32697,
+    32697
+   ]
+  },
+  {
+   "pos": 75389,
+   "answer": "3",
+   "preds": [
+    "3",
+    "1"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6800,
+    13926
+   ]
+  },
+  {
+   "pos": 77209,
+   "answer": "90^\\circ",
+   "preds": [
+    "90^\\circ",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    14063,
+    32598
+   ]
+  },
+  {
+   "pos": 77419,
+   "answer": "385",
+   "preds": [
+    "515",
+    "515"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5001,
+    1813
+   ]
+  },
+  {
+   "pos": 77560,
+   "answer": "22",
+   "preds": [
+    "12",
+    "18"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    13788,
+    15345
+   ]
+  },
+  {
+   "pos": 78166,
+   "answer": "\\text{No solution}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    19650,
+    11658
+   ]
+  },
+  {
+   "pos": 79084,
+   "answer": "658640",
+   "preds": [
+    "886835",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    15993,
+    32661
+   ]
+  },
+  {
+   "pos": 80997,
+   "answer": "30",
+   "preds": [
+    "30",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10199,
+    32598
+   ]
+  },
+  {
+   "pos": 83966,
+   "answer": "\\frac{20\\sqrt{3}}{3}",
+   "preds": [
+    "\\frac{20\\sqrt{3}}{3}",
+    "10 + 10\\sqrt{3}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3876,
+    14588
+   ]
+  },
+  {
+   "pos": 84312,
+   "answer": "6(\\sqrt{3} + 1)",
+   "preds": [
+    "3\\sqrt{5 + 2\\sqrt{3}}",
+    "18\\sqrt{3}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20533,
+    21293
+   ]
+  },
+  {
+   "pos": 84657,
+   "answer": "A",
+   "preds": [
+    "A",
+    "A"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    1395,
+    2165
+   ]
+  },
+  {
+   "pos": 84659,
+   "answer": "\\frac{20}{3}",
+   "preds": [
+    "4\\sqrt{5}",
+    "\\frac{20}{7}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32712,
+    11648
+   ]
+  },
+  {
+   "pos": 85251,
+   "answer": "f(x) = \\frac{x(x^2 + 7)}{2(1 - x^2)}",
+   "preds": [
+    "f(x) = x + \\dfrac{1}{2}",
+    "f(x) = \\dfrac{2}{3}x^2 - x - 3"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    22866,
+    25133
+   ]
+  },
+  {
+   "pos": 85711,
+   "answer": "20",
+   "preds": [
+    "2002",
+    "3"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    29117,
+    12581
+   ]
+  },
+  {
+   "pos": 86035,
+   "answer": "24",
+   "preds": [
+    "24",
+    "48"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    18384,
+    13979
+   ]
+  },
+  {
+   "pos": 86181,
+   "answer": "SB = SC",
+   "preds": [
+    "SA = SB",
+    "S \\text{ is the midpoint of arc } BC"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5792,
+    4999
+   ]
+  },
+  {
+   "pos": 86530,
+   "answer": "5 + \\sqrt{2}",
+   "preds": [
+    "1 + 4\\sqrt{2}",
+    "6.242"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    12858,
+    17932
+   ]
+  },
+  {
+   "pos": 86823,
+   "answer": "\\text{No solution exists}",
+   "preds": [
+    "\\text{No solution}",
+    "\\text{No solution}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10465,
+    11209
+   ]
+  },
+  {
+   "pos": 87153,
+   "answer": "1",
+   "preds": [
+    "0",
+    "0"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2614,
+    4273
+   ]
+  },
+  {
+   "pos": 87992,
+   "answer": "(x + 1)(3x - 5)^3(3x - 2)^3(x - 3)^3(x - 2)^3",
+   "preds": [
+    "",
+    ""
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32307,
+    32307
+   ]
+  },
+  {
+   "pos": 88284,
+   "answer": "20",
+   "preds": [
+    "",
+    "\\frac{5\\sqrt{2}}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32698,
+    9260
+   ]
+  },
+  {
+   "pos": 88439,
+   "answer": "\\text{Yes}",
+   "preds": [
+    "Yes",
+    "Yes"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6486,
+    5737
+   ]
+  },
+  {
+   "pos": 88445,
+   "answer": "A",
+   "preds": [
+    "",
+    "B"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32670,
+    12629
+   ]
+  },
+  {
+   "pos": 88499,
+   "answer": "60",
+   "preds": [
+    "60",
+    "\\frac{65}{12}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6375,
+    20755
+   ]
+  },
+  {
+   "pos": 88599,
+   "answer": "y = \\frac{1}{2} \\cosh(2x)",
+   "preds": [
+    "y = x",
+    "\\text{Catenary}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    10154,
+    12197
+   ]
+  },
+  {
+   "pos": 89031,
+   "answer": "2",
+   "preds": [
+    "2",
+    "2"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5150,
+    3026
+   ]
+  },
+  {
+   "pos": 89502,
+   "answer": "\\dfrac{3}{16}",
+   "preds": [
+    "\\dfrac{3}{16}",
+    ""
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    10633,
+    32639
+   ]
+  },
+  {
+   "pos": 89980,
+   "answer": "18N(N - 1)",
+   "preds": [
+    "",
+    "3\\sqrt{2}N"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32597,
+    18085
+   ]
+  },
+  {
+   "pos": 90047,
+   "answer": "180^\\circ",
+   "preds": [
+    "360",
+    "180"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    3548,
+    12618
+   ]
+  },
+  {
+   "pos": 90253,
+   "answer": "\\frac{25}{24}",
+   "preds": [
+    "\\frac{13}{5}",
+    "1"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    20802,
+    19128
+   ]
+  },
+  {
+   "pos": 90905,
+   "answer": "Second player",
+   "preds": [
+    "Second player",
+    "\\text{Second player}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    6662,
+    11123
+   ]
+  },
+  {
+   "pos": 91073,
+   "answer": "w_a = R\\sqrt{2} \\sin(2\\theta)",
+   "preds": [
+    "\\triangle ABC",
+    "\\text{Triangle ABC is constructed as described.}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    5963,
+    18371
+   ]
+  },
+  {
+   "pos": 91749,
+   "answer": "888 + 88 + 8 + 8 + 8",
+   "preds": [
+    "",
+    "888 + 88 + 8 + 8 + 8 + 8 + 8 + 8"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32722,
+    7743
+   ]
+  },
+  {
+   "pos": 92436,
+   "answer": "\\frac{L}{2}",
+   "preds": [
+    "\\frac{K}{2}",
+    "\\dfrac{S}{2}"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    9011,
+    17290
+   ]
+  },
+  {
+   "pos": 92606,
+   "answer": "55",
+   "preds": [
+    "",
+    "4"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "length"
+   ],
+   "tokens": [
+    32692,
+    32692
+   ]
+  },
+  {
+   "pos": 94256,
+   "answer": "1850",
+   "preds": [
+    "",
+    "50"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32694,
+    5369
+   ]
+  },
+  {
+   "pos": 94809,
+   "answer": "90^\\circ - \\dfrac{\\alpha}{2}",
+   "preds": [
+    "\\dfrac{\\pi}{3}",
+    "\\alpha"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    11820,
+    12997
+   ]
+  },
+  {
+   "pos": 97357,
+   "answer": "F_{n+2}",
+   "preds": [
+    "F_{n+2}",
+    "F_{n+1}"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    8942,
+    3335
+   ]
+  },
+  {
+   "pos": 97872,
+   "answer": "\\frac{255}{4}",
+   "preds": [
+    "\\frac{255}{4}",
+    "\\frac{255}{4}"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    2465,
+    2217
+   ]
+  },
+  {
+   "pos": 98065,
+   "answer": "\\frac{1}{450}",
+   "preds": [
+    "\\dfrac{1153}{1200}",
+    "\\dfrac{1}{450}"
+   ],
+   "correct": [
+    false,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    23036,
+    10062
+   ]
+  },
+  {
+   "pos": 98116,
+   "answer": "\\frac{1}{2}x^2 + C",
+   "preds": [
+    "\\frac{1}{2}x^2 + C",
+    "-x + C"
+   ],
+   "correct": [
+    true,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    4217,
+    7716
+   ]
+  },
+  {
+   "pos": 99235,
+   "answer": "138",
+   "preds": [
+    "",
+    "6"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "length",
+    "stop"
+   ],
+   "tokens": [
+    32702,
+    6368
+   ]
+  },
+  {
+   "pos": 99329,
+   "answer": "9802",
+   "preds": [
+    "9802",
+    "9802"
+   ],
+   "correct": [
+    true,
+    true
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    7248,
+    2988
+   ]
+  },
+  {
+   "pos": 99922,
+   "answer": "4",
+   "preds": [
+    "\\left(n + \\frac{1}{2}\\right)^2 \\div n^2",
+    "\\left(n + \\dfrac{1}{2}\\right)^2 - 3"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "length"
+   ],
+   "tokens": [
+    21567,
+    32612
+   ]
+  },
+  {
+   "pos": 99994,
+   "answer": "40",
+   "preds": [
+    "120",
+    "50"
+   ],
+   "correct": [
+    false,
+    false
+   ],
+   "finish": [
+    "stop",
+    "stop"
+   ],
+   "tokens": [
+    14739,
+    15770
+   ]
+  }
+ ]
+}

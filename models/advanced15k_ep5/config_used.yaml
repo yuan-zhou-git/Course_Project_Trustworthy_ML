@@ -1,0 +1,43 @@
+### model
+model_name_or_path: Qwen/Qwen2.5-3B-Instruct
+trust_remote_code: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_config.json
+flash_attn: fa2
+enable_liger_kernel: true
+
+### dataset
+dataset: rsft_advanced15k
+dataset_dir: /scratch/yuanzhou1/reasoning_sft/data
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 16
+template: qwen
+
+### output
+output_dir: /scratch/yuanzhou1/reasoning_sft/ckpt/advanced15k_ep5
+logging_steps: 1
+save_strategy: steps
+save_steps: 625            # a third of an epoch (~1 h): bounds the loss if a preemptable run is killed
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: true
+include_num_input_tokens_seen: true
+report_to: wandb
+run_name: rsft_advanced15k_ep5
+
+### train (continuation: resume optimizer/scheduler/RNG from the end of epoch 3 and train epochs 4-5;
+### the cosine schedule is re-created for 5 epochs, so LR restarts at ~1.7e-6 and decays to 0 at step 9375)
+resume_from_checkpoint: /projects/ai_wireless_hu_lab/yuanzhou/reasoning_sft/models/advanced15k/checkpoint-5625
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 2
+learning_rate: 5.0e-6
+num_train_epochs: 5
+lr_scheduler_type: cosine
+warmup_ratio: 0.0
+bf16: true
+ddp_timeout: 180000000

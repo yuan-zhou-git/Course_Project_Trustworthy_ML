@@ -121,14 +121,14 @@ for b in ALL:
         n = len(c)
         res["per_benchmark"].setdefault(b, {})[lab] = {"n": n, "pass8": p8(c), "pass1": p1(c)}
         cells += [f"{p8(c):.3f}", f"{p1(c):.3f}"]
-    md.append(f"| {b}{'*' if b in LEADER else ''} | {n or '-'} | " + " | ".join(cells) + " |")
+    md.append(f"| {b}{'*' if b in LEADER else ''} | {SIZES.get(b, n or '-')} | " + " | ".join(cells) + " |")   # benchmark size, not the last run's (possibly partial) count
 md.append("\n`*` = counted in the leaderboard-style macro average (AIME25 not available locally; AIME24 and MATH excluded by the course definition).\n")
 
 md.append("## Macro average over the 6 local leaderboard benchmarks\n")
 md.append("| run | macro pass@8 | macro pass@1 | benchmarks present |")
 md.append("|---|---:|---:|---:|")
 for lab in runs:
-    present = [b for b in LEADER if data[lab][b] is not None]
+    present = [b for b in LEADER if data[lab][b] is not None and len(data[lab][b]) == SIZES.get(b, len(data[lab][b]))]   # complete benchmarks only
     if present:
         m8 = statistics.mean(p8(data[lab][b]) for b in present); m1 = statistics.mean(p1(data[lab][b]) for b in present)
         res["macro"][lab] = {"pass8": m8, "pass1": m1, "n_bench": len(present)}

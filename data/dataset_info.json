@@ -1,22 +1,56 @@
 {
   "rsft_random15k": {
     "file_name": "random15k.json",
-    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
   },
   "rsft_advanced15k": {
     "file_name": "advanced15k.json",
-    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
   },
   "rsft_pilot400": {
     "file_name": "pilot400.json",
-    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
   },
   "rsft_probe2k": {
     "file_name": "probe2k.json",
-    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
   },
   "rsft_lp15k": {
     "file_name": "lp15k.json",
-    "columns": {"prompt": "instruction", "query": "input", "response": "output", "system": "system"}
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
+  },
+  "rsft_short15k": {
+    "file_name": "short15k.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
   }
 }

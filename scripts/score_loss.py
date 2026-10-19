@@ -20,7 +20,8 @@ ap.add_argument("--cands", required=True)
 ap.add_argument("--shard", default="0/1")
 ap.add_argument("--out", required=True)
 ap.add_argument("--cutoff", type=int, default=16384)
-ap.add_argument("--tokens-per-batch", type=int, default=32768)
+ap.add_argument("--tokens-per-batch", type=int, default=16384)
+ap.add_argument("--ce-chunk", type=int, default=2048, help="positions per cross-entropy chunk (bounds float32 logits memory)")
 a = ap.parse_args()
 k, n = map(int, a.shard.split("/"))
 t0 = time.time()
@@ -64,9 +65,11 @@ out = open(a.out, "a", encoding="utf-8")
 i = 0; nb = 0
 with torch.no_grad():
     while i < len(items):
-        L = len(items[i][2]); bs = max(1, a.tokens_per_batch // L)
-        batch = items[i:i + bs]
-        # the longest in the batch is the last one (sorted ascending)
+        # greedy batch under the token budget, measured with the LONGEST member (items are sorted ascending by length)
+        j = i + 1
+        while j < len(items) and (j - i + 1) * len(items[j][2]) <= a.tokens_per_batch:
+            j += 1
+        batch = items[i:j]
         L = len(batch[-1][2])
         ids = torch.full((len(batch), L), tok.pad_token_id, dtype=torch.long)
         labels = torch.full((len(batch), L), -100, dtype=torch.long)
@@ -75,16 +78,24 @@ with torch.no_grad():
             ids[j, :len(fu)] = torch.tensor(fu); att[j, :len(fu)] = 1
             labels[j, lp:len(fu)] = torch.tensor(fu[lp:])
         ids, labels, att = ids.cuda(), labels.cuda(), att.cuda()
-        logits = model(input_ids=ids, attention_mask=att).logits[:, :-1].float()
+        logits = model(input_ids=ids, attention_mask=att).logits          # bf16, (B, L, V)
         tgt = labels[:, 1:]
-        lp_tok = torch.nn.functional.cross_entropy(logits.reshape(-1, logits.size(-1)), tgt.reshape(-1), reduction="none", ignore_index=-100).view(tgt.shape)
         mask = (tgt != -100)
-        per = (lp_tok * mask).sum(1) / mask.sum(1).clamp(min=1)
+        # cross-entropy in position chunks: float32 logits only for ce-chunk positions at a time
+        sums = torch.zeros(len(batch), device="cuda", dtype=torch.float32)
+        for s0 in range(0, L - 1, a.ce_chunk):
+            s1 = min(L - 1, s0 + a.ce_chunk)
+            lg = logits[:, s0:s1].float()
+            tg = tgt[:, s0:s1]
+            ce = torch.nn.functional.cross_entropy(lg.reshape(-1, lg.size(-1)), tg.reshape(-1), reduction="none", ignore_index=-100).view(tg.shape)
+            sums += (ce * mask[:, s0:s1]).sum(1)
+            del lg, ce
+        per = sums / mask.sum(1).clamp(min=1)
         for j, (p, lp, fu) in enumerate(batch):
             out.write(json.dumps({"pos": p, "n_resp_tokens": int(mask[j].sum()), "mean_loss": float(per[j])}) + "\n")
         out.flush()
         i += len(batch); nb += 1
         if nb % 20 == 0:
             print(f"{i}/{len(items)} rows, {time.time()-t0:.0f}s", flush=True)
-        del logits, lp_tok
+        del logits, sums
 print(f"done {len(items)} rows in {time.time()-t0:.0f}s", flush=True)

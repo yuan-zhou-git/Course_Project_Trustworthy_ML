@@ -13,11 +13,19 @@ once with a cheap, label-free selected subset, and evaluate all three models on 
 | base Qwen2.5-3B-Instruct | .167/.071 | .840/.653 | .367/.104 | .548/.219 | .650/.391 | .452/.287 | .498/.277 | .717/.294 | **.539**/.262 |
 | SFT random 15K | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .526/.278 | .737/.230 | **.549**/.246 |
 | SFT selected 15K | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .520/.288 | .722/.224 | **.566**/.244 |
+| SFT learning-progress 15K (follow-up) | .200/.058 | .874/.657 | .400/.108 | .673/.295 | .650/.391 | .463/.260 | .526/.290 | .753/.245 | **.578**/.265 |
+| SFT selected 15K, 5 epochs (follow-up) | .233/.075 | .878/.659 | .333/.104 | .678/.298 | .775/.381 | .456/.273 | .538/.301 | .758/.258 | **.590**/.269 |
 
 Paired bootstrap, macro pass@8: selected minus random +0.016 [-0.024, +0.056]; selected minus base +0.027 [-0.020, +0.071].
 The selected-minus-random gap is concentrated in five AMC questions; with a second generation seed the AMC gap shrinks to two questions (report section 6b). A held-out checkpoint screen shows both arms improving monotonically through epoch 3, so the final checkpoints are the ones compared. One training run per arm, so the comparison is "higher
 observed pass@8 in this run", not "reliably superior". Both SFT models lose pass@1 on Minerva and GPQA because 15-27% of their
 samples hit the 32K cap while still reasoning (`reports/stopping_failures.md`).
+
+Follow-ups (report sections 6c-6d; tables in [`reports/five_models/`](reports/five_models/results.md)): a learning-progress
+selector (base loss minus loss after a 2K-row probe fine-tune, rule fixed before training) is the best equal-budget arm, with
+pass@1 +0.019 [+0.005, +0.032] over random and pass@8 +0.028 [-0.011, +0.069]. Training the selected set for 5 epochs gives the
+best model, pass@8 +0.051 [+0.009, +0.095] over base, but random was not trained that long, so it is a budget result, not a
+data result. Both improve by cutting the share of answers lost to the 32K cap.
 
 ## Models and datasets on the Hub
 
