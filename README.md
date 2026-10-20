@@ -4,7 +4,11 @@ Team repo for the [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Projec
 We fine-tune Qwen2.5-3B-Instruct on 15K samples from the 100K AceReason-1.1-SFT subset twice, once with a random subset and
 once with a cheap, label-free selected subset, and evaluate all three models on the 8 course benchmarks.
 
-**Report:** [`reports/REPORT.md`](reports/REPORT.md). **Full result tables:** [`reports/results.md`](reports/results.md).
+**Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **0.590**, pass@1 **0.269** (base 0.539 / 0.262,
+random 0.549 / 0.246); hyperparameters and full comparison in report section 7.
+
+**Report:** [`reports/REPORT.md`](reports/REPORT.md). **Full result tables:** [`reports/five_models/results.md`](reports/five_models/results.md)
+(all five models) and [`reports/results.md`](reports/results.md) (main three-model comparison).
 
 ## Headline (pass@8 / pass@1; macro = the 6 leaderboard benchmarks available locally)
 
@@ -14,7 +18,7 @@ once with a cheap, label-free selected subset, and evaluate all three models on 
 | SFT random 15K | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .526/.278 | .737/.230 | **.549**/.246 |
 | SFT selected 15K | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .520/.288 | .722/.224 | **.566**/.244 |
 | SFT learning-progress 15K (follow-up) | .200/.058 | .874/.657 | .400/.108 | .673/.295 | .650/.391 | .463/.260 | .526/.290 | .753/.245 | **.578**/.265 |
-| SFT selected 15K, 5 epochs (follow-up) | .233/.075 | .878/.659 | .333/.104 | .678/.298 | .775/.381 | .456/.273 | .538/.301 | .758/.258 | **.590**/.269 |
+| **SFT selected 15K, 5 epochs (final model)** | .233/.075 | .878/.659 | .333/.104 | .678/.298 | .775/.381 | .456/.273 | .538/.301 | .758/.258 | **.590**/.269 |
 
 Paired bootstrap, macro pass@8: selected minus random +0.016 [-0.024, +0.056]; selected minus base +0.027 [-0.020, +0.071].
 The selected-minus-random gap is concentrated in five AMC questions; with a second generation seed the AMC gap shrinks to two questions (report section 6b). A held-out checkpoint screen shows both arms improving monotonically through epoch 3, so the final checkpoints are the ones compared. One training run per arm, so the comparison is "higher
@@ -31,6 +35,7 @@ data result. Both improve by cutting the share of answers lost to the 32K cap.
 
 | artifact | link |
 |---|---|
+| **Final model** (selected 15K, 5 epochs) | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5` |
 | Random-15K SFT model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k` |
 | Selected-15K SFT model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k` |
 | Random 15K dataset | `yuan-zhou-hf/acereason-random15k` |

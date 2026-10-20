@@ -1,9 +1,14 @@
 # Reasoning SFT of Qwen2.5-3B-Instruct: random vs. selected training data
 
 Course project report (ECE, Virginia Tech, Fall 2026). Repo: https://github.com/yuan-zhou-git/Course_Project_Trustworthy_ML.
-Assignment: [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Project-Reasoning-SFT-LLM). Evaluated 2026-10-15/16.
+Assignment: [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Project-Reasoning-SFT-LLM). Main comparison evaluated
+2026-10-15/16; follow-up arms 2026-10-17/18.
 
 ## 1. Summary
+
+**Final model: Qwen2.5-3B-Instruct fine-tuned on our selected 15K set for 5 epochs.** Macro pass@8 0.590 and pass@1 0.269
+over the 6 local leaderboard benchmarks, versus 0.539 / 0.262 for the base model and 0.549 / 0.246 for the random-15K baseline.
+Full per-benchmark results, the comparison and its hyperparameters are in section 7.
 
 We fine-tuned Qwen2.5-3B-Instruct twice on 15K samples from the 100K AceReason-1.1-SFT subset, once with a uniform random
 subset (the required baseline) and once with a cheap, label-free selected subset (math-only, deduplicated, length-stratified),
@@ -42,10 +47,10 @@ finished samples barely moves.
 
 | item | value |
 |---|---|
-| base model | `Qwen/Qwen2.5-3B-Instruct`, snapshot `aa8e7253` |
-| training pool | `redsgnaoh/acereason11_100k` (100,000 rows; 67,432 math / 32,568 code; sha256 in `data/pool_stats.json`) |
-| frameworks | LLaMA-Factory 0.9.4 (course copy), DeepSpeed 0.16.8 (ZeRO-3, no offload), FlashAttention 2.8.3, Liger kernel 0.8.4, torch 2.8.0+cu128; vLLM 0.31.0 for evaluation |
-| hardware | Virginia Tech ARC Falcon: 4x NVIDIA L40S (48 GB) per training run; 1x L40S or A30 per evaluation job |
+| base model | `Qwen/Qwen2.5-3B-Instruct` (Qwen Team, 2024), snapshot `aa8e7253` |
+| training pool | `redsgnaoh/acereason11_100k`, the course's 100K subset of AceReason-1.1-SFT (Liu et al., 2025) (100,000 rows; 67,432 math / 32,568 code; sha256 in `data/pool_stats.json`) |
+| frameworks | LLaMA-Factory 0.9.4 (Zheng et al., 2024; course copy), DeepSpeed 0.16.8 ZeRO-3 without offload (Rajbhandari et al., 2020), FlashAttention 2.8.3 (Dao, 2024), Liger kernel 0.8.4 (Hsu et al., 2024), torch 2.8.0+cu128; vLLM 0.31.0 for evaluation (Kwon et al., 2023) |
+| hardware | Virginia Tech ARC. Main comparison: Falcon, 4x NVIDIA L40S (48 GB) per training run. Follow-ups: Tinkercliffs 4x A100 80 GB (epochs 4-5 of the final model, probe training and loss scoring) and Falcon 2x L40S with ZeRO-3 optimizer offload (learning-progress arm). 1x L40S or A30 per evaluation job |
 | hyperparameters (both arms) | full-parameter SFT, bf16, lr 5e-6, cosine, warmup 0, 3 epochs, global batch 8 (4 GPUs x micro-batch 1 x grad-accum 2), cutoff 16,384 tokens, response-only loss, `template: qwen` |
 | training cost | random: 5,625 steps, 338.8M tokens, 9 h 09 min; selected: 5,625 steps, 322.9M tokens, 8 h 35 min (~36 GPU-hours each) |
 | final train loss | random 0.581; selected 0.530 |
@@ -74,8 +79,9 @@ repeated prompts (15,906 exact duplicates); and 3.5% of pool rows (3,452) do not
 
 Result: 107.6M training tokens per epoch (5% less than random), median sample 6.5K tokens, nothing truncated; 2,252 rows are
 shared with the random set. The method needs no model inference, embeddings or answer keys and is reproducible from
-`scripts/prep_data.py` and the frozen pool file. Design references: OpenThoughts (question filtering, source mixing),
-AceReason-Nemotron 1.1 (prompt diversity), LIMO (quality over quantity). We deliberately did not use model-based difficulty
+`scripts/prep_data.py` and the frozen pool file. Design references: OpenThoughts (Guha et al., 2025; question filtering, source
+mixing), AceReason-Nemotron 1.1 (Liu et al., 2025; prompt diversity), and the "less is more" results that a small curated set can
+match a larger one (LIMA, Zhou et al., 2023; s1, Muennighoff et al., 2025; LIMO, Ye et al., 2025). We deliberately did not use model-based difficulty
 scoring or LIMOPro pruning in this pass (cost and added failure surface under a 5-day budget).
 
 Benchmark overlap: 6 pool prompts match a benchmark question verbatim (3 MATH, 2 OlympiadBench, 1 AMC). One landed in each
@@ -85,7 +91,9 @@ Benchmark overlap: 6 pool prompts match a benchmark question verbatim (3 MATH, 2
 
 Course `eval/` harness: vLLM generation with the system prompt "Please reason step by step, and put your final answer within
 \boxed{}", last `\boxed{}` extracted, SymPy-based equivalence grading. pass@1 = mean per-sample accuracy; pass@8 = any of 8
-samples correct. Leaderboard-style macro average over the 6 locally available leaderboard benchmarks (cn_math_2024, kaoyan,
+samples correct (pass@k of Chen et al., 2021, with k equal to the 8 samples drawn). Differences between models are reported
+with 95% intervals from a paired bootstrap that resamples questions, keeping each question's 8 samples together (Efron &
+Tibshirani, 1993; Miller, 2024). Leaderboard-style macro average over the 6 locally available leaderboard benchmarks (cn_math_2024, kaoyan,
 amc, minerva, olympiadbench, gpqa); AIME25 is not available locally; AIME24 and MATH are reported but excluded, following the
 course leaderboard definition.
 
@@ -165,7 +173,7 @@ Whether a larger generation budget would convert those samples into correct answ
 ## 6. Analysis
 
 - **What SFT changed.** Both fine-tuned models write DeepSeek-R1-style `<think>` traces that are 10 to 20 times longer than
-  the base model's answers. pass@8 rises on 7 of 8 benchmarks for the selected model (all but the 30-question CN_MATH set, whose
+  the base model's answers, the over-long reasoning reported for o1-like models (Chen et al., 2024). pass@8 rises on 7 of 8 benchmarks for the selected model (all but the 30-question CN_MATH set, whose
   interval spans zero), with clear gains on Kaoyan (+0.14) and MATH-500 (+0.05). pass@1 falls on Minerva and GPQA for both SFT
   models; these are exactly the benchmarks where 15 to 27% of samples hit the 32K cap, and a capped sample without a final
   `\boxed{}` is graded wrong by construction. Whether a longer generation budget would recover that loss is untested here (the
@@ -183,6 +191,14 @@ Whether a larger generation budget would convert those samples into correct answ
 - **Limits.** One training run per arm; the bootstrap covers question sampling only, not training-seed or data-draw variance.
   The historical spread between two random draws (4.1 points) is larger than our selected-minus-random difference, so a second
   seed per arm would be the next experiment. AIME/CN_MATH have 30 questions each and move by 0.033 per question.
+- **Training data from the course pool only.** The assignment allows adding examples from other datasets; every training set
+  here was drawn from the 100K AceReason-1.1-SFT subset alone. We did not add outside data within the time budget, partly
+  because outside math sets often contain the benchmark problems themselves (even the course pool has 6 verbatim matches,
+  section 3.2), which would need a decontamination pass. Natural candidates for a next step: short, curated reasoning sets such as
+  LIMO's or s1's problems (Ye et al., 2025; Muennighoff et al., 2025), which fit our finding that unfinished long answers are
+  the main loss and the observation that small students learn better from shorter reasoning (Li et al., 2025); and science
+  reasoning data for GPQA (graduate-level physics, chemistry and biology), for which our math-only selected sets contain no
+  in-domain examples.
 
 ## 6b. Follow-up experiments (after the main comparison was frozen)
 
@@ -234,9 +250,11 @@ question about the student instead: *how much does Qwen's fit to this solution i
 3. Candidates: the other 62,218 eligible rows (55,414 distinct prompts); rows sharing a prompt with a probe row are excluded so
    memorised probe answers cannot inflate scores.
 4. Score: teacher-forced mean response-token cross-entropy under base Qwen minus the same under the probe model
-   (`scripts/score_loss.py`; no generation needed, about 1.5 A100-hours per 15K rows per model).
-5. One response per prompt: among rows with the same prompt, keep the response with the largest score (GRAPE-style choice of
-   the demonstration that best fits the student).
+   (`scripts/score_loss.py`; no generation needed, about 1.5 A100-hours per 15K rows per model). This is the "reducible loss" of
+   RHO-LOSS (Mindermann et al., 2022), with the probe as the reference model, and close in spirit to LESS, which also scores data
+   after a short warm-up fine-tune (Xia et al., 2024).
+5. One response per prompt: among rows with the same prompt, keep the response with the largest score (the GRAPE idea of
+   training on the demonstration that best fits the student; Zhang et al., 2025).
 6. Coverage: same source x token-band strata as the first selected set, quotas proportional to distinct prompts per stratum;
    top-score rows within each stratum (`scripts/select_lp.py`).
 7. Train from the original Qwen checkpoint with the unchanged recipe (3 epochs, global batch 8, lr 5e-6), then the official
@@ -297,7 +315,9 @@ How to read this: it is the first fine-tuned model that beats the base model on 
 zero, and the first that recovers the base model's pass@1. It is **not** an equal-budget data comparison: the random arm was
 not trained to 5 epochs, and the decision to train longer was taken after the 3-epoch benchmark results were known (motivated
 by the held-out panel, which was still improving at epoch 3). It says that, for this 3B student, the training budget matters as
-much as the data choice, and that 3 epochs under-train it on reasoning traces this long.
+much as the data choice, and that 3 epochs under-train it on reasoning traces this long. This matches the AceReason-Nemotron
+1.1 study of the same data family, where SFT accuracy "gradually improves from the 1st to the 5th epoch" before plateauing
+around epochs 5-6 (Liu et al., 2025).
 
 ## 6d. Short traces for a small student (fourth data arm)
 
@@ -323,9 +343,60 @@ within the job limit; it was stopped at about step 2,800 of 5,625, before any ev
 already in hand, we did not continue this arm. It remains a ready-to-run next step: the selection, config and single-job
 pipeline are in the repo.
 
-## 7. Reproducibility and artifacts
+## 7. Final model
 
-- Models (Hugging Face): `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k`, `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k`
+**Choice.** The selected 15K set trained for 5 epochs (section 6c) has the highest macro pass@8 and pass@1 of all models we
+evaluated. It is the model we submit. Note that this choice is made on the same local benchmarks it is reported on; the course
+leaderboard's AIME25, which we do not have, is the only unseen test.
+
+**Hyperparameters.**
+
+| setting | value |
+|---|---|
+| base model | `Qwen/Qwen2.5-3B-Instruct`, full-parameter SFT, response-only loss, `template: qwen` |
+| training data | selected 15K (`data/advanced15k_manifest.json`; 107.6M tokens per epoch; section 3.2) |
+| sequence cutoff | 16,384 tokens (no selected example exceeds it) |
+| optimiser and schedule | AdamW (Trainer defaults: betas 0.9/0.999, weight decay 0, gradient clipping 1.0), lr 5e-6, cosine, warmup 0, bf16 |
+| epochs and steps | 5 epochs, 9,375 steps. Epochs 1-3 are the 3-epoch run; epochs 4-5 resume from its step-5,625 state (weights, optimizer and scheduler) with a 5-epoch cosine, so the learning rate decays from 1.7e-6 to 0 |
+| batch | global batch 8 = 4 GPUs x micro-batch 1 x gradient accumulation 2 |
+| memory and kernels | DeepSpeed ZeRO-3 (no offload), FlashAttention-2, Liger fused linear cross-entropy |
+| tokens and loss | 538.2M training tokens seen; mean train loss 0.530 over epochs 1-3 and 0.192 over epochs 4-5 |
+| hardware and time | epochs 1-3: 4x L40S, 8 h 35 min; epochs 4-5: 4x A100 80 GB, 4 h 26 min |
+| config files | `yamls/advanced15k.yaml` (epochs 1-3), `yamls/advanced15k_ep5.yaml` (epochs 4-5); record in `models/advanced15k_ep5/` |
+
+**Results on all 8 benchmarks (pass@8 / pass@1; official protocol, seed 0).**
+
+| benchmark (questions) | base Qwen2.5-3B-Instruct | random 15K, 3 epochs | **final model** |
+|---|---|---|---|
+| AIME24 (30) | 0.167 / 0.071 | 0.333 / 0.071 | 0.233 / 0.075 |
+| MATH-500 (500) | 0.840 / 0.653 | 0.884 / 0.647 | 0.878 / 0.659 |
+| CN-Math 2024* (30) | 0.367 / 0.104 | 0.333 / 0.079 | 0.333 / 0.104 |
+| Kaoyan* (199) | 0.548 / 0.219 | 0.653 / 0.292 | 0.678 / 0.298 |
+| AMC* (40) | 0.650 / 0.391 | 0.575 / 0.344 | 0.775 / 0.381 |
+| Minerva* (272) | 0.452 / 0.287 | 0.471 / 0.255 | 0.456 / 0.273 |
+| OlympiadBench* (675) | 0.498 / 0.277 | 0.526 / 0.278 | 0.538 / 0.301 |
+| GPQA* (198) | 0.717 / 0.294 | 0.737 / 0.230 | 0.758 / 0.258 |
+| **macro (6 starred)** | **0.539 / 0.262** | **0.549 / 0.246** | **0.590 / 0.269** |
+
+**Comparison (paired bootstrap on the macro, B = 2000, 95% CI).**
+
+| difference | pass@8 | pass@1 |
+|---|---|---|
+| random - base | +0.011 [-0.042, +0.062] | -0.016 [-0.036, +0.004] |
+| final - base | **+0.051 [+0.009, +0.095]** | +0.007 [-0.011, +0.027] |
+| final - random | +0.040 [-0.004, +0.086] | **+0.023 [+0.009, +0.038]** |
+
+Fine-tuning on random data barely moves the base model; the final model is the only one whose pass@8 gain over the base model
+excludes zero, and it beats the random baseline on pass@1 beyond noise. The gain over random on pass@8 (+0.040) is largest on
+AMC (+8 of 40 questions), then Kaoyan (+5 of 199) and GPQA (+4 of 198); Minerva is 4 of 272 lower and CN-Math is equal. The share of samples cut off at 32,768 tokens is 4.8-16.7% on
+the six benchmarks (random: 8.7-26.5%). That is the main mechanism (sections 5.4 and 6c). Two caveats are discussed in 6c: the
+random arm was not trained for 5 epochs, so the final-vs-random gap mixes data and training budget, and there is one training run
+per arm.
+
+## 8. Reproducibility and artifacts
+
+- Models (Hugging Face): final model `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5`; 3-epoch arms
+  `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k`, `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k`
 - Datasets (Hugging Face): `yuan-zhou-hf/acereason-random15k`, `yuan-zhou-hf/acereason-advanced15k` (json + manifest + pool stats)
 - Code: this repo (`scripts/prep_data.py`, `slurm/*.slurm`, `yamls/*.yaml`, `scripts/eval_summary.py`, `scripts/aggregate_results.py`,
   `scripts/push_to_hub.py`); environment freezes `envs/*_freeze.txt`; per-benchmark logs and summaries under `eval_outputs/`;
@@ -344,3 +415,25 @@ pipeline are in the repo.
   probe training 8043031, base-model scoring 8043151-8043154, probe-model scoring 8042932-8042935, selection 8042936; lp15k training 656357 (Falcon,
   2x L40S); epochs 4-5 8044800 (Tinkercliffs, 4x A100); evaluations 657179-657197 + 657676 (epoch 5) and 657369-657387 +
   657954-657971 (lp15k; A30/L40S twins, one copy of each ran); aggregation 657399, 657400.
+
+## 9. References
+
+- Chen, M. et al. (2021). Evaluating Large Language Models Trained on Code. arXiv:2107.03374.
+- Chen, X. et al. (2024). Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs. arXiv:2412.21187.
+- Dao, T. (2024). FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning. ICLR 2024.
+- Efron, B. and Tibshirani, R. J. (1993). An Introduction to the Bootstrap. Chapman & Hall.
+- Guha, E. et al. (2025). OpenThoughts: Data Recipes for Reasoning Models. arXiv:2506.04178.
+- Hsu, P.-L. et al. (2024). Liger Kernel: Efficient Triton Kernels for LLM Training. arXiv:2410.10989.
+- Kwon, W. et al. (2023). Efficient Memory Management for Large Language Model Serving with PagedAttention. SOSP 2023.
+- Li, Y. et al. (2025). Small Models Struggle to Learn from Strong Reasoners. arXiv:2502.12143.
+- Liu, Z. et al. (2025). AceReason-Nemotron 1.1: Advancing Math and Code Reasoning through SFT and RL Synergy. arXiv:2506.13284.
+- Miller, E. (2024). Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. arXiv:2411.00640.
+- Mindermann, S. et al. (2022). Prioritized Training on Points that are Learnable, Worth Learning, and Not Yet Learnt. ICML 2022.
+- Muennighoff, N. et al. (2025). s1: Simple Test-Time Scaling. arXiv:2501.19393.
+- Qwen Team (2024). Qwen2.5 Technical Report. arXiv:2412.15115.
+- Rajbhandari, S. et al. (2020). ZeRO: Memory Optimizations Toward Training Trillion Parameter Models. SC 2020.
+- Xia, M. et al. (2024). LESS: Selecting Influential Data for Targeted Instruction Tuning. ICML 2024.
+- Ye, Y. et al. (2025). LIMO: Less is More for Reasoning. arXiv:2502.03387.
+- Zhang, D., Dai, Q. and Peng, H. (2025). The Best Instruction-Tuning Data are Those That Fit. NeurIPS 2025; arXiv:2502.04194.
+- Zheng, Y. et al. (2024). LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models. ACL 2024 (System Demonstrations).
+- Zhou, C. et al. (2023). LIMA: Less Is More for Alignment. NeurIPS 2023.
