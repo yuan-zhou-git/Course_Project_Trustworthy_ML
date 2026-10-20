@@ -6,27 +6,27 @@ baseline) and once with a cheap, label-free selected subset, and evaluate on the
 
 **Team (Group 2, Trustworthy Machine Learning, Fall 2026, Virginia Tech):** Hanze Li, Sijie Chen, Yuan Zhou, Yiming Liang.
 
-**Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **0.590**, pass@1 **0.269** (base 0.539 / 0.262,
-random baseline 0.549 / 0.246).
+**Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **59.0%**, pass@1 **26.9%** (base 53.9% / 26.2%,
+random baseline 54.9% / 24.6%).
 
 **Report (submitted):** [`reports/paper/Group2_report.pdf`](reports/paper/Group2_report.pdf), NeurIPS 2025 style, source in `reports/paper/`;
 Markdown version [`reports/REPORT.md`](reports/REPORT.md).
 **Full report:** [`reports/FULL_REPORT.md`](reports/FULL_REPORT.md) (every experiment, including intermediate and follow-up runs).
 **Result tables:** [`reports/five_models/results.md`](reports/five_models/results.md).
 
-## Headline (pass@8 / pass@1; macro = the 6 leaderboard benchmarks available locally)
+## Headline (pass@8 / pass@1, %; macro = the 6 leaderboard benchmarks available locally)
 
-| model | aime | math | cn_math | kaoyan | amc | minerva | olympiad | gpqa | **macro** |
+| model | AIME24 | MATH-500 | CN-Math | Kaoyan | AMC | Minerva | OlympiadBench | GPQA | **macro** |
 |---|---|---|---|---|---|---|---|---|---|
-| base Qwen2.5-3B-Instruct | .167/.071 | .840/.653 | .367/.104 | .548/.219 | .650/.391 | .452/.287 | .498/.277 | .717/.294 | **.539**/.262 |
-| SFT random 15K (baseline, 3 epochs) | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .526/.278 | .737/.230 | **.549**/.246 |
-| **SFT selected 15K, 5 epochs (final model)** | .233/.075 | .878/.659 | .333/.104 | .678/.298 | .775/.381 | .456/.273 | .538/.301 | .758/.258 | **.590**/.269 |
+| base Qwen2.5-3B-Instruct | 16.7 / 7.1 | 84.0 / 65.3 | 36.7 / 10.4 | 54.8 / 21.9 | 65.0 / 39.1 | 45.2 / 28.7 | 49.8 / 27.7 | 71.7 / 29.4 | **53.9** / 26.2 |
+| SFT random 15K (baseline, 3 epochs) | 33.3 / 7.1 | 88.4 / 64.7 | 33.3 / 7.9 | 65.3 / 29.2 | 57.5 / 34.4 | 47.1 / 25.5 | 52.6 / 27.8 | 73.7 / 23.0 | **54.9** / 24.6 |
+| **SFT selected 15K, 5 epochs (final model)** | 23.3 / 7.5 | 87.8 / 66.0 | 33.3 / 10.4 | 67.8 / 29.8 | 77.5 / 38.1 | 45.6 / 27.3 | 53.8 / 30.1 | 75.8 / 25.8 | **59.0** / 26.9 |
 
-Paired bootstrap over questions (95% CI): final minus base **+0.051 [+0.009, +0.095]** pass@8; final minus random +0.040
-[-0.004, +0.086] pass@8 and **+0.023 [+0.009, +0.038]** pass@1. The gain comes mainly from fewer answers cut off unfinished at the
+Paired bootstrap over questions (95% CI, percentage points): final minus base **+5.1 [+0.9, +9.5]** pass@8; final minus
+random +4.0 [-0.4, +8.6] pass@8 and **+2.3 [+0.9, +3.8]** pass@1. The gain comes mainly from fewer answers truncated at the
 32K-token limit (4.8-16.7% of samples on the six benchmarks, versus 8.7-26.5% for random). Budget note: random was trained for
-3 epochs and the final model for 5; at 3 epochs the selected set scored 0.566 / 0.244, +0.016 over random and within noise
-(report Appendix A). One training run per arm.
+3 epochs and the final model for 5; at 3 epochs the selected set scored 56.6% / 24.4%, +1.6 points over random and within
+noise. One training run per arm.
 
 ## Models and datasets on the Hub (public)
 
