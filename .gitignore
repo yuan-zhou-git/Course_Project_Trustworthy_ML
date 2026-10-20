@@ -8,3 +8,6 @@ reports/paper/*.fls
 reports/paper/*.fdb_latexmk
 reports/paper/*.synctex.gz
 reports/paper/build.log
+reports/paper/*.bbl
+reports/paper/report.pdf
+reports/paper/*.out

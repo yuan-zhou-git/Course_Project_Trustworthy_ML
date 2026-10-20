@@ -18,10 +18,10 @@ BENCH = [("cn_math_2024", "CN-Math"), ("kaoyan", "Kaoyan"), ("amc", "AMC"), ("mi
 SERIES = [("base", "Base", "#2a78d6", None), ("random", "Random 15K", "#eb6834", None),
           ("ep5", "Final model", "#1baf7a", "////")]
 
-plt.rcParams.update({"font.family": "serif", "font.serif": ["Times New Roman", "DejaVu Serif"], "font.size": 8,
-                     "axes.labelsize": 8, "xtick.labelsize": 7.5, "ytick.labelsize": 7.5, "legend.fontsize": 7.5,
+plt.rcParams.update({"font.family": "serif", "font.serif": ["Times New Roman", "DejaVu Serif"], "font.size": 9,
+                     "axes.labelsize": 9, "xtick.labelsize": 8.5, "ytick.labelsize": 8.5, "legend.fontsize": 8.5,
                      "hatch.linewidth": 0.6, "hatch.color": "#0f6b4a", "pdf.fonttype": 42})
-fig, ax = plt.subplots(figsize=(3.5, 1.75))
+fig, ax = plt.subplots(figsize=(5.0, 2.0))   # NeurIPS single column, shown at 0.9 textwidth
 w = 0.26
 for k, (key, label, color, hatch) in enumerate(SERIES):
     xs = [i + (k - 1) * w for i in range(len(BENCH))]
@@ -38,7 +38,7 @@ for s in ("top", "right"):
 for s in ("left", "bottom"):
     ax.spines[s].set_color("#8c8b86"); ax.spines[s].set_linewidth(0.6)
 ax.tick_params(colors="#3a3936", width=0.6, length=2)
-ax.legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.2), handlelength=1.2, columnspacing=1.2)
+ax.legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.17), handlelength=1.2, columnspacing=1.2)
 fig.tight_layout(pad=0.2)
 out = os.path.join(HERE, "fig_cutoff.pdf")
 fig.savefig(out); fig.savefig(out.replace(".pdf", ".png"), dpi=300)

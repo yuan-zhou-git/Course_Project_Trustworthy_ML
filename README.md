@@ -9,7 +9,7 @@ baseline) and once with a cheap, label-free selected subset, and evaluate on the
 **Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **0.590**, pass@1 **0.269** (base 0.539 / 0.262,
 random baseline 0.549 / 0.246).
 
-**Report (submitted):** [`reports/paper/report.pdf`](reports/paper/report.pdf), IEEE conference format, source in `reports/paper/`;
+**Report (submitted):** [`reports/paper/Group2_report.pdf`](reports/paper/Group2_report.pdf), NeurIPS 2025 style, source in `reports/paper/`;
 Markdown version [`reports/REPORT.md`](reports/REPORT.md).
 **Full report:** [`reports/FULL_REPORT.md`](reports/FULL_REPORT.md) (every experiment, including intermediate and follow-up runs).
 **Result tables:** [`reports/five_models/results.md`](reports/five_models/results.md).
