@@ -1,6 +1,8 @@
 # Full report: every experiment in the Reasoning-SFT project
 
-This is the complete record of the project, kept alongside the submitted report ([`REPORT.md`](REPORT.md)), which presents only
+**Group 2** (Trustworthy Machine Learning, Fall 2026, Virginia Tech): Hanze Li, Sijie Chen, Yuan Zhou, Yiming Liang.
+
+This is the complete record of the project, kept alongside the submitted report ([`paper/report.pdf`](paper/report.pdf); Markdown version [`REPORT.md`](REPORT.md)), which presents only
 the base model, the random baseline and the final model. Here you will also find every intermediate and follow-up run, with
 methods, numbers and caveats.
 

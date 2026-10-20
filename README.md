@@ -4,10 +4,13 @@ Team repo for the [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Projec
 We fine-tune Qwen2.5-3B-Instruct on 15K examples from the 100K AceReason-1.1-SFT subset, once with a random subset (the required
 baseline) and once with a cheap, label-free selected subset, and evaluate on the 8 course benchmarks.
 
+**Team (Group 2, Trustworthy Machine Learning, Fall 2026, Virginia Tech):** Hanze Li, Sijie Chen, Yuan Zhou, Yiming Liang.
+
 **Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **0.590**, pass@1 **0.269** (base 0.539 / 0.262,
 random baseline 0.549 / 0.246).
 
-**Report:** [`reports/REPORT.md`](reports/REPORT.md) (base model, random baseline, final model; hyperparameters in section 4).
+**Report (submitted):** [`reports/paper/report.pdf`](reports/paper/report.pdf), IEEE conference format, source in `reports/paper/`;
+Markdown version [`reports/REPORT.md`](reports/REPORT.md).
 **Full report:** [`reports/FULL_REPORT.md`](reports/FULL_REPORT.md) (every experiment, including intermediate and follow-up runs).
 **Result tables:** [`reports/five_models/results.md`](reports/five_models/results.md).
 
@@ -25,14 +28,16 @@ Paired bootstrap over questions (95% CI): final minus base **+0.051 [+0.009, +0.
 3 epochs and the final model for 5; at 3 epochs the selected set scored 0.566 / 0.244, +0.016 over random and within noise
 (report Appendix A). One training run per arm.
 
-## Models and datasets on the Hub
+## Models and datasets on the Hub (public)
 
 | artifact | link |
 |---|---|
-| **Final model** (selected 15K, 5 epochs) | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5` |
-| Random-15K baseline model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k` |
-| Random 15K dataset | `yuan-zhou-hf/acereason-random15k` |
-| Selected 15K dataset | `yuan-zhou-hf/acereason-advanced15k` |
+| **Final model** (selected 15K, 5 epochs) | https://huggingface.co/yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5 |
+| Random-15K baseline model | https://huggingface.co/yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k |
+| Random 15K dataset | https://huggingface.co/datasets/yuan-zhou-hf/acereason-random15k |
+| Selected 15K dataset | https://huggingface.co/datasets/yuan-zhou-hf/acereason-advanced15k |
+
+Each model and dataset card names the course, Group 2 and its members, and links this repository.
 
 ## Data selection
 

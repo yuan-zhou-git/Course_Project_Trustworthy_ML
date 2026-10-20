@@ -1,2 +1,10 @@
 __pycache__/
 *.pyc
+# LaTeX build files
+reports/paper/*.aux
+reports/paper/*.log
+reports/paper/*.blg
+reports/paper/*.fls
+reports/paper/*.fdb_latexmk
+reports/paper/*.synctex.gz
+reports/paper/build.log
