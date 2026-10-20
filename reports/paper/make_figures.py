@@ -14,19 +14,20 @@ data = json.load(open(os.path.join(HERE, "..", "five_models", "stopping_failures
 
 BENCH = [("cn_math_2024", "CN-Math"), ("kaoyan", "Kaoyan"), ("amc", "AMC"), ("minerva", "Minerva"),
          ("olympiadbench", "Olympiad"), ("gpqa", "GPQA")]
-# fixed categorical order (reference palette slots 1-3); identity also via legend and hatching for grayscale print
-SERIES = [("base", "Base", "#2a78d6", None), ("random", "Random 15K", "#eb6834", None),
-          ("ep5", "Final model", "#1baf7a", "////")]
+# baselines in neutral/light tones, our model in one strong accent; lightness differs (about 81% / 64% / 33%),
+# so the three series stay distinct in grayscale print without hatching
+SERIES = [("base", "Base", "#cfcfcf"), ("random", "Random 15K", "#78a6d8"), ("ep5", "Final model", "#1d4f91")]
 
 plt.rcParams.update({"font.family": "serif", "font.serif": ["Times New Roman", "DejaVu Serif"], "font.size": 9,
                      "axes.labelsize": 9, "xtick.labelsize": 8.5, "ytick.labelsize": 8.5, "legend.fontsize": 8.5,
                      "hatch.linewidth": 0.6, "hatch.color": "#0f6b4a", "pdf.fonttype": 42})
 fig, ax = plt.subplots(figsize=(5.0, 2.0))   # NeurIPS single column, shown at 0.9 textwidth
 w = 0.26
-for k, (key, label, color, hatch) in enumerate(SERIES):
+for k, (key, label, color) in enumerate(SERIES):
     xs = [i + (k - 1) * w for i in range(len(BENCH))]
     ys = [100.0 * data[key][b]["capped"] / data[key][b]["samples"] for b, _ in BENCH]
-    ax.bar(xs, ys, width=w, color=color, edgecolor="white", linewidth=0.6, hatch=hatch, label=label, zorder=3)
+    ax.bar(xs, ys, width=w, color=color, edgecolor=("#8a8a8a" if key == "base" else "white"),
+           linewidth=(0.4 if key == "base" else 0.6), label=label, zorder=3)
 ax.set_xticks(range(len(BENCH)))
 ax.set_xticklabels([n for _, n in BENCH])
 ax.set_ylabel("Truncation rate (%)")
