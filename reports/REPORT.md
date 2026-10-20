@@ -1,372 +1,107 @@
-# Reasoning SFT of Qwen2.5-3B-Instruct: random vs. selected training data
+# Reasoning SFT of Qwen2.5-3B-Instruct with a selected 15K training set
 
 Course project report (ECE, Virginia Tech, Fall 2026). Repo: https://github.com/yuan-zhou-git/Course_Project_Trustworthy_ML.
-Assignment: [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Project-Reasoning-SFT-LLM). Main comparison evaluated
-2026-10-15/16; follow-up arms 2026-10-17/18.
+Assignment: [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Project-Reasoning-SFT-LLM). Evaluations run 2026-10-15 to
+2026-10-18. The complete record of every run, including intermediate and follow-up experiments, is in
+[`FULL_REPORT.md`](FULL_REPORT.md); Appendix A summarises them.
 
 ## 1. Summary
 
-**Final model: Qwen2.5-3B-Instruct fine-tuned on our selected 15K set for 5 epochs.** Macro pass@8 0.590 and pass@1 0.269
-over the 6 local leaderboard benchmarks, versus 0.539 / 0.262 for the base model and 0.549 / 0.246 for the random-15K baseline.
-Full per-benchmark results, the comparison and its hyperparameters are in section 7.
-
-We fine-tuned Qwen2.5-3B-Instruct twice on 15K samples from the 100K AceReason-1.1-SFT subset, once with a uniform random
-subset (the required baseline) and once with a cheap, label-free selected subset (math-only, deduplicated, length-stratified),
-with identical hyperparameters, and evaluated the base model and both fine-tuned models on the 8 course benchmarks under the
-official protocol (8 samples, temperature 0.6, top-p 0.95, 32,768 max tokens).
+We fine-tuned Qwen2.5-3B-Instruct on 15,000 examples from the course's 100K AceReason-1.1-SFT subset and evaluated it on the
+8 course benchmarks under the official protocol (8 samples per question, temperature 0.6, top-p 0.95, 32,768 max tokens).
+Our final model is trained on a **selected** 15K set (math only, duplicate questions removed, every example fits the training
+length, stratified by source and length) for 5 epochs. The required baseline is a **random** 15K set trained for 3 epochs.
 
 | model | macro pass@8 (6 leaderboard benchmarks) | macro pass@1 |
 |---|---:|---:|
 | Qwen2.5-3B-Instruct (base) | 0.539 | 0.262 |
-| SFT, random 15K | 0.549 | 0.246 |
-| SFT, selected 15K | **0.566** | 0.244 |
+| SFT, random 15K (baseline) | 0.549 | 0.246 |
+| **SFT, selected 15K, 5 epochs (final model)** | **0.590** | **0.269** |
 
-Paired question-level bootstrap (B = 2000), macro pass@8: selected minus random **+0.016** [-0.024, +0.056]; selected minus base
-+0.027 [-0.020, +0.071]; random minus base +0.011 [-0.042, +0.062]. In words: the selected set had the higher observed pass@8 in
-this controlled run, with the largest and statistically clear gains over the base model on Kaoyan and MATH-500; the difference
-between the two data-selection arms is concentrated in AMC (five questions) and is within question-sampling noise. Both SFT
-models lose pass@1 on Minerva and GPQA, coinciding with 15 to 27% of their samples hitting the 32K token cap. With one training
-run per arm we claim "higher observed pass@8 in this run", not "reliably superior".
+Paired bootstrap over questions (B = 2000, 95% intervals): the final model is **+0.051 [+0.009, +0.095]** pass@8 over the base
+model, the only fine-tuned gain whose interval excludes zero, and +0.040 [-0.004, +0.086] pass@8 and **+0.023 [+0.009, +0.038]**
+pass@1 over the random baseline. Random fine-tuning alone moves the base model by +0.011 [-0.042, +0.062]. The main mechanism
+is fewer unfinished answers: fine-tuned models write long reasoning traces, and the share of samples cut off at the 32,768-token
+limit (almost always graded wrong) falls from 8.7-26.5% for the random baseline to 4.8-16.7% for the final model.
 
-**Follow-up arms (Oct 17-18, after the comparison above was frozen; sections 6c and 6d).**
-
-| model | macro pass@8 | macro pass@1 |
-|---|---:|---:|
-| SFT, learning-progress 15K (3 epochs; selection rule fixed before training) | 0.578 | **0.265** |
-| SFT, selected 15K trained for 5 epochs instead of 3 | **0.590** | **0.269** |
-
-A student-dependent selector (learning progress: Qwen's loss on a solution before minus after a short probe fine-tune) is the
-best equal-budget arm, with fewer training tokens than random: +0.028 [-0.011, +0.069] pass@8 and **+0.019 [+0.005, +0.032]**
-pass@1 over random, +0.021 [+0.008, +0.034] pass@1 over the first selected set. Training the first selected set for 5 epochs
-gives the best model overall and the only pass@8 gain over the base model whose interval excludes zero (+0.051 [+0.009,
-+0.095]); that is a training-budget result, not an equal-budget data comparison (random was not trained to 5 epochs). Both
-gains run through the mechanism identified in the main comparison: fewer samples cut off at the 32K cap, while the accuracy of
-finished samples barely moves.
+**Budget note.** The baseline was trained for 3 epochs and the final model for 5, so the final-vs-random gap mixes data choice
+and training length. At the same 3-epoch budget the selected set scored 0.566 / 0.244, +0.016 [-0.024, +0.056] pass@8 over
+random, within noise (Appendix A.1). We report one training run per arm.
 
 ## 2. Setup
 
 | item | value |
 |---|---|
 | base model | `Qwen/Qwen2.5-3B-Instruct` (Qwen Team, 2024), snapshot `aa8e7253` |
-| training pool | `redsgnaoh/acereason11_100k`, the course's 100K subset of AceReason-1.1-SFT (Liu et al., 2025) (100,000 rows; 67,432 math / 32,568 code; sha256 in `data/pool_stats.json`) |
-| frameworks | LLaMA-Factory 0.9.4 (Zheng et al., 2024; course copy), DeepSpeed 0.16.8 ZeRO-3 without offload (Rajbhandari et al., 2020), FlashAttention 2.8.3 (Dao, 2024), Liger kernel 0.8.4 (Hsu et al., 2024), torch 2.8.0+cu128; vLLM 0.31.0 for evaluation (Kwon et al., 2023) |
-| hardware | Virginia Tech ARC. Main comparison: Falcon, 4x NVIDIA L40S (48 GB) per training run. Follow-ups: Tinkercliffs 4x A100 80 GB (epochs 4-5 of the final model, probe training and loss scoring) and Falcon 2x L40S with ZeRO-3 optimizer offload (learning-progress arm). 1x L40S or A30 per evaluation job |
-| hyperparameters (both arms) | full-parameter SFT, bf16, lr 5e-6, cosine, warmup 0, 3 epochs, global batch 8 (4 GPUs x micro-batch 1 x grad-accum 2), cutoff 16,384 tokens, response-only loss, `template: qwen` |
-| training cost | random: 5,625 steps, 338.8M tokens, 9 h 09 min; selected: 5,625 steps, 322.9M tokens, 8 h 35 min (~36 GPU-hours each) |
-| final train loss | random 0.581; selected 0.530 |
-| evaluation cost | base ~3.5 GPU-h (A30); each fine-tuned model ~45-50 GPU-h (L40S/A30 mix), because answers are 10-20x longer |
+| training pool | `redsgnaoh/acereason11_100k`, the course's 100K subset of AceReason-1.1-SFT (Liu et al., 2025): 100,000 rows, 67,432 math / 32,568 code (sha256 in `data/pool_stats.json`) |
+| frameworks | LLaMA-Factory 0.9.4 (Zheng et al., 2024; course copy), DeepSpeed 0.16.8 ZeRO-3 (Rajbhandari et al., 2020), FlashAttention 2.8.3 (Dao, 2024), Liger kernel 0.8.4 (Hsu et al., 2024), torch 2.8.0+cu128; vLLM 0.31.0 for evaluation (Kwon et al., 2023) |
+| hardware | Virginia Tech ARC. Training: Falcon 4x NVIDIA L40S 48 GB (both models' first 3 epochs), Tinkercliffs 4x A100 80 GB (final model, epochs 4-5). Evaluation: 1x L40S or A30 per job |
+| tracking | W&B project `reasoning-sft`; loss curves also in `models/<run>/training_loss.png` |
 
-Tokens are counted on the full chat-template encoding (system + user + assistant + end-of-turn). The Liger fused linear
-cross-entropy was required to fit 16K-token samples on 44 GB GPUs; without it the first long sample ran out of memory. The label
-mask was verified on a decoded example before the long runs (prompt tokens masked, labels start at `<think>`). W&B project
-`reasoning-sft` holds both loss curves (`training_loss.png` is also in `models/<arm>/`).
+## 3. Data selection strategy
 
-## 3. Data selection
+**Random 15K (required baseline).** `random.Random(20261015).sample` over the whole pool, no filtering: 113.4M training tokens
+per epoch; 556 rows exceed the 16,384-token cutoff and are truncated, so their final answer is lost in training.
 
-### 3.1 Random 15K (required baseline)
-`random.Random(20261015).sample` over the whole pool, no filtering. 113.4M training tokens per epoch; 556 rows exceed the cutoff
-and are truncated (their final answer is lost in training).
+**Selected 15K (used by the final model).** The benchmarks are math and science, a third of the pool is code, AceReason repeats
+many questions (15,906 exact duplicates), and 3.5% of rows do not fit the cutoff. Filters, in order:
 
-### 3.2 Selected 15K
-Motivation: the benchmarks are all math and science, so code traces (33% of the pool) are off-target; AceReason contains many
-repeated prompts (15,906 exact duplicates); and 3.5% of pool rows (3,452) do not fit the cutoff. Filters, in order:
+1. `extra_info.category == "math"` (removes 32,568 rows);
+2. exact-duplicate questions removed, first occurrence kept (removes 7,730);
+3. full conversation at most 16,384 tokens under the Qwen chat template (removes 2,292), so no training answer is truncated;
+   no empty outputs or unbalanced `<think>` tags were found;
+4. from the 57,410 eligible rows, stratified sampling by source x total-token band (up to 4K, 4-8K, 8-16K) with proportional
+   quotas, seed 20261015: NuminaMath-CoT 1,162 / 988 / 957, OpenMathReasoning 3,091 / 4,174 / 4,628.
 
-1. `extra_info.category == "math"` (removes 32,568)
-2. exact-duplicate prompts removed, first occurrence kept (removes 7,730)
-3. full conversation <= 16,384 tokens (removes 2,292); empty outputs or unbalanced `<think>` tags (0 found)
-4. 57,410 eligible rows; stratified sampling by source x total-token band (<=4K, 4-8K, 8-16K) with proportional quotas,
-   seed 20261015: NuminaMath-CoT 1162 / 988 / 957, OpenMathReasoning 3091 / 4174 / 4628.
-
-Result: 107.6M training tokens per epoch (5% less than random), median sample 6.5K tokens, nothing truncated; 2,252 rows are
+Result: 107.6M training tokens per epoch (5% fewer than random), median example 6.5K tokens, nothing truncated, 2,252 rows
 shared with the random set. The method needs no model inference, embeddings or answer keys and is reproducible from
-`scripts/prep_data.py` and the frozen pool file. Design references: OpenThoughts (Guha et al., 2025; question filtering, source
-mixing), AceReason-Nemotron 1.1 (Liu et al., 2025; prompt diversity), and the "less is more" results that a small curated set can
-match a larger one (LIMA, Zhou et al., 2023; s1, Muennighoff et al., 2025; LIMO, Ye et al., 2025). We deliberately did not use model-based difficulty
-scoring or LIMOPro pruning in this pass (cost and added failure surface under a 5-day budget).
+`scripts/prep_data.py` and the frozen pool file. It follows question filtering and source mixing in OpenThoughts (Guha et al.,
+2025), prompt diversity in AceReason-Nemotron 1.1 (Liu et al., 2025), and the finding that a small curated set can match a
+larger one (LIMA, Zhou et al., 2023; s1, Muennighoff et al., 2025; LIMO, Ye et al., 2025).
 
-Benchmark overlap: 6 pool prompts match a benchmark question verbatim (3 MATH, 2 OlympiadBench, 1 AMC). One landed in each
-15K set; both were kept rather than sanitizing one arm only. Effect on any score is at most one question.
+**Benchmark overlap.** 6 pool questions match a benchmark question verbatim (3 MATH, 2 OlympiadBench, 1 AMC); one landed in each
+15K set and was kept rather than sanitising one arm only. The effect on any score is at most one question.
 
-## 4. Evaluation protocol
+## 4. Training and hyperparameters
+
+| setting | random baseline | **final model** |
+|---|---|---|
+| data | random 15K (113.4M tokens/epoch) | selected 15K (107.6M tokens/epoch) |
+| method | full-parameter SFT, response-only loss, `template: qwen` | same |
+| sequence cutoff | 16,384 tokens | same |
+| optimiser | AdamW (Trainer defaults: betas 0.9/0.999, weight decay 0, gradient clipping 1.0), bf16 | same |
+| learning rate | 5e-6, cosine, warmup 0 | 5e-6, cosine, warmup 0 for epochs 1-3; epochs 4-5 resume from the step-5,625 state (weights, optimizer, scheduler) on a 5-epoch cosine, so the rate decays from 1.7e-6 to 0 |
+| epochs / steps | 3 / 5,625 | 5 / 9,375 |
+| batch | global 8 = 4 GPUs x micro-batch 1 x gradient accumulation 2 | same |
+| memory and kernels | DeepSpeed ZeRO-3 (no offload), FlashAttention-2, Liger fused linear cross-entropy | same |
+| tokens seen / train loss | 338.8M / 0.581 | 538.2M / 0.530 over epochs 1-3, 0.192 over epochs 4-5 |
+| hardware and time | 4x L40S, 9 h 09 min | 4x L40S, 8 h 35 min (epochs 1-3) + 4x A100, 4 h 26 min (epochs 4-5) |
+| configs | `yamls/random15k.yaml` | `yamls/advanced15k.yaml`, then `yamls/advanced15k_ep5.yaml` |
+
+The Liger fused cross-entropy was needed to fit 16K-token examples on 44 GB GPUs. The label mask was checked on a decoded example
+(prompt tokens masked, labels start at `<think>`).
+
+## 5. Evaluation protocol
 
 Course `eval/` harness: vLLM generation with the system prompt "Please reason step by step, and put your final answer within
-\boxed{}", last `\boxed{}` extracted, SymPy-based equivalence grading. pass@1 = mean per-sample accuracy; pass@8 = any of 8
-samples correct (pass@k of Chen et al., 2021, with k equal to the 8 samples drawn). Differences between models are reported
-with 95% intervals from a paired bootstrap that resamples questions, keeping each question's 8 samples together (Efron &
-Tibshirani, 1993; Miller, 2024). Leaderboard-style macro average over the 6 locally available leaderboard benchmarks (cn_math_2024, kaoyan,
-amc, minerva, olympiadbench, gpqa); AIME25 is not available locally; AIME24 and MATH are reported but excluded, following the
-course leaderboard definition.
+\boxed{}", the last `\boxed{}` extracted and graded by SymPy-based equivalence. For each question the model generates 8 answers.
+**pass@8** counts a question as solved if any of the 8 is correct (pass@k of Chen et al., 2021, with k equal to the 8 samples);
+**pass@1** is the average share of correct answers per question. The **macro** score averages the 6 leaderboard benchmarks
+available locally (CN-Math 2024, Kaoyan, AMC, Minerva, OlympiadBench, GPQA) with equal weight; AIME25 is on the course
+leaderboard but not available locally, and AIME24 and MATH-500 are reported but excluded, following the course definition.
+Differences are reported with 95% intervals from a paired bootstrap that resamples questions and keeps each question's 8 samples
+together (Efron & Tibshirani, 1993; Miller, 2024).
 
-Repairs around the harness (protocol unchanged): strict failure handling, immutable run directories with a manifest, an
-8-responses-per-question completeness check, a watchdog that kills the evaluation process if it hangs after printing its scores
-(observed repeatedly; the grader's thread pool blocks interpreter exit), the seed forwarded to vLLM (one-line patch,
-`patches/eval_seed.patch`), pass@k recomputed from the per-sample correctness file, and index-range sharding of OlympiadBench
-(the course script writes nothing until a whole benchmark finishes, and a full run of the fine-tuned models was projected at
-13-27 h on one GPU). Shards are merged by question index in `scripts/aggregate_results.py`. MATH-500 contains 500 records
-(the README's 499 is a line count).
+Our wrapper around the harness leaves the protocol unchanged and adds strict failure handling, run directories with a manifest,
+an 8-answers-per-question completeness check, a watchdog for the harness's hang at exit, the seed forwarded to vLLM (one-line
+patch, `patches/eval_seed.patch`), and index-range sharding of long benchmarks, merged by question index with each record's
+question text checked against the benchmark file.
 
-## 5. Results
+## 6. Results
 
-### 5.1 Per-benchmark scores (pass@8 / pass@1)
+### 6.1 All 8 benchmarks (pass@8 / pass@1)
 
-| benchmark | n | base | random 15K | selected 15K |
-|---|---:|---|---|---|
-| aime (AIME24) | 30 | 0.167 / 0.071 | 0.333 / 0.071 | 0.267 / 0.087 |
-| math (MATH-500) | 500 | 0.840 / 0.653 | 0.884 / 0.647 | 0.886 / 0.652 |
-| cn_math_2024* | 30 | 0.367 / 0.104 | 0.333 / 0.079 | 0.300 / 0.071 |
-| kaoyan* | 199 | 0.548 / 0.219 | 0.653 / 0.292 | 0.688 / 0.290 |
-| amc* | 40 | 0.650 / 0.391 | 0.575 / 0.344 | 0.700 / 0.350 |
-| minerva* | 272 | 0.452 / 0.287 | 0.471 / 0.255 | 0.463 / 0.243 |
-| olympiadbench* | 675 | 0.498 / 0.277 | 0.526 / 0.278 | 0.520 / 0.288 |
-| gpqa* | 198 | 0.717 / 0.294 | 0.737 / 0.230 | 0.722 / 0.224 |
-| **macro (6 starred)** | | **0.539 / 0.262** | **0.549 / 0.246** | **0.566 / 0.244** |
-
-### 5.2 Paired bootstrap over question ids (B = 2000, 95% CI), difference = second minus first
-
-| pair | benchmark | d pass@8 | CI | d pass@1 | CI |
-|---|---|---:|---|---:|---|
-| base -> random | kaoyan | +0.106 | [+0.045, +0.166] | +0.073 | [+0.038, +0.110] |
-| base -> random | math | +0.044 | [+0.014, +0.072] | -0.006 | [-0.026, +0.013] |
-| base -> random | aime | +0.167 | [+0.033, +0.333] | +0.000 | [-0.050, +0.046] |
-| base -> random | minerva | +0.018 | [-0.026, +0.062] | -0.033 | [-0.058, -0.008] |
-| base -> random | gpqa | +0.020 | [-0.056, +0.096] | -0.064 | [-0.102, -0.026] |
-| base -> random | olympiadbench | +0.028 | [-0.006, +0.061] | +0.001 | [-0.015, +0.018] |
-| base -> random | **macro** | **+0.011** | [-0.042, +0.062] | **-0.016** | [-0.036, +0.004] |
-| base -> selected | kaoyan | +0.141 | [+0.075, +0.201] | +0.071 | [+0.035, +0.109] |
-| base -> selected | math | +0.046 | [+0.018, +0.074] | -0.001 | [-0.022, +0.020] |
-| base -> selected | minerva | +0.011 | [-0.033, +0.059] | -0.045 | [-0.071, -0.017] |
-| base -> selected | gpqa | +0.005 | [-0.071, +0.076] | -0.069 | [-0.104, -0.033] |
-| base -> selected | olympiadbench | +0.022 | [-0.009, +0.055] | +0.011 | [-0.006, +0.028] |
-| base -> selected | **macro** | **+0.027** | [-0.020, +0.071] | **-0.018** | [-0.037, +0.002] |
-| random -> selected | amc | +0.125 | [+0.000, +0.250] | +0.006 | [-0.031, +0.047] |
-| random -> selected | kaoyan | +0.035 | [-0.015, +0.090] | -0.002 | [-0.030, +0.026] |
-| random -> selected | olympiadbench | -0.006 | [-0.034, +0.022] | +0.010 | [-0.002, +0.022] |
-| random -> selected | aime | -0.067 | [-0.233, +0.100] | +0.017 | [-0.017, +0.054] |
-| random -> selected | **macro** | **+0.016** | [-0.024, +0.056] | **-0.002** | [-0.014, +0.010] |
-
-Full table for all 8 benchmarks and both metrics: `reports/results.md` (`results.json` holds the numbers;
-`per_question_correctness.json` holds the 8 correctness flags per question so the bootstrap can be recomputed). OlympiadBench
-was evaluated in index shards; each question is taken from the narrowest shard covering it (rule and file list at the end of
-`results.md`), and every record's question text was verified against the benchmark file at its index.
-
-### 5.3 Generation length and cost
-
-| run | mean generated tokens (range over benchmarks) | fraction of samples at the 32,768 cap | eval GPU-hours |
-|---|---|---|---:|
-| base | 0.7K (minerva) to 2.7K (aime) | 0.1% to 5% | ~3.5 (A30) |
-| random 15K | 7.8K (math) to 21.1K (aime); olympiadbench 14.5K | 8.7% (math, kaoyan) to 36% (aime); olympiadbench 22% | ~50 |
-| selected 15K | 7.6K (math) to 21.4K (aime); olympiadbench 13.9K | 7.7% (kaoyan) to 37% (aime); olympiadbench 21% | ~49 |
-
-### 5.4 What the capped samples look like (`reports/stopping_failures.md`)
-
-| run | capped samples (all 8 benchmarks) | of those: still inside `<think>` | repetitive tail | per-sample accuracy, uncapped vs capped |
-|---|---:|---:|---:|---|
-| base | 155 / 15,552 (1.0%) | 100% | 20-86% | e.g. MATH 0.657 vs 0.000 |
-| random 15K | 2,643 / 15,552 (17.0%) | 86-100% | 11-31% | MATH 0.707 vs 0.023; Minerva 0.296 vs 0.016; GPQA 0.312 vs 0.000 |
-| selected 15K | 2,509 / 15,552 (16.1%) | 91-100% | 15-38% | MATH 0.709 vs 0.027; Minerva 0.288 vs 0.006; GPQA 0.291 vs 0.005 |
-
-Most capped fine-tuned samples are unfinished reasoning (the `</think>` tag is never reached), not degenerate loops; a minority
-(11 to 38%) end in a repeating tail. On the samples that do finish, both fine-tuned models match or beat the base model's
-per-sample accuracy on every benchmark where pass@1 fell, so the pass@1 losses are a stopping problem rather than a reasoning one.
-Whether a larger generation budget would convert those samples into correct answers was not tested.
-
-## 6. Analysis
-
-- **What SFT changed.** Both fine-tuned models write DeepSeek-R1-style `<think>` traces that are 10 to 20 times longer than
-  the base model's answers, the over-long reasoning reported for o1-like models (Chen et al., 2024). pass@8 rises on 7 of 8 benchmarks for the selected model (all but the 30-question CN_MATH set, whose
-  interval spans zero), with clear gains on Kaoyan (+0.14) and MATH-500 (+0.05). pass@1 falls on Minerva and GPQA for both SFT
-  models; these are exactly the benchmarks where 15 to 27% of samples hit the 32K cap, and a capped sample without a final
-  `\boxed{}` is graded wrong by construction. Whether a longer generation budget would recover that loss is untested here (the
-  course protocol fixes 32,768 tokens); `reports/stopping_failures.md` classifies the capped samples (still in the thinking phase,
-  repetitive loop, or missing conclusion).
-- **Selected vs random.** The selected set wins the leaderboard metric by +0.016 macro pass@8, but the advantage is narrow in
-  origin: five additional AMC questions (+0.125 on a 40-question set) contribute about +0.021 to the macro average on their own,
-  while the other five included benchmarks net about -0.004 (Kaoyan +0.035, CN_MATH -0.033, Minerva -0.007, OlympiadBench -0.006,
-  GPQA -0.015). The interval [-0.024, +0.056] leaves superiority unresolved. On pass@1 the two are indistinguishable (-0.002).
-  The selected set used 5% fewer training tokens. Because the recipe combines three filters and stratification, this run cannot
-  attribute the difference to any single filter.
-- **Against the Fall-2025 leaderboard.** That table averages 7 benchmarks including AIME25, which we do not have, so numbers
-  are not directly comparable; our base reproduces the listed baseline row within benchmark noise (e.g. MATH 0.840 exactly),
-  and the fine-tuned models' per-benchmark pass@8 values sit in the range of last year's top entries on Kaoyan and MATH.
-- **Limits.** One training run per arm; the bootstrap covers question sampling only, not training-seed or data-draw variance.
-  The historical spread between two random draws (4.1 points) is larger than our selected-minus-random difference, so a second
-  seed per arm would be the next experiment. AIME/CN_MATH have 30 questions each and move by 0.033 per question.
-- **Training data from the course pool only.** The assignment allows adding examples from other datasets; every training set
-  here was drawn from the 100K AceReason-1.1-SFT subset alone. We did not add outside data within the time budget, partly
-  because outside math sets often contain the benchmark problems themselves (even the course pool has 6 verbatim matches,
-  section 3.2), which would need a decontamination pass. Natural candidates for a next step: short, curated reasoning sets such as
-  LIMO's or s1's problems (Ye et al., 2025; Muennighoff et al., 2025), which fit our finding that unfinished long answers are
-  the main loss and the observation that small students learn better from shorter reasoning (Li et al., 2025); and science
-  reasoning data for GPQA (graduate-level physics, chemistry and biology), for which our math-only selected sets contain no
-  in-domain examples.
-
-## 6b. Follow-up experiments (after the main comparison was frozen)
-
-Both were run after the audit of the main results and are reported separately; neither changes the main comparison.
-
-**Second generation seed on AMC (seed 1, all other settings official).** AMC carried most of the selected-vs-random gap.
-
-| model | seed 0 pass@8 / pass@1 | seed 1 pass@8 / pass@1 | two-seed mean pass@8 |
-|---|---|---|---:|
-| base | 0.650 / 0.391 | 0.700 / 0.419 | 0.675 |
-| random 15K | 0.575 / 0.344 | 0.700 / 0.356 | 0.638 |
-| selected 15K | 0.700 / 0.350 | 0.750 / 0.394 | 0.725 |
-
-The selected model leads on both seeds, but the gap over random shrinks from five questions to two, and the random model alone
-moved five questions between seeds. The direction of the AMC advantage is consistent; its size is within sampling noise on a
-40-question set. Run dirs `eval_outputs/*_seed1`.
-
-**Checkpoint screening on a held-out development panel (no benchmark data).** 200 math questions drawn from pool rows that are
-in neither 15K set (36,491 eligible), stratified by teacher-response length, scored against the teacher's final `\boxed{}` answer
-with the course grader (teacher agreement, not independent ground truth). Official decoding, 2 samples per question. Promotion
-rule fixed in advance: an earlier checkpoint is promoted to the full 8-sample evaluation only if its pass@2 beats the final
-checkpoint by more than 0.03 with a lower cap rate.
-
-| checkpoint | acc per sample | pass@2 | samples at 32K cap | mean tokens |
-|---|---:|---:|---:|---:|
-| selected, epoch 1 | 0.153 | 0.240 | 55.5% | 22.9K |
-| selected, epoch 2 | 0.250 | 0.375 | 28.3% | 17.0K |
-| selected, epoch 3 (final) | 0.290 | 0.440 | 23.5% | 16.4K |
-| random, epoch 1 | 0.183 | 0.285 | 52.8% | 22.0K |
-| random, epoch 2 | 0.213 | 0.340 | 32.0% | 17.6K |
-| random, epoch 3 (final) | 0.263 | 0.380 | 21.8% | 16.1K |
-
-The panel is hard (teacher traces up to 75K characters) and over half of the epoch-1 samples hit the cap, so it mostly measures
-whether a checkpoint finishes its reasoning. Both arms improve monotonically with training on every column; the final
-checkpoints are the best ones, so no earlier checkpoint was promoted and the main comparison stands as the 3-epoch models.
-The screening also shows that more SFT reduces, rather than causes, the run-on behaviour: the cap rate falls from ~55% to
-~24% between epoch 1 and epoch 3. Files: `eval_outputs/dev_screen/`, panel `data/dev200.jsonl`.
-
-## 6c. A student-dependent selector: learning progress (third data arm)
-
-The first selector describes the data (category, duplicates, length), not what Qwen learns from it. The third arm asks a
-question about the student instead: *how much does Qwen's fit to this solution improve after a little related training?*
-
-**Method (rule frozen before any result of the resulting model was seen).**
-
-1. Eligible pool: math rows whose full conversation fits 16,384 tokens, with non-empty output and balanced `<think>` tags; the
-   200 dev-panel rows are excluded so the panel stays a clean check (64,719 rows). Duplicated prompts are kept at this stage.
-2. Probe SFT: 2,000 random eligible rows, 1 epoch, otherwise the main recipe (250 steps, 47 min on one A100).
-3. Candidates: the other 62,218 eligible rows (55,414 distinct prompts); rows sharing a prompt with a probe row are excluded so
-   memorised probe answers cannot inflate scores.
-4. Score: teacher-forced mean response-token cross-entropy under base Qwen minus the same under the probe model
-   (`scripts/score_loss.py`; no generation needed, about 1.5 A100-hours per 15K rows per model). This is the "reducible loss" of
-   RHO-LOSS (Mindermann et al., 2022), with the probe as the reference model, and close in spirit to LESS, which also scores data
-   after a short warm-up fine-tune (Xia et al., 2024).
-5. One response per prompt: among rows with the same prompt, keep the response with the largest score (the GRAPE idea of
-   training on the demonstration that best fits the student; Zhang et al., 2025).
-6. Coverage: same source x token-band strata as the first selected set, quotas proportional to distinct prompts per stratum;
-   top-score rows within each stratum (`scripts/select_lp.py`).
-7. Train from the original Qwen checkpoint with the unchanged recipe (3 epochs, global batch 8, lr 5e-6), then the official
-   evaluation and the dev-panel screen.
-
-**What the selector picked.** 15,000 rows, 99.1M training tokens per epoch (random 113.4M, first selected set 107.6M);
-OpenMathReasoning 11,891 / NuminaMath-CoT 3,109; median loss drop 0.31 versus 0.27 over all candidates. Caveat recorded before
-training: selected rows have a lower base loss on average (1.00 versus 1.60 for all candidates), so the signal leans toward
-solutions Qwen already finds predictable; the stratification keeps long traces in, but the lean is real. Overlap: 3,753 rows
-with the first selected set, 2,241 with random.
-
-**Results (same 3-epoch recipe as the other arms; `reports/five_models/results.md`).**
-
-| | cn_math | kaoyan | amc | minerva | olympiad | gpqa | **macro pass@8** | **macro pass@1** |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| base | 0.367 | 0.548 | 0.650 | 0.452 | 0.498 | 0.717 | 0.539 | 0.262 |
-| random 15K | 0.333 | 0.653 | 0.575 | 0.471 | 0.526 | 0.737 | 0.549 | 0.246 |
-| selected 15K | 0.300 | 0.688 | 0.700 | 0.463 | 0.520 | 0.722 | 0.566 | 0.244 |
-| learning progress 15K | 0.400 | 0.673 | 0.650 | 0.463 | 0.526 | 0.753 | **0.578** | **0.265** |
-
-(per-benchmark cells are pass@8). Paired bootstrap on the macro (B = 2000, 95% CI): random -> learning progress is +0.028
-[-0.011, +0.069] pass@8 and **+0.019 [+0.005, +0.032] pass@1**; first selected set -> learning progress is +0.012 [-0.025,
-+0.050] pass@8 and **+0.021 [+0.008, +0.034] pass@1**; base -> learning progress is +0.039 [-0.004, +0.082] pass@8 and
-+0.003 [-0.017, +0.023] pass@1. It is the best of the equal-budget arms on both metrics, with fewer training tokens than
-either (99.1M per epoch versus 113.4M and 107.6M), and the only 3-epoch model that does not lose pass@1 relative to the base
-model. The pass@1 gain over both other arms is outside the noise; the pass@8 gain is not.
-
-Where it comes from: fewer run-on answers. Its cap rate on the six benchmarks is 4.3% (kaoyan) to 17.4% (GPQA), versus
-7.7-23.4% for the first selected set and 8.7-26.5% for random, and the held-out panel shows the same (capped 14.8% versus 23.5%
-and 21.8%; acc 0.278, pass@2 0.405, between the two other arms). The lean recorded before training shows on the hardest set:
-on AIME24 (not in the macro) it is the weakest fine-tuned model, 0.200 pass@8 versus 0.333 for random (difference CI [-0.267,
--0.033]), consistent with a selector that prefers solutions the student already finds predictable.
-
-**Training longer (selected arm, epochs 4-5).** Separate optimisation run, resumed from the epoch-3 optimizer state with a
-warm-restarted cosine (1.7e-6 to 0 over 3,750 steps); final train loss 0.19 versus 0.53 at epoch 3. Dev panel: acc 0.313,
-pass@2 0.420, capped 15.5%, mean 14.5K tokens (epoch 3: 0.290 / 0.440 / 23.5% / 16.4K).
-
-Official evaluation of the epoch-5 model (all 8 benchmarks, same protocol; `reports/five_models/results.md`):
-
-| | macro pass@8 | macro pass@1 | cap rate on the 6 benchmarks |
-|---|---:|---:|---|
-| base | 0.539 | 0.262 | 0.1-2.5% |
-| random 15K (3 epochs) | 0.549 | 0.246 | 8.7-26.5% |
-| selected 15K (3 epochs) | 0.566 | 0.244 | 7.7-23.4% |
-| selected 15K, 5 epochs | **0.590** | **0.269** | 4.8-16.7% |
-
-Paired bootstrap (B = 2000, 95% CI) on the macro: epoch 3 -> epoch 5 is +0.024 [-0.013, +0.064] pass@8 and
-**+0.025 [+0.010, +0.039] pass@1**; random -> epoch 5 is +0.040 [-0.004, +0.086] pass@8 and **+0.023 [+0.009, +0.038]**
-pass@1; base -> epoch 5 is **+0.051 [+0.009, +0.095]** pass@8 and +0.007 [-0.011, +0.027] pass@1. Per benchmark, epoch 5
-versus epoch 3: AMC +3 of 40 questions at pass@8, GPQA +7 of 198, OlympiadBench +0.018, kaoyan and Minerva -2 questions each,
-CN-Math +1; pass@1 rises on all six (significantly on Minerva, OlympiadBench and GPQA). The mechanism is the one 5.4 points
-to: the share of samples cut off at 32,768 tokens falls on every benchmark (OlympiadBench 20.9% -> 15.4%, GPQA 23.4% -> 13.9%,
-Minerva 16.2% -> 11.9%, kaoyan 7.7% -> 4.8%). A capped sample is almost always wrong (accuracy 0 to 3%), while the accuracy
-of samples that do finish is about unchanged (OlympiadBench 0.355 vs 0.362, GPQA 0.298 vs 0.291), so fewer cut-offs translate
-directly into pass@1.
-
-How to read this: it is the first fine-tuned model that beats the base model on pass@8 with a confidence interval excluding
-zero, and the first that recovers the base model's pass@1. It is **not** an equal-budget data comparison: the random arm was
-not trained to 5 epochs, and the decision to train longer was taken after the 3-epoch benchmark results were known (motivated
-by the held-out panel, which was still improving at epoch 3). It says that, for this 3B student, the training budget matters as
-much as the data choice, and that 3 epochs under-train it on reasoning traces this long. This matches the AceReason-Nemotron
-1.1 study of the same data family, where SFT accuracy "gradually improves from the 1st to the 5th epoch" before plateauing
-around epochs 5-6 (Liu et al., 2025).
-
-## 6d. Short traces for a small student (fourth data arm)
-
-The capped-sample analysis (5.4) shows where the fine-tuned models lose points: 15 to 27% of samples on Minerva, GPQA and
-OlympiadBench never finish thinking within 32,768 tokens. Small students also learn long teacher traces less well than
-shorter ones (Li et al., 2025, *Small Models Struggle to Learn from Strong Reasoners*). The fourth arm changes only the length
-of the demonstrations.
-
-**Method (rule frozen before any result of the resulting model was seen; `scripts/select_short.py`).** Same candidate pool as
-the learning-progress arm (62,218 rows, 55,414 prompts). One response per prompt, the shortest; keep prompts whose full
-conversation is at most 8,192 tokens (35,266 prompts qualify); strata = source x token band (up to 2K, 2-4K, 4-8K) with quotas
-proportional to distinct prompts, as for the other selected sets; uniform random rows within each stratum (seed 20261018).
-Training and evaluation are unchanged (3 epochs, global batch 8, lr 5e-6; official decoding, 32,768-token cap).
-
-**What it picked.** 15,000 rows, 67.0M training tokens per epoch (random 113.4M, first selected set 107.6M, learning progress
-99.1M); median 4.4K tokens per example; OpenMathReasoning 11,591 / NuminaMath-CoT 3,409; overlap 2,267 rows with random,
-3,777 with the first selected set and 3,795 with the learning-progress set.
-
-**Status: not completed (no results reported).** The selection is done and frozen (`data/short15k_manifest.json`), and
-training started on Oct 19 as one Tinkercliffs job (`slurm/pipeline_tc.slurm`, rehearsed end to end on Falcon). The node it
-landed on had power-brake-throttled GPUs (throttle reason 0x88, about 40% of normal speed), so training could not finish
-within the job limit; it was stopped at about step 2,800 of 5,625, before any evaluation. Given the deadline and the results
-already in hand, we did not continue this arm. It remains a ready-to-run next step: the selection, config and single-job
-pipeline are in the repo.
-
-## 7. Final model
-
-**Choice.** The selected 15K set trained for 5 epochs (section 6c) has the highest macro pass@8 and pass@1 of all models we
-evaluated. It is the model we submit. Note that this choice is made on the same local benchmarks it is reported on; the course
-leaderboard's AIME25, which we do not have, is the only unseen test.
-
-**Hyperparameters.**
-
-| setting | value |
-|---|---|
-| base model | `Qwen/Qwen2.5-3B-Instruct`, full-parameter SFT, response-only loss, `template: qwen` |
-| training data | selected 15K (`data/advanced15k_manifest.json`; 107.6M tokens per epoch; section 3.2) |
-| sequence cutoff | 16,384 tokens (no selected example exceeds it) |
-| optimiser and schedule | AdamW (Trainer defaults: betas 0.9/0.999, weight decay 0, gradient clipping 1.0), lr 5e-6, cosine, warmup 0, bf16 |
-| epochs and steps | 5 epochs, 9,375 steps. Epochs 1-3 are the 3-epoch run; epochs 4-5 resume from its step-5,625 state (weights, optimizer and scheduler) with a 5-epoch cosine, so the learning rate decays from 1.7e-6 to 0 |
-| batch | global batch 8 = 4 GPUs x micro-batch 1 x gradient accumulation 2 |
-| memory and kernels | DeepSpeed ZeRO-3 (no offload), FlashAttention-2, Liger fused linear cross-entropy |
-| tokens and loss | 538.2M training tokens seen; mean train loss 0.530 over epochs 1-3 and 0.192 over epochs 4-5 |
-| hardware and time | epochs 1-3: 4x L40S, 8 h 35 min; epochs 4-5: 4x A100 80 GB, 4 h 26 min |
-| config files | `yamls/advanced15k.yaml` (epochs 1-3), `yamls/advanced15k_ep5.yaml` (epochs 4-5); record in `models/advanced15k_ep5/` |
-
-**Results on all 8 benchmarks (pass@8 / pass@1; official protocol, seed 0).**
-
-| benchmark (questions) | base Qwen2.5-3B-Instruct | random 15K, 3 epochs | **final model** |
+| benchmark (questions) | base | random 15K | **final model** |
 |---|---|---|---|
 | AIME24 (30) | 0.167 / 0.071 | 0.333 / 0.071 | 0.233 / 0.075 |
 | MATH-500 (500) | 0.840 / 0.653 | 0.884 / 0.647 | 0.878 / 0.659 |
@@ -378,45 +113,119 @@ leaderboard's AIME25, which we do not have, is the only unseen test.
 | GPQA* (198) | 0.717 / 0.294 | 0.737 / 0.230 | 0.758 / 0.258 |
 | **macro (6 starred)** | **0.539 / 0.262** | **0.549 / 0.246** | **0.590 / 0.269** |
 
-**Comparison (paired bootstrap on the macro, B = 2000, 95% CI).**
+### 6.2 Comparison (paired bootstrap, B = 2000, 95% CI; difference in pass@8 unless noted)
 
-| difference | pass@8 | pass@1 |
-|---|---|---|
-| random - base | +0.011 [-0.042, +0.062] | -0.016 [-0.036, +0.004] |
-| final - base | **+0.051 [+0.009, +0.095]** | +0.007 [-0.011, +0.027] |
-| final - random | +0.040 [-0.004, +0.086] | **+0.023 [+0.009, +0.038]** |
+| benchmark | random - base | final - base | final - random |
+|---|---|---|---|
+| AIME24 | +0.167 [+0.033, +0.333] | +0.067 [-0.067, +0.200] | -0.100 [-0.200, +0.000] |
+| MATH-500 | +0.044 [+0.014, +0.072] | +0.038 [+0.008, +0.068] | -0.006 [-0.028, +0.018] |
+| CN-Math 2024 | -0.033 [-0.267, +0.233] | -0.033 [-0.233, +0.167] | +0.000 [-0.167, +0.200] |
+| Kaoyan | +0.106 [+0.045, +0.166] | +0.131 [+0.070, +0.191] | +0.025 [-0.020, +0.070] |
+| AMC | -0.075 [-0.225, +0.075] | +0.125 [+0.000, +0.250] | +0.200 [+0.050, +0.375] |
+| Minerva | +0.018 [-0.026, +0.062] | +0.004 [-0.044, +0.051] | -0.015 [-0.055, +0.022] |
+| OlympiadBench | +0.028 [-0.006, +0.061] | +0.040 [+0.006, +0.073] | +0.012 [-0.016, +0.039] |
+| GPQA | +0.020 [-0.056, +0.096] | +0.040 [-0.030, +0.111] | +0.020 [-0.045, +0.086] |
+| **macro pass@8** | **+0.011 [-0.042, +0.062]** | **+0.051 [+0.009, +0.095]** | **+0.040 [-0.004, +0.086]** |
+| **macro pass@1** | **-0.016 [-0.036, +0.004]** | **+0.007 [-0.011, +0.027]** | **+0.023 [+0.009, +0.038]** |
 
-Fine-tuning on random data barely moves the base model; the final model is the only one whose pass@8 gain over the base model
-excludes zero, and it beats the random baseline on pass@1 beyond noise. The gain over random on pass@8 (+0.040) is largest on
-AMC (+8 of 40 questions), then Kaoyan (+5 of 199) and GPQA (+4 of 198); Minerva is 4 of 272 lower and CN-Math is equal. The share of samples cut off at 32,768 tokens is 4.8-16.7% on
-the six benchmarks (random: 8.7-26.5%). That is the main mechanism (sections 5.4 and 6c). Two caveats are discussed in 6c: the
-random arm was not trained for 5 epochs, so the final-vs-random gap mixes data and training budget, and there is one training run
-per arm.
+Per-benchmark pass@1 and all tables in machine-readable form: `reports/five_models/results.md` and `results.json`;
+`per_question_correctness.json` holds the 8 correctness flags per question so the bootstrap can be recomputed.
+
+### 6.3 Answer length and cut-off answers (`reports/five_models/stopping_failures.md`)
+
+| model | mean answer tokens (range over benchmarks) | samples cut off at 32,768 tokens: 6 leaderboard benchmarks / all 8 | accuracy of finished vs cut-off samples | eval GPU-hours |
+|---|---|---|---|---:|
+| base | 0.7K (Minerva) to 2.7K (AIME) | 0.1-2.5% / 155 of 15,552 (1.0%) | MATH 0.657 vs 0.000 | ~3.5 |
+| random 15K | 7.8K (MATH) to 21.1K (AIME); OlympiadBench 14.5K | 8.7-26.5% / 2,643 (17.0%) | MATH 0.707 vs 0.023; Minerva 0.296 vs 0.016; GPQA 0.312 vs 0.000 | ~50 |
+| final model | 7.1K (MATH) to 21.3K (AIME); OlympiadBench 12.9K | 4.8-16.7% / 1,809 (11.6%) | MATH 0.702 vs 0.031; Minerva 0.309 vs 0.000; GPQA 0.298 vs 0.005 | ~54 |
+
+Almost all cut-off samples of the fine-tuned models are unfinished reasoning (the `</think>` tag is never reached, 86-100% by
+benchmark); a minority end in a repeating loop.
+
+## 7. Analysis
+
+- **What fine-tuning changed.** Both fine-tuned models write DeepSeek-R1-style `<think>` traces 10 to 20 times longer than the
+  base model's answers, the over-long reasoning reported for o1-like models (Chen et al., 2024). pass@8 rises with clear
+  intervals on Kaoyan and MATH-500 for both. Random fine-tuning lowers pass@1 on Minerva (-0.033 [-0.058, -0.008]) and GPQA
+  (-0.064 [-0.102, -0.026]), the benchmarks where 15-27% of its samples are cut off; a cut-off sample has no final answer and is
+  graded wrong. On finished samples its accuracy matches or beats the base model, so the loss is a stopping problem rather than a
+  reasoning one.
+- **Why the final model is better.** It cuts the share of unfinished answers on every leaderboard benchmark (for example GPQA
+  26.5% -> 13.9%, OlympiadBench 22.4% -> 15.4%, Minerva 14.8% -> 11.9% versus random), while the accuracy of finished samples
+  stays about the same, so fewer cut-offs translate directly into pass@1 (+0.023 macro, clearest on OlympiadBench, +0.023
+  [+0.012, +0.035]) and into pass@8, led by AMC (+8 of 40 questions). Two choices are likely to contribute. The selected data
+  keeps every example within the training length, so the model always sees complete solutions that end with an answer (random
+  has 556 truncated examples). And longer training helps: on a held-out panel of 200 pool questions in neither training set, the selected run's cut-off rate falls from 55% after
+  epoch 1 to 24% after epoch 3 and 16% after epoch 5 (Appendix A.2). The AceReason-Nemotron 1.1 study of the same data family
+  likewise finds SFT accuracy "gradually improves from the 1st to the 5th epoch" before plateauing around epochs 5-6 (Liu et al.,
+  2025).
+- **How much is the data choice.** At equal budget (3 epochs) the selected set leads random by +0.016 macro pass@8, inside the
+  noise and concentrated in five AMC questions; with a second generation seed the AMC gap shrinks to two questions (Appendix A.1).
+  So the final model's lead over the baseline comes from selected data plus longer training together, and this study cannot
+  separate the two: random was not trained for 5 epochs.
+- **Limitations.** One training run per arm; the bootstrap covers question sampling only, not training-seed or data-draw
+  variance. AIME24 and CN-Math have 30 questions each and move by 0.033 per question. The decision to train for 5 epochs was taken
+  after the 3-epoch benchmark results were known (motivated by the held-out panel, which was still improving), and the final model
+  is chosen on the same local benchmarks it is reported on; AIME25 on the course leaderboard is the only unseen test. All training
+  data comes from the course pool: the assignment allows adding outside data, which we did not do, partly because outside math
+  sets often contain the benchmark problems themselves and would need decontamination. Natural next steps are short curated
+  reasoning sets such as LIMO's or s1's (Ye et al., 2025; Muennighoff et al., 2025), which fit the observation that small
+  students learn better from shorter reasoning (Li et al., 2025), and science data for GPQA, for which our math-only selected set
+  has no in-domain examples.
+- **Against the Fall-2025 leaderboard.** That table averages 7 benchmarks including AIME25, so it is not directly comparable;
+  our base model reproduces its baseline row within benchmark noise (MATH 0.840 exactly).
 
 ## 8. Reproducibility and artifacts
 
-- Models (Hugging Face): final model `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5`; 3-epoch arms
-  `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k`, `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k`
-- Datasets (Hugging Face): `yuan-zhou-hf/acereason-random15k`, `yuan-zhou-hf/acereason-advanced15k` (json + manifest + pool stats)
-- Code: this repo (`scripts/prep_data.py`, `slurm/*.slurm`, `yamls/*.yaml`, `scripts/eval_summary.py`, `scripts/aggregate_results.py`,
-  `scripts/push_to_hub.py`); environment freezes `envs/*_freeze.txt`; per-benchmark logs and summaries under `eval_outputs/`;
-  training records under `models/`; W&B project `reasoning-sft`; decision log `docs/progress_log.md`.
-- Slurm job ids (Falcon): training 645899 (random), 645900 (selected); base eval 645832/646490; fine-tuned evals 646669,
-  646672, 647763-647768, OlympiadBench shards 648090-648097 (L40S) and 648458-648473 (A30); finalize 649016.
-- Follow-up arms (6b-6d): selection code `scripts/make_probe_and_candidates.py`, `scripts/score_loss.py`, `scripts/select_lp.py`
-  (learning progress) and `scripts/select_short.py` (short traces), launcher `slurm/lp_stage.slurm`, dev panel
-  `scripts/make_dev_panel.py` + `scripts/dev_screen.py` + `slurm/screen.slurm`, configs `yamls/probe2k.yaml`,
-  `yamls/lp15k.yaml` / `yamls/lp15k_2gpu.yaml` (same optimisation, ZeRO-3 optimizer offload for 2 GPUs), `yamls/advanced15k_ep5.yaml`,
-  `yamls/short15k.yaml`; manifests `data/lp_build_manifest.json`, `data/lp15k_manifest.json`, `data/short15k_manifest.json`;
-  training records `models/{probe2k,lp15k,advanced15k_ep5}/`; evaluation logs `eval_outputs/{lp15k_v1,advanced15k_ep5_v1,dev_screen}/`;
-  five-model tables `reports/five_models/`. Single-job pipeline for the short-trace arm on Tinkercliffs: `slurm/pipeline_tc.slurm`
-  (rehearsed end to end on Falcon with `PIPE_TEST=1`). W&B runs: lp15k `eo7vne8d`, epochs 4-5 `d1sdo3ad`.
-- Slurm job ids (completed runs; failed attempts and their fixes are in `docs/progress_log.md`): Tinkercliffs LP build 8042926,
-  probe training 8043031, base-model scoring 8043151-8043154, probe-model scoring 8042932-8042935, selection 8042936; lp15k training 656357 (Falcon,
-  2x L40S); epochs 4-5 8044800 (Tinkercliffs, 4x A100); evaluations 657179-657197 + 657676 (epoch 5) and 657369-657387 +
-  657954-657971 (lp15k; A30/L40S twins, one copy of each ran); aggregation 657399, 657400.
+- **Hugging Face models:** final model `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5`; random baseline
+  `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k`.
+- **Hugging Face datasets:** `yuan-zhou-hf/acereason-random15k` and `yuan-zhou-hf/acereason-advanced15k` (the 15K json in
+  LLaMA-Factory format, its manifest of pool row ids, and pool statistics).
+- **Code (this repo):** data selection `scripts/prep_data.py`; training configs `yamls/random15k.yaml`, `yamls/advanced15k.yaml`,
+  `yamls/advanced15k_ep5.yaml`; launchers `slurm/train.slurm`, `slurm/eval_run.slurm`, `slurm/finalize_summary.slurm`;
+  aggregation and analysis `scripts/eval_summary.py`, `scripts/aggregate_results.py`, `scripts/inspect_caps.py`; upload
+  `scripts/push_to_hub.py`; environment freezes `envs/*_freeze.txt`.
+- **Records:** per-benchmark logs, manifests and summaries in `eval_outputs/{base_v1,random15k_v1,advanced15k_ep5_v1}/`; training
+  records in `models/{random15k,advanced15k,advanced15k_ep5}/`; decision log `docs/progress_log.md`. The final checkpoints,
+  including optimizer states, are kept on ARC project storage.
+- **Slurm job ids:** training 645899 (random), 645900 (selected, epochs 1-3, Falcon) and 8044800 (epochs 4-5, Tinkercliffs);
+  evaluation of base 645832/646490; random and the 3-epoch selected checkpoint 646669, 646672, 647763-647768 with OlympiadBench
+  shards 648090-648097 and 648458-648473 (aggregated by 649016); final model 657179-657197 and 657676 (aggregated by
+  657399/657400).
 
-## 9. References
+## Appendix A. Additional experiments
+
+Details, tables and caveats for all of these are in [`FULL_REPORT.md`](FULL_REPORT.md).
+
+**A.1 Selected 15K at 3 epochs (equal-budget check).** The first 3 epochs of the final model's run, evaluated in full: macro
+0.566 / 0.244 (pass@8 / pass@1), +0.016 [-0.024, +0.056] pass@8 and -0.002 [-0.014, +0.010] pass@1 over random. The pass@8 gap is
+concentrated in AMC (five questions); with a second generation seed on AMC (seed 1) it shrinks to two questions, while the
+random model alone moved five questions between seeds.
+
+**A.2 Checkpoint screen on a held-out panel.** 200 pool questions in neither training set, stratified by teacher-solution length,
+graded against the teacher's final answer, 2 samples each (pass@2):
+
+| checkpoint | selected: acc / pass@2 / cut off | random: acc / pass@2 / cut off |
+|---|---|---|
+| epoch 1 | 0.153 / 0.240 / 55.5% | 0.183 / 0.285 / 52.8% |
+| epoch 2 | 0.250 / 0.375 / 28.3% | 0.213 / 0.340 / 32.0% |
+| epoch 3 | 0.290 / 0.440 / 23.5% | 0.263 / 0.380 / 21.8% |
+| epoch 5 (final) | 0.313 / 0.420 / 15.5% | (not trained) |
+
+Both runs improve monotonically through epoch 3, so no earlier checkpoint was preferred; after epoch 5, accuracy per sample rises
+and cut-offs fall further, with pass@2 flat within noise.
+
+**A.3 Learning-progress selection (3 epochs).** A model-dependent selector: each candidate solution is scored by how much a short
+probe fine-tune on 2,000 random pool rows lowers Qwen's loss on it (the reducible loss of RHO-LOSS, Mindermann et al., 2022;
+close in spirit to LESS, Xia et al., 2024), keeping the best-fitting response per question as in GRAPE (Zhang et al., 2025),
+with the same stratified quotas. Same 3-epoch recipe: macro 0.578 / 0.265; +0.028 [-0.011, +0.069] pass@8 and **+0.019 [+0.005,
++0.032]** pass@1 over random, with fewer training tokens (99.1M per epoch). It is the strongest equal-budget arm, but weaker on
+the hardest set (AIME24 0.200 vs 0.333 for random).
+
+**A.4 Short-trace selection.** A fourth set limited to examples of at most 8K tokens was selected, but its training landed on a
+Tinkercliffs node with power-throttled GPUs and was stopped at step 2,779 of 5,625 before any evaluation; no results are reported.
+
+## References
 
 - Chen, M. et al. (2021). Evaluating Large Language Models Trained on Code. arXiv:2107.03374.
 - Chen, X. et al. (2024). Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs. arXiv:2412.21187.

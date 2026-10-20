@@ -1,43 +1,36 @@
-# Reasoning SFT of Qwen2.5-3B-Instruct: random vs. selected 15K (course project, Fall 2026)
+# Reasoning SFT of Qwen2.5-3B-Instruct with a selected 15K training set (course project, Fall 2026)
 
 Team repo for the [Project-Reasoning-SFT-LLM](https://github.com/reds-lab/Project-Reasoning-SFT-LLM) assignment.
-We fine-tune Qwen2.5-3B-Instruct on 15K samples from the 100K AceReason-1.1-SFT subset twice, once with a random subset and
-once with a cheap, label-free selected subset, and evaluate all three models on the 8 course benchmarks.
+We fine-tune Qwen2.5-3B-Instruct on 15K examples from the 100K AceReason-1.1-SFT subset, once with a random subset (the required
+baseline) and once with a cheap, label-free selected subset, and evaluate on the 8 course benchmarks.
 
 **Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **0.590**, pass@1 **0.269** (base 0.539 / 0.262,
-random 0.549 / 0.246); hyperparameters and full comparison in report section 7.
+random baseline 0.549 / 0.246).
 
-**Report:** [`reports/REPORT.md`](reports/REPORT.md). **Full result tables:** [`reports/five_models/results.md`](reports/five_models/results.md)
-(all five models) and [`reports/results.md`](reports/results.md) (main three-model comparison).
+**Report:** [`reports/REPORT.md`](reports/REPORT.md) (base model, random baseline, final model; hyperparameters in section 4).
+**Full report:** [`reports/FULL_REPORT.md`](reports/FULL_REPORT.md) (every experiment, including intermediate and follow-up runs).
+**Result tables:** [`reports/five_models/results.md`](reports/five_models/results.md).
 
 ## Headline (pass@8 / pass@1; macro = the 6 leaderboard benchmarks available locally)
 
 | model | aime | math | cn_math | kaoyan | amc | minerva | olympiad | gpqa | **macro** |
 |---|---|---|---|---|---|---|---|---|---|
 | base Qwen2.5-3B-Instruct | .167/.071 | .840/.653 | .367/.104 | .548/.219 | .650/.391 | .452/.287 | .498/.277 | .717/.294 | **.539**/.262 |
-| SFT random 15K | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .526/.278 | .737/.230 | **.549**/.246 |
-| SFT selected 15K | .267/.087 | .886/.652 | .300/.071 | .688/.290 | .700/.350 | .463/.243 | .520/.288 | .722/.224 | **.566**/.244 |
-| SFT learning-progress 15K (follow-up) | .200/.058 | .874/.657 | .400/.108 | .673/.295 | .650/.391 | .463/.260 | .526/.290 | .753/.245 | **.578**/.265 |
+| SFT random 15K (baseline, 3 epochs) | .333/.071 | .884/.647 | .333/.079 | .653/.292 | .575/.344 | .471/.255 | .526/.278 | .737/.230 | **.549**/.246 |
 | **SFT selected 15K, 5 epochs (final model)** | .233/.075 | .878/.659 | .333/.104 | .678/.298 | .775/.381 | .456/.273 | .538/.301 | .758/.258 | **.590**/.269 |
 
-Paired bootstrap, macro pass@8: selected minus random +0.016 [-0.024, +0.056]; selected minus base +0.027 [-0.020, +0.071].
-The selected-minus-random gap is concentrated in five AMC questions; with a second generation seed the AMC gap shrinks to two questions (report section 6b). A held-out checkpoint screen shows both arms improving monotonically through epoch 3, so the final checkpoints are the ones compared. One training run per arm, so the comparison is "higher
-observed pass@8 in this run", not "reliably superior". Both SFT models lose pass@1 on Minerva and GPQA because 15-27% of their
-samples hit the 32K cap while still reasoning (`reports/stopping_failures.md`).
-
-Follow-ups (report sections 6c-6d; tables in [`reports/five_models/`](reports/five_models/results.md)): a learning-progress
-selector (base loss minus loss after a 2K-row probe fine-tune, rule fixed before training) is the best equal-budget arm, with
-pass@1 +0.019 [+0.005, +0.032] over random and pass@8 +0.028 [-0.011, +0.069]. Training the selected set for 5 epochs gives the
-best model, pass@8 +0.051 [+0.009, +0.095] over base, but random was not trained that long, so it is a budget result, not a
-data result. Both improve by cutting the share of answers lost to the 32K cap.
+Paired bootstrap over questions (95% CI): final minus base **+0.051 [+0.009, +0.095]** pass@8; final minus random +0.040
+[-0.004, +0.086] pass@8 and **+0.023 [+0.009, +0.038]** pass@1. The gain comes mainly from fewer answers cut off unfinished at the
+32K-token limit (4.8-16.7% of samples on the six benchmarks, versus 8.7-26.5% for random). Budget note: random was trained for
+3 epochs and the final model for 5; at 3 epochs the selected set scored 0.566 / 0.244, +0.016 over random and within noise
+(report Appendix A). One training run per arm.
 
 ## Models and datasets on the Hub
 
 | artifact | link |
 |---|---|
 | **Final model** (selected 15K, 5 epochs) | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k_ep5` |
-| Random-15K SFT model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k` |
-| Selected-15K SFT model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-advanced15k` |
+| Random-15K baseline model | `yuan-zhou-hf/Qwen2.5-3B-Instruct-SFT-random15k` |
 | Random 15K dataset | `yuan-zhou-hf/acereason-random15k` |
 | Selected 15K dataset | `yuan-zhou-hf/acereason-advanced15k` |
 
@@ -54,13 +47,15 @@ data result. Both improve by cutting the share of answers lost to the 32K cap.
 Each set ships with a manifest (row ids, filter counts, token quantiles). Exact benchmark overlap was checked: 6 pool rows match
 a benchmark question verbatim; 1 landed in each 15K set and was kept and disclosed rather than sanitizing one arm only.
 
-## Training (identical for both arms)
+## Training
 
 LLaMA-Factory (course-bundled copy, v0.9.4), full-parameter SFT, bf16, DeepSpeed ZeRO-3 (no offload), FlashAttention-2,
 Liger kernel (fused linear cross-entropy; needed to fit 16K-token samples on 44 GB L40S GPUs), lr 5e-6 cosine, warmup 0,
-3 epochs, global batch 8 (4 GPUs x micro-batch 1 x grad-accum 2), cutoff 16,384, response-only loss (label mask verified).
-Configs: `yamls/random15k.yaml`, `yamls/advanced15k.yaml`; launcher: `slurm/train.slurm`. Measured: ~10.3K tokens/s on
-4x L40S, 9 h 09 min (random, 338.8M tokens) and 8 h 35 min (selected, 322.9M tokens). Loss curves: `models/*/training_loss.png`.
+global batch 8 (4 GPUs x micro-batch 1 x grad-accum 2), cutoff 16,384, response-only loss (label mask verified).
+Random baseline: 3 epochs, `yamls/random15k.yaml`, 4x L40S, 9 h 09 min, 338.8M tokens. Final model: epochs 1-3 with
+`yamls/advanced15k.yaml` (4x L40S, 8 h 35 min), then epochs 4-5 resumed from the epoch-3 weights, optimizer and scheduler with
+`yamls/advanced15k_ep5.yaml` (4x A100, 4 h 26 min; learning rate decays from 1.7e-6 to 0), 538.2M tokens in total.
+Launcher: `slurm/train.slurm`. Loss curves: `models/*/training_loss.png`; full table in report section 4.
 
 ## Evaluation
 
@@ -69,8 +64,8 @@ max 32,768 tokens, seed 0. Our wrapper `slurm/eval_run.slurm` adds strict failur
 manifests, an 8-responses-per-question completeness check, a watchdog for the harness's hang-at-exit, index-range sharding
 (`START`/`END`) for long benchmarks, and a generation-length summary (`scripts/eval_summary.py`); `eval.py` was patched by one
 line to forward the seed to vLLM (`patches/eval_seed.patch`). `scripts/aggregate_results.py` merges shards and computes pass@1,
-pass@8, the leaderboard-style macro average and a paired question-level bootstrap. Fine-tuned models answer in 8K to 21K tokens
-on average and 8 to 37% of samples hit the cap, so each fine-tuned evaluation cost ~50 GPU-hours.
+pass@8, the leaderboard-style macro average and a paired question-level bootstrap. Fine-tuned models answer in 7K to 21K tokens
+on average and 5 to 37% of samples hit the cap, so each fine-tuned evaluation cost ~50 GPU-hours.
 
 ## Reproduce (exactly as run, ARC Falcon cluster)
 
@@ -86,10 +81,12 @@ sbatch --partition=a30_normal_q --qos=fal_a30_normal_short --gres=gpu:1 --cpus-p
 # 1. training, 4x L40S each (Liger kernel is required on 44 GB cards)
 RUN=random15k   CONFIG=yamls/random15k.yaml   sbatch --job-name=rsft_train_random --partition=l40s_normal_q --qos=fal_l40s_normal_short --gres=gpu:4 --cpus-per-task=16 --mem=128G --time=14:00:00 slurm/train.slurm
 RUN=advanced15k CONFIG=yamls/advanced15k.yaml sbatch --job-name=rsft_train_adv    --partition=l40s_normal_q --qos=fal_l40s_normal_short --gres=gpu:4 --cpus-per-task=16 --mem=128G --time=14:00:00 slurm/train.slurm
+# 1b. final model: epochs 4-5 on Tinkercliffs 4x A100, resuming from models/advanced15k/checkpoint-5625 (needs its optimizer state)
+RUN=advanced15k_ep5 CONFIG=yamls/advanced15k_ep5.yaml sbatch --job-name=rsft_train_adv_ep5 --time=08:00:00 slurm/train.slurm
 # 2. evaluation, 1 GPU per job; fine-tuned models need per-benchmark jobs and index shards for OlympiadBench
 MODEL=Qwen/Qwen2.5-3B-Instruct RUN_ID=base_v1 sbatch --partition=a30_normal_q --qos=fal_a30_normal_short --time=08:00:00 slurm/eval_run.slurm
-MODEL=$P/models/advanced15k RUN_ID=advanced15k_v1 DATASETS="math aime amc cn_math_2024" sbatch --partition=l40s_normal_q --qos=fal_l40s_normal_short --time=20:00:00 slurm/eval_run.slurm
-MODEL=$P/models/advanced15k RUN_ID=advanced15k_v1 DATASETS=olympiadbench START=0 END=85 sbatch --partition=a30_normal_q --qos=fal_a30_normal_short --time=23:00:00 slurm/eval_run.slurm
+MODEL=$P/models/advanced15k_ep5 RUN_ID=advanced15k_ep5_v1 DATASETS="math aime amc cn_math_2024" sbatch --partition=l40s_normal_q --qos=fal_l40s_normal_short --time=20:00:00 slurm/eval_run.slurm
+MODEL=$P/models/advanced15k_ep5 RUN_ID=advanced15k_ep5_v1 DATASETS=olympiadbench START=0 END=85 sbatch --partition=a30_normal_q --qos=fal_a30_normal_short --time=23:00:00 slurm/eval_run.slurm
 # 3. summary rows for every result file, merged aggregation with paired bootstrap, stopping-failure inspection
 sbatch slurm/finalize_summary.slurm
 ```
