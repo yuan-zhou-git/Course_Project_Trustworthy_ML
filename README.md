@@ -5,7 +5,6 @@ We fine-tune Qwen2.5-3B-Instruct on 15K examples from the 100K AceReason-1.1-SFT
 baseline) and once with a cheap, label-free selected subset, and evaluate on the 8 course benchmarks.
 
 **Team (Group 2, Trustworthy Machine Learning, Fall 2026, Virginia Tech):** Hanze Li, Sijie Chen, Yuan Zhou, Yiming Liang.
-**Teammates: start with [REVIEW.md](REVIEW.md)** (what to read, what to check, how to suggest changes, what we submit).
 
 **Final model:** the selected 15K set trained for 5 epochs: macro pass@8 **59.0%**, pass@1 **26.9%** (base 53.9% / 26.2%,
 random baseline 54.9% / 24.6%).

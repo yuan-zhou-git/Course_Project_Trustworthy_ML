@@ -11,3 +11,4 @@ reports/paper/build.log
 reports/paper/*.bbl
 reports/paper/report.pdf
 reports/paper/*.out
+reports/paper/overleaf_upload.zip
