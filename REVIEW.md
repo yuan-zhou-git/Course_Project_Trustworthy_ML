@@ -1,7 +1,7 @@
 # Team review guide (Group 2)
 
 Group 2, Trustworthy Machine Learning (Fall 2026): Hanze Li, Sijie Chen, Yuan Zhou, Yiming Liang.
-**Submission deadline: Tue Oct 20, 2026, 11:59 PM ET (Canvas).** Reading the report and checking the list below takes about
+**Submission deadline: Tue Oct 27, 2026, 11:59 PM ET (Canvas); late submissions are not accepted.** Reading the report and checking the list below takes about
 15 minutes; no account or installation is needed.
 
 ## 1. Read the report

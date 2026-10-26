@@ -41,6 +41,12 @@ whether choosing these 15K examples carefully works better than picking them at 
 baseline samples 15,000 of them uniformly with a fixed seed and no filtering. Of these, 556 are longer than the 16,384-token
 training context and get truncated, so their final answers never appear in the training target.
 
+**Motivation and hypothesis.** A random sample spends part of the budget on examples that are of little use to a 3B model
+evaluated on math and science: code traces, repeated questions, and solutions too long for the training context, whose final
+answers are cut off. We hypothesize that, with the same 15K budget, training only on complete, in-domain, and non-redundant
+demonstrations improves reasoning over a random sample, in particular because the model learns to finish its answers instead
+of running past the generation limit.
+
 **Selected set.** We apply four steps in order. First, *domain filtering* keeps only the math examples; the benchmarks are all
 math or science, so the code traces are of little use. Second, *exact deduplication* removes repeated prompts (7,730 among the
 math examples) so that each question appears only once, which increases prompt diversity [Liu et al., 2025]. Third, *length
@@ -128,17 +134,19 @@ finish. For the random baseline, 8.7-26.5% of samples on the leaderboard benchma
 answer (Figure 1), and these samples are almost never correct (0-4% accuracy). The final model is cut off less often on every
 leaderboard benchmark (4.8-16.7%), while its accuracy on answers that do finish is about the same as that of the random
 baseline (35.5% vs. 35.2% on OlympiadBench and 30.9% vs. 29.6% on Minerva). Fewer cut-off answers thus lead directly to
-higher pass@1 and pass@8. We see two likely reasons for the drop. Length filtering means that the model only ever trains on
-complete solutions that end with an answer, whereas 556 training targets in the random set are cut off. Training longer also
-helps: on a held-out set of 200 pool questions that are in neither training set, the truncation rate of the selected run falls
-from 55% after epoch 1 to 24% after epoch 3 and 16% after epoch 5. Liu et al. [2025] similarly find that SFT accuracy on this
-data keeps improving up to about five epochs.
+higher pass@1 and pass@8. Most of this drop comes from training longer. On a held-out set of 200 pool questions that are in
+neither training set, the truncation rate of the selected run falls from 55% after epoch 1 to 24% after epoch 3 and 16% after
+epoch 5, and Liu et al. [2025] similarly find that SFT accuracy on this data keeps improving up to about five epochs. After
+three epochs, by contrast, the model trained on the selected data is cut off about as often as the random baseline: less often
+on four of the six leaderboard benchmarks and more often on CN-Math and Minerva.
 
 **Data selection or training budget?** The final model was trained for five epochs and the random baseline for three, so the
 gap between them mixes the effect of the data with the effect of training longer. At the same three-epoch budget, the selected
 data reaches 56.6% macro pass@8 and 24.4% pass@1, only 1.6 points above the random baseline in pass@8 (95% CI [-2.4, 5.6]),
 which is within noise. The lead of the final model should therefore be credited to the selected data and the longer training
-together, not to data selection alone.
+together, not to data selection alone. Our hypothesis is only partly supported: at the same budget, the curated data gives a
+small, non-significant gain and barely changes how often answers are cut off, and the clear improvement over random sampling
+appears only when it is combined with longer training.
 
 **Limitations.** We trained each configuration once, so our confidence intervals reflect the sampling of benchmark questions
 but not the variance across training seeds. We chose the five-epoch schedule after seeing the three-epoch results, and we
@@ -153,7 +161,7 @@ selection methods we tried, including a learning-progress selector, are describe
 We studied how to choose 15K training examples for reasoning SFT of Qwen2.5-3B-Instruct. Training for five epochs on complete,
 deduplicated math demonstrations raises macro pass@8 from 53.9% to 59.0% and macro pass@1 from 26.2% to 26.9%, ahead of the
 random baseline (54.9% and 24.6%). For a 3B model trained on long CoT data, much of the gain comes from reducing the number of
-answers that run past the generation limit. Code, configurations, and evaluation logs are available at
+answers that run past the generation limit, which longer training achieves more than data curation alone. Code, configurations, and evaluation logs are available at
 https://github.com/yuan-zhou-git/Course_Project_Trustworthy_ML, and the final model and datasets at
 https://huggingface.co/yuan-zhou-hf.
 

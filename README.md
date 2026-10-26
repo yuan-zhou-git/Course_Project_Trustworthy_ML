@@ -40,6 +40,27 @@ noise. One training run per arm.
 
 Each model and dataset card names the course, Group 2 and its members, and links this repository.
 
+## Installation
+
+Two conda environments, one for training and one for evaluation (exact package versions in `envs/train_env_freeze.txt` and
+`envs/eval_env_freeze.txt`; the full script is `slurm/setup_env.slurm`, run as a 1-GPU job by `slurm/bootstrap.slurm`):
+
+```bash
+git clone https://github.com/reds-lab/Project-Reasoning-SFT-LLM   # course repo (we used commit 638989b); bundles LLaMA-Factory
+# training env: LLaMA-Factory (course copy, v0.9.4) + torch 2.8.0 (CUDA 12.8) + FlashAttention 2.8.3 + DeepSpeed 0.16.8
+conda create -y -p envs/train_env -c conda-forge --override-channels python=3.10 && conda activate envs/train_env
+cd Project-Reasoning-SFT-LLM/LLaMA-Factory && pip install -r requirements.txt && pip install -e ".[torch,metrics]" --no-build-isolation
+pip install --force-reinstall --no-deps torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu128
+pip install flash-attn==2.8.3 --no-build-isolation && pip install deepspeed==0.16.8 liger-kernel==0.8.4 wandb==0.30.0
+# evaluation env: vLLM 0.31.0 + the course grader dependencies
+conda create -y -p envs/eval_env -c conda-forge --override-channels python=3.10 && conda activate envs/eval_env
+pip install vllm==0.31.0 word2number && pip install --no-deps latex2sympy2==1.9.1
+pip install "antlr4-python3-runtime==4.9.3" Pebble timeout-decorator python_dateutil tqdm datasets huggingface_hub "sympy>=1.13.3"
+```
+
+**Seeds:** data selection `random.Random(20261015)` (`scripts/prep_data.py`); training seed 42 (the LLaMA-Factory /
+Transformers default, not overridden in `yamls/*.yaml`); evaluation seed 0, forwarded to vLLM (`patches/eval_seed.patch`).
+
 ## Data selection
 
 `scripts/prep_data.py` (deterministic, seed 20261015) produces both sets from the frozen pool file (sha256 in `data/pool_stats.json`):
