@@ -17,7 +17,7 @@ improvement comes from fewer answers being cut off at the 32,768-token generatio
 
 ## 1 Introduction
 
-A common way to improve the math reasoning of a small model is to fine-tune it on long CoT traces written by a stronger
+A common way to improve the math reasoning of a language model is to fine-tune it on long CoT traces written by a stronger
 reasoning model [Guha et al., 2026, Liu et al., 2025, Muennighoff et al., 2025]. This does not always work well for small
 models. They can struggle to learn from long traces [Li et al., 2025], and models trained to reason at length often keep
 reasoning well past the point where it helps [Chen et al., 2024]. When the data budget is limited, it therefore matters which
@@ -49,7 +49,8 @@ of running past the generation limit.
 
 **Selected set.** We apply four steps in order. First, *domain filtering* keeps only the math examples; the benchmarks are all
 math or science, so the code traces are of little use. Second, *exact deduplication* removes repeated prompts (7,730 among the
-math examples) so that each question appears only once, which increases prompt diversity [Liu et al., 2025]. Third, *length
+math examples) so that each question appears only once; Liu et al. [2025] find that the number of distinct prompts matters more for SFT than
+the number of responses per prompt. Third, *length
 filtering* keeps only examples whose full conversation fits in the 16,384-token context under the Qwen chat template (removing
 2,292), so every training target ends with its final answer and end-of-turn token. Fourth, *stratified sampling* with
 proportional allocation draws 15,000 of the remaining 57,410 examples across data sources (NuminaMath-CoT and
@@ -136,7 +137,7 @@ leaderboard benchmark (4.8-16.7%), while its accuracy on answers that do finish 
 baseline (35.5% vs. 35.2% on OlympiadBench and 30.9% vs. 29.6% on Minerva). Fewer cut-off answers thus lead directly to
 higher pass@1 and pass@8. Most of this drop comes from training longer. On a held-out set of 200 pool questions that are in
 neither training set, the truncation rate of the selected run falls from 55% after epoch 1 to 24% after epoch 3 and 16% after
-epoch 5, and Liu et al. [2025] similarly find that SFT accuracy on this data keeps improving up to about five epochs. After
+epoch 5, and Liu et al. [2025] similarly find that SFT accuracy on their AceReason SFT data keeps improving up to about five epochs. After
 three epochs, by contrast, the model trained on the selected data is cut off about as often as the random baseline: less often
 on four of the six leaderboard benchmarks and more often on CN-Math and Minerva.
 
@@ -152,8 +153,9 @@ appears only when it is combined with longer training.
 but not the variance across training seeds. We chose the five-epoch schedule after seeing the three-epoch results, and we
 picked the final model using the same benchmarks we report on; only AIME25, which is on the course leaderboard but not
 available to us, is truly unseen. All of our training data come from the provided pool. The course allows outside data, but it
-would first have to be checked for overlap with the benchmarks. Short, curated reasoning sets [Muennighoff et al., 2025, Ye et
-al., 2025], which may suit small models better [Li et al., 2025], and science data for GPQA are natural next steps. Other
+would first have to be checked for overlap with the benchmarks. Small curated reasoning sets [Muennighoff et al., 2025, Ye et
+al., 2025], shorter reasoning traces, which small models learn more easily [Li et al., 2025], and science data for GPQA are
+natural next steps. Other
 selection methods we tried, including a learning-progress selector, are described in the full report in our repository.
 
 ## 5 Conclusion
@@ -174,10 +176,10 @@ Bradley Efron and Robert J. Tibshirani. *An Introduction to the Bootstrap*. Chap
 Etash Guha et al. OpenThoughts: Data recipes for reasoning models. In *International Conference on Learning Representations (ICLR)*, 2026.<br>
 Pin-Lun Hsu et al. Liger kernel: Efficient Triton kernels for LLM training. *arXiv preprint arXiv:2410.10989*, 2024.<br>
 Woosuk Kwon et al. Efficient memory management for large language model serving with PagedAttention. In *Proceedings of the 29th Symposium on Operating Systems Principles (SOSP)*, pages 611-626, 2023.<br>
-Yuetai Li et al. Small models struggle to learn from strong reasoners. *arXiv preprint arXiv:2502.12143*, 2025.<br>
+Yuetai Li et al. Small models struggle to learn from strong reasoners. In *Findings of the Association for Computational Linguistics: ACL 2025*, pages 25366-25394, 2025.<br>
 Zihan Liu et al. AceReason-Nemotron 1.1: Advancing math and code reasoning through SFT and RL synergy. *arXiv preprint arXiv:2506.13284*, 2025.<br>
 Evan Miller. Adding error bars to evals: A statistical approach to language model evaluations. *arXiv preprint arXiv:2411.00640*, 2024.<br>
-Niklas Muennighoff et al. s1: Simple test-time scaling. *arXiv preprint arXiv:2501.19393*, 2025.<br>
+Niklas Muennighoff et al. s1: Simple test-time scaling. In *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 20286-20332, 2025.<br>
 Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase, and Yuxiong He. ZeRO: Memory optimizations toward training trillion parameter models. In *SC20: International Conference for High Performance Computing, Networking, Storage and Analysis*, pages 1-16, 2020.<br>
 reds-lab. Project-Reasoning-SFT-LLM. GitHub repository, https://github.com/reds-lab/Project-Reasoning-SFT-LLM, 2026.<br>
 An Yang et al. Qwen2.5 technical report. *arXiv preprint arXiv:2412.15115*, 2024.<br>

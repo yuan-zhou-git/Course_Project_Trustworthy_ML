@@ -48,7 +48,7 @@ comes from fewer answers being cut off at the 32,768-token generation limit.
 
 \section{Introduction}
 
-A common way to improve the math reasoning of a small model is to fine-tune it on long CoT traces written by a stronger
+A common way to improve the math reasoning of a language model is to fine-tune it on long CoT traces written by a stronger
 reasoning model~\citep{openthoughts,acereason11,s1}. This does not always work well for small models. They can struggle to
 learn from long traces~\citep{li2025small}, and models trained to reason at length often keep reasoning well past the point
 where it helps~\citep{chen2024overthinking}. When the data budget is limited, it therefore matters which examples are used for
@@ -82,8 +82,8 @@ answers instead of running past the generation limit.
 
 \paragraph{Selected set.} We apply four steps in order. First, \emph{domain filtering} keeps only the math examples; the
 benchmarks are all math or science, so the code traces are of little use. Second, \emph{exact deduplication} removes repeated
-prompts (7,730 among the math examples) so that each question appears only once, which increases prompt
-diversity~\citep{acereason11}. Third, \emph{length filtering} keeps only examples whose full conversation fits in the
+prompts (7,730 among the math examples) so that each question appears only once; \citet{acereason11} find that the
+number of distinct prompts matters more for SFT than the number of responses per prompt. Third, \emph{length filtering} keeps only examples whose full conversation fits in the
 16,384-token context under the Qwen chat template (removing 2,292), so every training target ends with its final answer and
 end-of-turn token. Fourth, \emph{stratified sampling} with proportional allocation draws 15,000 of the remaining 57,410
 examples across data sources (NuminaMath-CoT and OpenMathReasoning) and length bands (up to 4K, 4--8K, and 8--16K tokens).
@@ -188,7 +188,7 @@ that do finish is about the same as that of the random baseline (35.5\% vs.\ 35.
 on Minerva). Fewer cut-off answers thus lead directly to higher \passk{1} and \passk{8}. Most of this drop comes from training
 longer. On a held-out set of 200 pool questions that are in neither training set, the truncation rate of the selected run
 falls from 55\% after epoch 1 to 24\% after epoch 3 and 16\% after epoch 5, and \citet{acereason11} similarly find that SFT
-accuracy on this data keeps improving up to about five epochs. After three epochs, by contrast, the model trained on the
+accuracy on their AceReason SFT data keeps improving up to about five epochs. After three epochs, by contrast, the model trained on the
 selected data is cut off about as often as the random baseline: less often on four of the six leaderboard benchmarks and more
 often on CN-Math and Minerva.
 
@@ -204,8 +204,8 @@ improvement over random sampling appears only when it is combined with longer tr
 questions but not the variance across training seeds. We chose the five-epoch schedule after seeing the three-epoch results,
 and we picked the final model using the same benchmarks we report on; only AIME25, which is on the course leaderboard but not
 available to us, is truly unseen. All of our training data come from the provided pool. The course allows outside data, but it
-would first have to be checked for overlap with the benchmarks. Short, curated reasoning sets~\citep{s1,limo}, which may suit
-small models better~\citep{li2025small}, and science data for GPQA are natural next steps. Other selection methods we tried,
+would first have to be checked for overlap with the benchmarks. Small curated reasoning sets~\citep{s1,limo}, shorter reasoning
+traces, which small models learn more easily~\citep{li2025small}, and science data for GPQA are natural next steps. Other selection methods we tried,
 including a learning-progress selector, are described in the full report in our repository.
 
 \section{Conclusion}
